@@ -1,5 +1,11 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useMemo, useRef } from 'react'
 import { TextAreaProps } from '.'
+
+const DEFAULT_RIGHT_PADDING = {
+  small: 7,
+  medium: 11,
+  large: 11,
+}
 
 const TextArea = ({
   id,
@@ -14,14 +20,20 @@ const TextArea = ({
   helperText = '',
   cols = 2,
   resize = false,
+  maxText = 0,
 }: TextAreaProps) => {
-  const DEFAULT_RIGHT_PADDING = {
-    small: 7,
-    medium: 11,
-    large: 11,
-  }
-
   const inputRef = useRef(null)
+
+  const countText = useMemo(() => {
+    let length = 0
+    for (let i = 0; i < value.length; i++) {
+      if (escape(value.charAt(i)).length === 6) {
+        length += 1
+      }
+      length += 1
+    }
+    return length
+  }, [value])
 
   useEffect(() => {
     if (autoFocus && inputRef?.current) {
@@ -57,7 +69,14 @@ const TextArea = ({
           </label>
         )}
       </div>
-      {helperText && <p className={`ui-textarea-helper-text ${isError ? 'isError' : ''}`}>{helperText}</p>}
+      <div className="ui-textarea-bottom">
+        {helperText && <p className={`ui-textarea-helper-text ${isError ? 'isError' : ''}`}>{helperText}</p>}
+        {maxText > 0 && (
+          <span className={`ui-textarea-count ${countText > maxText ? 'overText' : ''}`}>
+            {countText} / {maxText}
+          </span>
+        )}
+      </div>
     </>
   )
 }

@@ -15,6 +15,7 @@ export interface TextAreaProps {
   helperText?: string
   cols?: number
   resize?: boolean
+  maxText?: number
 }
 
 export { TextArea }

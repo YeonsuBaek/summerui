@@ -88,9 +88,13 @@
   }
 
   &-helper-text {
+    position: absolute;
+    left: 0;
+    width: calc(100% - 32px);
     margin: 0;
     color: var(--Gray7);
     font: var(--Font-Body-Regular);
+    word-break: break-all;
 
     &.isError {
       color: var(--Red5);
@@ -107,6 +111,22 @@
 
     .ui-textarea-suffix {
       color: var(--Font-Color-Disabled);
+    }
+  }
+
+  &-bottom {
+    position: relative;
+    width: 100%;
+  }
+
+  &-count {
+    position: absolute;
+    right: 0;
+    color: var(--Gray6);
+    font: var(--Font-Body-Regular);
+
+    &.overText {
+      color: var(--Red5);
     }
   }
 }
