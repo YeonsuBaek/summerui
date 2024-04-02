@@ -43,9 +43,8 @@
 
   &-label {
     position: absolute;
-    top: 50%;
+    top: 5px;
     left: 12px;
-    transform: translateY(-50%);
     font: var(--Font-Body-Regular);
     color: var(--Gray6);
     transition: font-size 100ms, top 100ms, transform 100ms;
@@ -63,19 +62,15 @@
     &:has(.ui-textarea-input:focus),
     &.hasValue {
       .ui-textarea-input {
-        padding-top: 14px;
+        margin-top: 14px;
+        margin-bottom: 0;
       }
 
       .ui-textarea-label {
         position: absolute;
         font: var(--Font-Body-Micro);
         color: var(--Gray6);
-        top: 10px;
-      }
-
-      .ui-textarea-suffix {
-        position: absolute;
-        bottom: 8px;
+        top: 2px;
       }
     }
 
