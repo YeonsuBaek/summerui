@@ -3,7 +3,7 @@ import { ToastProps } from '.'
 import { Icon } from '../icon'
 import { Portal } from '../portal'
 
-const Toast = ({ color = 'success', hasIcon = true, icon }: ToastProps) => {
+const Toast = ({ isOpen, color = 'success', hasIcon = true, icon }: ToastProps) => {
   const toastIcon = useMemo(() => {
     if (icon) return icon
     else {
@@ -14,14 +14,14 @@ const Toast = ({ color = 'success', hasIcon = true, icon }: ToastProps) => {
     }
   }, [icon, color])
 
-  return (
+  return isOpen ? (
     <Portal>
       <div className={`ui-toast ${color}`}>
         {hasIcon && <Icon icon={toastIcon} size="small" className="ui-toast-icon" />}
         <p className="ui-toast-message">Success Toast</p>
       </div>
     </Portal>
-  )
+  ) : null
 }
 
 export default Toast

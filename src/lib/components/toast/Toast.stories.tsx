@@ -1,5 +1,7 @@
 import type { ComponentStory, Meta } from '@storybook/react'
 import { Toast } from '.'
+import { Button } from '../button'
+import { useState } from 'react'
 
 const meta: Meta<typeof Toast> = {
   title: 'Component/Toast',
@@ -12,9 +14,11 @@ const meta: Meta<typeof Toast> = {
 export default meta
 
 const InteractionTemplate: ComponentStory<typeof Toast> = (args) => {
+  const [isOpen, setIsOpen] = useState(false)
   return (
     <>
-      <Toast {...args} />
+      <Button onClick={() => setIsOpen(true)}>Open Toast</Button>
+      <Toast {...args} isOpen={isOpen} />
     </>
   )
 }
