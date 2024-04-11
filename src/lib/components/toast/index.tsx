@@ -4,6 +4,8 @@ import Toast from './Toast'
 
 export interface ToastProps {
   isOpen: boolean
+  duration?: number
+  onClose?: () => void
   color?: 'success' | 'info' | 'warning' | 'error'
   hasIcon?: boolean
   icon?: FilledIconType | OutlinedIconType

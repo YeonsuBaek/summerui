@@ -18,7 +18,7 @@ const InteractionTemplate: ComponentStory<typeof Toast> = (args) => {
   return (
     <>
       <Button onClick={() => setIsOpen(true)}>Open Toast</Button>
-      <Toast {...args} isOpen={isOpen} />
+      <Toast {...args} isOpen={isOpen} onClose={() => setIsOpen(false)} />
     </>
   )
 }
