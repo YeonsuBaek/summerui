@@ -6,6 +6,7 @@ import { IconButton } from '../button'
 
 const Toast = ({
   isOpen,
+  message,
   duration = 5000,
   onClose,
   color = 'success',
@@ -44,7 +45,7 @@ const Toast = ({
       <div className={`ui-toast ${color} ${isOpen ? 'open' : ''}`}>
         <div className="ui-toast-contents">
           {hasIcon && <Icon icon={toastIcon} size="small" className="ui-toast-icon" />}
-          <p className="ui-toast-message">Success Toast</p>
+          <p className="ui-toast-message">{message}</p>
         </div>
         {hasCloseButton && <IconButton icon="Close" size="small" onClick={() => onClose && onClose()} />}
       </div>

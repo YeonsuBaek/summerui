@@ -4,6 +4,7 @@ import Toast from './Toast'
 
 export interface ToastProps {
   isOpen: boolean
+  message: string
   duration?: number
   onClose?: () => void
   color?: 'success' | 'info' | 'warning' | 'error'
