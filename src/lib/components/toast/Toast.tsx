@@ -47,7 +47,7 @@ const Toast = ({
           {hasIcon && <Icon icon={toastIcon} size="small" className="ui-toast-icon" />}
           <p className="ui-toast-message">{message}</p>
         </div>
-        {hasCloseButton && <IconButton icon="Close" size="small" onClick={() => onClose && onClose()} />}
+        {hasCloseButton && <IconButton icon="Close" size="small" onClick={() => onClose && onClose()} color={color} />}
       </div>
     </Portal>
   )
