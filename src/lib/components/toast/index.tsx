@@ -9,6 +9,7 @@ export interface ToastProps {
   color?: 'success' | 'info' | 'warning' | 'error'
   hasIcon?: boolean
   icon?: FilledIconType | OutlinedIconType
+  hasCloseButton?: boolean
 }
 
 export { Toast }
