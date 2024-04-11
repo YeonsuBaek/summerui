@@ -23,7 +23,7 @@ export interface IconButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>
   disabled?: boolean
   icon: FilledIconType | OutlinedIconType
   onClick?: () => void
-  color?: 'error' | 'warning' | 'success'
+  color?: 'error' | 'warning' | 'success' | 'info'
 }
 
 export { Button, IconButton }

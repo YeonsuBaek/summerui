@@ -235,6 +235,9 @@
       &.success {
         @include default-icon-button(Polar);
       }
+      &.info {
+        @include default-icon-button(Daybreak);
+      }
     }
   }
 }
