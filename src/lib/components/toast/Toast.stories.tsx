@@ -25,3 +25,16 @@ const InteractionTemplate: ComponentStory<typeof Toast> = (args) => {
 
 export const Interactive = InteractionTemplate.bind({})
 Interactive.args = {}
+
+export const SuccessToast = () => {
+  return <Toast isOpen={true} color="success" onClose={() => {}} />
+}
+export const InfoToast = () => {
+  return <Toast isOpen={true} color="info" onClose={() => {}} />
+}
+export const ErrorToast = () => {
+  return <Toast isOpen={true} color="error" onClose={() => {}} />
+}
+export const WarningToast = () => {
+  return <Toast isOpen={true} color="warning" onClose={() => {}} />
+}
