@@ -1,0 +1,12 @@
+.ui-datepicker {
+  position: relative;
+  min-width: 256px;
+
+  &-icon {
+    position: absolute;
+    top: 50%;
+    right: 8px;
+    transform: translateY(-50%);
+    z-index: 10;
+  }
+}
