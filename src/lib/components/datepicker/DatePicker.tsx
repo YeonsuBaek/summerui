@@ -111,7 +111,7 @@ const DatePicker = ({
   }, [openCalendar, datePickerRef])
 
   return (
-    <div ref={datePickerRef}>
+    <div ref={datePickerRef} className="ui-datepicker-wrapper">
       <div className={`ui-datepicker ${size} ${disabled ? 'disabled' : ''}`}>
         <TextField
           id={id}
@@ -133,7 +133,7 @@ const DatePicker = ({
       </div>
       {openCalendar && (
         <Datetime
-          className="ui-datepicker-calendar"
+          className={`ui-datepicker-calendar ${size}`}
           input={false}
           timeFormat={false}
           dateFormat={format}
