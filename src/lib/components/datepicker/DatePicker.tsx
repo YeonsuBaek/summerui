@@ -1,8 +1,10 @@
-import React, { ChangeEvent, useEffect, useMemo } from 'react'
+import React, { ChangeEvent, useEffect, useMemo, useRef, useState } from 'react'
 import { IconButton } from '../button'
 import { DatePickerProps } from '.'
 import { TextField } from '../textfield'
-import moment from 'moment'
+import moment, { Moment } from 'moment'
+import Datetime from 'react-datetime'
+import 'react-datetime/css/react-datetime.css'
 
 const DatePicker = ({
   id,
@@ -12,6 +14,8 @@ const DatePicker = ({
   format = 'YYYY/MM/DD',
   disabled = false,
 }: DatePickerProps) => {
+  const datePickerRef = useRef(null)
+  const [openCalendar, setOpenCalendar] = useState(false)
   const iconSize = useMemo(() => (size === 'large' ? 'medium' : 'small'), [size])
 
   const getSeparator = () => {
@@ -79,25 +83,58 @@ const DatePicker = ({
     }
   }
 
+  const handleChangeCalendar = (selected: Moment | string) => {
+    if (typeof selected === 'string') {
+      setValue(selected)
+    } else {
+      const formattedDate = selected.format(format)
+      setValue(formattedDate)
+      setOpenCalendar(false)
+    }
+  }
+
+  const handleClickOut = (e: MouseEvent) => {
+    if (datePickerRef?.current) {
+      const datePickerArea = datePickerRef.current
+      const { target } = e
+      const outArea = !datePickerArea.contains(target)
+
+      if (outArea) {
+        setOpenCalendar(false)
+      }
+    }
+  }
+
+  useEffect(() => {
+    if (openCalendar && datePickerRef?.current) {
+      document.addEventListener('click', handleClickOut)
+    }
+  }, [openCalendar, datePickerRef])
+
   return (
-    <div className={`ui-datepicker ${size} ${disabled ? 'disabled' : ''}`}>
-      <TextField
-        id={id}
-        value={value}
-        onChange={handleChangeDate}
-        placeholder={format}
-        size={size}
-        disabled={disabled}
-        onBlur={checkValidDate}
-      />
-      <IconButton
-        className="ui-datepicker-icon"
-        icon="Calendar"
-        variant="secondary"
-        onClick={() => alert('click')}
-        size={iconSize}
-        disabled={disabled}
-      />
+    <div ref={datePickerRef}>
+      <div className={`ui-datepicker ${size} ${disabled ? 'disabled' : ''}`}>
+        <TextField
+          id={id}
+          value={value}
+          onChange={handleChangeDate}
+          placeholder={format}
+          size={size}
+          disabled={disabled}
+          onBlur={checkValidDate}
+        />
+        <IconButton
+          className="ui-datepicker-icon"
+          icon="Calendar"
+          variant="secondary"
+          onClick={() => setOpenCalendar((prev) => !prev)}
+          size={iconSize}
+          disabled={disabled}
+        />
+      </div>
+      {openCalendar && (
+        <Datetime input={false} timeFormat={false} dateFormat={format} value={value} onChange={handleChangeCalendar} />
+      )}
     </div>
   )
 }
