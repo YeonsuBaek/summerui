@@ -4,7 +4,6 @@ import { DatePickerProps } from '.'
 import { TextField } from '../textfield'
 import moment, { Moment } from 'moment'
 import Datetime from 'react-datetime'
-import 'react-datetime/css/react-datetime.css'
 
 const DatePicker = ({
   id,
@@ -133,7 +132,14 @@ const DatePicker = ({
         />
       </div>
       {openCalendar && (
-        <Datetime input={false} timeFormat={false} dateFormat={format} value={value} onChange={handleChangeCalendar} />
+        <Datetime
+          className="ui-datepicker-calendar"
+          input={false}
+          timeFormat={false}
+          dateFormat={format}
+          value={value}
+          onChange={handleChangeCalendar}
+        />
       )}
     </div>
   )
