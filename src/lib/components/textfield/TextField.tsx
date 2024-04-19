@@ -17,6 +17,7 @@ const TextField = ({
   autoFocus = false,
   isError = false,
   helperText = '',
+  ...props
 }: TextFieldProps) => {
   const DEFAULT_RIGHT_PADDING = {
     small: 7,
@@ -74,6 +75,7 @@ const TextField = ({
             paddingRight: `${DEFAULT_RIGHT_PADDING[size] + suffixWidth}px`,
           }}
           ref={inputRef}
+          {...props}
         />
         {label && size === 'large' && (
           <label htmlFor={id} className={`ui-textfield-label ${required ? 'required' : ''}`}>

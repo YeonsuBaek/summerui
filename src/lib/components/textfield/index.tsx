@@ -1,4 +1,4 @@
-import { ChangeEvent } from 'react'
+import { ChangeEvent, InputHTMLAttributes } from 'react'
 import TextField from './TextField'
 import PasswordTextField from './PasswordTextField'
 import { FilledIconType } from '../icon/FilledIcons'
@@ -18,7 +18,7 @@ export interface DefaultTextFieldProps {
   helperText?: string
 }
 
-export interface TextFieldProps extends DefaultTextFieldProps {
+export interface TextFieldProps extends DefaultTextFieldProps, InputHTMLAttributes<HTMLInputElement> {
   suffix?: string
   icon?: FilledIconType | OutlinedIconType
   type?: 'text' | 'password' | 'file'
