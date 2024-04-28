@@ -20,6 +20,10 @@
   &-image {
     width: 100%;
     aspect-ratio: 3/4;
+
+    &.blank {
+      content: url('../../assets/images/img-cover.jpg');
+    }
   }
 
   &-figcaption {
