@@ -1,7 +1,16 @@
-import React from 'react'
+import React from "react"
+import { RibbonBadgeProps } from "."
 
-const RibbonBadge = () => {
-  return <div>RibbonBadge</div>
+const RibbonBadge = ({
+  value,
+  color = "default",
+  style = {},
+}: RibbonBadgeProps) => {
+  return (
+    <div className={`ui-badge-ribbon ${color}`} style={style}>
+      {value}
+    </div>
+  )
 }
 
 export default RibbonBadge
