@@ -1,0 +1,104 @@
+.ui-datepicker {
+  position: relative;
+  min-width: 256px;
+
+  &-wrapper {
+    position: relative;
+  }
+
+  &-icon {
+    position: absolute;
+    top: 50%;
+    right: 8px;
+    transform: translateY(-50%);
+    z-index: 10;
+  }
+
+  &-calendar {
+    position: absolute;
+    width: 280px;
+    background-color: var(--Gray1);
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.15);
+    font: var(--Font-Body-Regular);
+    border-radius: 2px;
+    z-index: 20;
+
+    &.small {
+      top: 22px + 4px;
+    }
+    &.medium {
+      top: 30px + 4px;
+    }
+    &.large {
+      top: 38px + 4px;
+    }
+
+    table {
+      width: 100%;
+      border-spacing: 0;
+    }
+
+    .rdtDays {
+      // table 태그를 감싸는 요소
+      padding: 0 8px 8px;
+    }
+
+    .rdtSwitch {
+      // 년, 월
+      font-weight: var(--Font-Weight-Regular);
+    }
+
+    thead tr:first-child {
+      // 년, 월 및 전후 선택
+      height: 40px;
+      border-bottom: 1px solid var(--Font-Color-Border);
+    }
+
+    .rdtNext, // 년, 월 전후 선택
+    .rdtPrev {
+      color: var(--Font-Color-Disabled);
+      cursor: pointer;
+    }
+
+    thead tr:nth-child(2) {
+      // 요일 전체
+      height: 30px;
+    }
+
+    .dow {
+      // 요일
+      font-weight: var(--Font-Weight-Regular);
+    }
+
+    tbody tr {
+      // 한 주
+      width: 100%;
+      height: 30px;
+    }
+
+    .rdtDay {
+      // 하루
+      text-align: center;
+      width: 24px;
+      height: 24px;
+      border-radius: 2px;
+      border: 1px solid transparent;
+      cursor: pointer;
+
+      &:hover {
+        border: 1px solid var(--Primary-Color-6);
+      }
+    }
+
+    .rdtOld, // 이 전/후 달의 날짜
+    .rdtNew {
+      color: var(--Font-Color-Disabled);
+    }
+
+    .rdtActive {
+      // 선택된 날짜
+      color: var(--Gray1);
+      background-color: var(--Primary-Color-6);
+    }
+  }
+}

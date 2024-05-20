@@ -16,10 +16,14 @@ export default meta
 
 const TextFieldTemplate: ComponentStory<typeof TextField> = (args) => {
   const [text, setText] = useState<string>('')
+  const [pwText, setPwtext] = useState<string>('')
 
   return (
     <div style={{ width: '200px' }}>
       <TextField {...args} value={text} onChange={(e) => setText(e.target.value)} />
+      <br />
+      <br />
+      <PasswordTextField {...args} value={pwText} onChange={(e) => setPwtext(e.target.value)} />
     </div>
   )
 }
