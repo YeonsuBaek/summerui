@@ -349,6 +349,18 @@ export const DefaultIconButton = () => {
   )
 }
 
+export const IconButtonColors = () => {
+  return (
+    <div>
+      <IconButton variant="primary" icon="Like" color="error" />
+      <IconButton variant="primary" icon="Like" color="warning" />
+      <IconButton variant="primary" icon="Like" color="info" />
+      <IconButton variant="primary" icon="Like" color="success" />
+      <IconButton variant="primary" icon="Like" color="neutral" />
+    </div>
+  )
+}
+
 export const CircleIconButton = () => {
   return (
     <table>
