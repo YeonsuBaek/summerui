@@ -18,7 +18,7 @@ const PasswordTextField = ({ size = 'medium', disabled, id, value, onChange, pla
         disabled={disabled}
       />
       <IconButton
-        icon={isShow ? 'EyeInvisible' : 'Eye'}
+        icon={isShow ? 'Eye' : 'EyeInvisible'}
         variant="secondary"
         onClick={() => setIsShow((prev) => !prev)}
         size={iconSize}
