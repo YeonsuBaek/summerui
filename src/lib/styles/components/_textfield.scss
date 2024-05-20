@@ -13,7 +13,8 @@
     border-color: var(--Primary-Color-5);
   }
 
-  &.isError {
+  &.isError,
+  &.isError:has(input:focus) {
     border-color: var(--Red5);
   }
 
