@@ -238,6 +238,9 @@
       &.info {
         @include default-icon-button(Daybreak);
       }
+      &.neutral {
+        @include default-icon-button(Gray);
+      }
     }
   }
 }
