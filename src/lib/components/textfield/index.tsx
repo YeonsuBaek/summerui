@@ -4,7 +4,7 @@ import PasswordTextField from './PasswordTextField'
 import { FilledIconType } from '../icon/FilledIcons'
 import { OutlinedIconType } from '../icon/OutlinedIcons'
 
-export interface DefaultTextFieldProps {
+export interface DefaultTextFieldProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'size'> {
   id: string
   value: string
   onChange: (e: ChangeEvent<HTMLInputElement>) => void
@@ -18,7 +18,7 @@ export interface DefaultTextFieldProps {
   helperText?: string
 }
 
-export interface TextFieldProps extends DefaultTextFieldProps, InputHTMLAttributes<HTMLInputElement> {
+export interface TextFieldProps extends DefaultTextFieldProps {
   suffix?: string
   icon?: FilledIconType | OutlinedIconType
   type?: 'text' | 'password' | 'file'
