@@ -30,7 +30,7 @@ describe('DatePicker test', () => {
     const textfield = container.querySelector('#test-datepicker-2') as HTMLInputElement
     fireEvent.change(textfield, { target: { value: '20240101' } })
 
-    const result = container.querySelector('#test-datepicker-2')?.value
+    const result = container.querySelector('#test-datepicker-2')?.getAttribute('value')
     expect(result).toBe('2024/01/01')
   })
 
@@ -47,7 +47,7 @@ describe('DatePicker test', () => {
     fireEvent.change(textfield, { target: { value: 'abcd' } })
 
     fireEvent.blur(textfield)
-    const result = container.querySelector('#test-datepicker-3')?.value
+    const result = container.querySelector('#test-datepicker-3')?.getAttribute('value')
     expect(result).toBe('')
   })
 
@@ -89,7 +89,7 @@ describe('DatePicker test', () => {
       dayValue = num > 9 ? num.toString() : `0${num}`
     }
 
-    const result = container.querySelector('#test-datepicker-4')?.value
+    const result = container.querySelector('#test-datepicker-4')?.getAttribute('value')
     expect(result).toBe(`${year}/${monthValue}/${dayValue}`)
   })
 })

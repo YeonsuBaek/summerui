@@ -94,8 +94,8 @@ const DatePicker = ({
 
   const handleClickOut = (e: MouseEvent) => {
     if (datePickerRef?.current) {
-      const datePickerArea = datePickerRef.current
-      const { target } = e
+      const datePickerArea = datePickerRef.current as HTMLDivElement
+      const target = e.target as HTMLElement
       const outArea = !datePickerArea.contains(target)
 
       if (outArea) {
