@@ -1,5 +1,5 @@
 import type { ComponentStory, Meta } from '@storybook/react'
-import { Segmented } from '.'
+import { Segmented, SegmentedOptionProps } from '.'
 import { useState } from 'react'
 
 const meta: Meta<typeof Segmented> = {
@@ -15,8 +15,17 @@ const meta: Meta<typeof Segmented> = {
 export default meta
 
 const InteractionTemplate: ComponentStory<typeof Segmented> = (args) => {
-  const OPTIONS = ['Daily', 'Weekly', 'Monthly']
-  const [selectedItem, setSelectedItem] = useState(OPTIONS[0])
+  enum values {
+    daily = 'daily',
+    weekly = 'weekly',
+    monthly = 'monthly',
+  }
+  const OPTIONS: SegmentedOptionProps[] = [
+    { value: values.daily, text: 'Daily', id: 'option1' },
+    { value: values.weekly, text: 'Weekly', id: 'option2' },
+    { value: values.monthly, text: 'Monthly', id: 'option3' },
+  ]
+  const [selectedItem, setSelectedItem] = useState(values.daily)
 
   return (
     <Segmented
@@ -24,7 +33,7 @@ const InteractionTemplate: ComponentStory<typeof Segmented> = (args) => {
       id="story-segmented-1"
       options={OPTIONS}
       selectedOption={selectedItem}
-      onSelect={setSelectedItem}
+      onSelect={(val) => setSelectedItem(val as values)}
     />
   )
 }
@@ -34,14 +43,25 @@ Interactive.args = {
   disabled: false,
 }
 
-const COMMON_OPTIONS = ['Red', 'Blue', 'Yellow', 'Green']
+enum values {
+  red = 'red',
+  blue = 'blue',
+  yellow = 'yellow',
+  green = 'green',
+}
+const COMMON_OPTIONS: SegmentedOptionProps[] = [
+  { value: values.red, text: 'Red', id: 'option1' },
+  { value: values.blue, text: 'Blue', id: 'option2' },
+  { value: values.yellow, text: 'Yellow', id: 'option3' },
+  { value: values.green, text: 'Green', id: 'option4' },
+]
 export const FullSegmented = () => {
   return (
     <div style={{ width: '400px' }}>
       <Segmented
         id="story-segmented-2"
         options={COMMON_OPTIONS}
-        selectedOption={COMMON_OPTIONS[0]}
+        selectedOption={COMMON_OPTIONS[0].value}
         onSelect={() => {}}
         size="small"
       />
@@ -50,7 +70,7 @@ export const FullSegmented = () => {
       <Segmented
         id="story-segmented-3"
         options={COMMON_OPTIONS}
-        selectedOption={COMMON_OPTIONS[0]}
+        selectedOption={COMMON_OPTIONS[0].value}
         onSelect={() => {}}
         size="small"
         disabled
@@ -60,7 +80,7 @@ export const FullSegmented = () => {
       <Segmented
         id="story-segmented-4"
         options={COMMON_OPTIONS}
-        selectedOption={COMMON_OPTIONS[0]}
+        selectedOption={COMMON_OPTIONS[0].value}
         onSelect={() => {}}
       />
       <br />
@@ -68,7 +88,7 @@ export const FullSegmented = () => {
       <Segmented
         id="story-segmented-5"
         options={COMMON_OPTIONS}
-        selectedOption={COMMON_OPTIONS[0]}
+        selectedOption={COMMON_OPTIONS[0].value}
         onSelect={() => {}}
         disabled
       />
@@ -77,7 +97,7 @@ export const FullSegmented = () => {
       <Segmented
         id="story-segmented-6"
         options={COMMON_OPTIONS}
-        selectedOption={COMMON_OPTIONS[0]}
+        selectedOption={COMMON_OPTIONS[0].value}
         onSelect={() => {}}
         size="large"
       />
@@ -86,7 +106,7 @@ export const FullSegmented = () => {
       <Segmented
         id="story-segmented-7"
         options={COMMON_OPTIONS}
-        selectedOption={COMMON_OPTIONS[0]}
+        selectedOption={COMMON_OPTIONS[0].value}
         onSelect={() => {}}
         size="large"
         disabled
@@ -101,7 +121,7 @@ export const FlexSegmented = () => {
       <Segmented
         id="story-segmented-8"
         options={COMMON_OPTIONS}
-        selectedOption={COMMON_OPTIONS[0]}
+        selectedOption={COMMON_OPTIONS[0].value}
         onSelect={() => {}}
         size="small"
         width="flex"
@@ -111,7 +131,7 @@ export const FlexSegmented = () => {
       <Segmented
         id="story-segmented-9"
         options={COMMON_OPTIONS}
-        selectedOption={COMMON_OPTIONS[0]}
+        selectedOption={COMMON_OPTIONS[0].value}
         onSelect={() => {}}
         size="small"
         width="flex"
@@ -122,7 +142,7 @@ export const FlexSegmented = () => {
       <Segmented
         id="story-segmented-10"
         options={COMMON_OPTIONS}
-        selectedOption={COMMON_OPTIONS[0]}
+        selectedOption={COMMON_OPTIONS[0].value}
         onSelect={() => {}}
         width="flex"
       />
@@ -131,7 +151,7 @@ export const FlexSegmented = () => {
       <Segmented
         id="story-segmented-11"
         options={COMMON_OPTIONS}
-        selectedOption={COMMON_OPTIONS[0]}
+        selectedOption={COMMON_OPTIONS[0].value}
         onSelect={() => {}}
         width="flex"
         disabled
@@ -141,7 +161,7 @@ export const FlexSegmented = () => {
       <Segmented
         id="story-segmented-12"
         options={COMMON_OPTIONS}
-        selectedOption={COMMON_OPTIONS[0]}
+        selectedOption={COMMON_OPTIONS[0].value}
         onSelect={() => {}}
         size="large"
         width="flex"
@@ -151,7 +171,7 @@ export const FlexSegmented = () => {
       <Segmented
         id="story-segmented-13"
         options={COMMON_OPTIONS}
-        selectedOption={COMMON_OPTIONS[0]}
+        selectedOption={COMMON_OPTIONS[0].value}
         onSelect={() => {}}
         size="large"
         width="flex"
