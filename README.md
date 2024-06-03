@@ -162,7 +162,7 @@ return <TextField id="example-textfield" value={text} onChange={(e) => setText(e
 | isError     | boolean                                    | `false`      |
 | helperText  | string                                     |              |
 | suffix      | string                                     |              |
-| icon        | 아이콘 이름                                |              |
+| icon        | 아이콘 이름                                |              |
 | type        | `text` \| `password` \| `file`             | `text`       |
 
 상세 텍스트필드 보러 가기 [링크](https://65a2410191d174e557802180-knplnhfafi.chromatic.com/?path=/story/component-textfield--interactive)
@@ -285,3 +285,54 @@ return (
 | disabled | boolean                  | `false`      |
 
 상세 라디오그룹 보러 가기 [링크](https://65a2410191d174e557802180-exoukbkuqi.chromatic.com/?path=/story/component-radiogroup--interactive)
+
+### Segmented
+
+#### Usage
+
+```jsx
+import { Segmented } from '@yeonsubaek/yeonsui'
+
+enum values {
+  daily = 'Daily',
+  weekly = 'Weekly',
+}
+const OPTIONS: RadioOptionProps[] = [
+  { value: values.daily, text: 'Daily', id: 'option1' },
+  { value: values.weekly, text: 'Weekly', id: 'option2' },
+]
+
+const [selectedOption, setSelectedOption] = useState(values.daily)
+
+return (
+  <Segmented
+    id="example-segmented"
+    options={OPTIONS}
+    selectedOption={selectedOption}
+    onSelect={(val) => setSelectedItem(val as values)}
+    size="large"
+  />
+)
+```
+
+#### Props
+
+| Name           | Type                           | Description  |
+| -------------- | ------------------------------ | ------------ |
+| id             | string                         | **required** |
+| options        | `SegmentedOptionProps[]`       | **required** |
+| selectedOption | string                         | **required** |
+| onSelect       | `(item: string) => void`       | **required** |
+| size           | `small` \| `medium` \| `large` | `medium`     |
+| width          | `full` \| `flex`               | `full`       |
+| disabled       | boolean                        | false        |
+
+#### Segmented Option Props
+
+| Name  | Type                     | Description  |
+| ----- | ------------------------ | ------------ |
+| value | string                   | **required** |
+| text  | string \| `ReactElement` | **required** |
+| id    | string                   | **required** |
+
+상세 라디오그룹 보러 가기 [링크](https://65a2410191d174e557802180-exoukbkuqi.chromatic.com/?path=/story/component-segmented--interactive)
