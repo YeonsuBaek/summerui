@@ -275,4 +275,13 @@ return (
 | onSelect       | `(item: string) => void`   | **required** |
 | direction      | `vertical` \| `horizontal` | `vertical`   |
 
+#### Radio Option Props
+
+| Name     | Type                     | Description  |
+| -------- | ------------------------ | ------------ |
+| value    | string                   | **required** |
+| text     | string \| `ReactElement` | **required** |
+| id       | string                   | **required** |
+| disabled | boolean                  | `false`      |
+
 상세 라디오그룹 보러 가기 [링크](https://65a2410191d174e557802180-exoukbkuqi.chromatic.com/?path=/story/component-radiogroup--interactive)
