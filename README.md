@@ -335,4 +335,27 @@ return (
 | text  | string \| `ReactElement` | **required** |
 | id    | string                   | **required** |
 
-상세 라디오그룹 보러 가기 [링크](https://65a2410191d174e557802180-exoukbkuqi.chromatic.com/?path=/story/component-segmented--interactive)
+상세 세그먼트 보러 가기 [링크](https://65a2410191d174e557802180-exoukbkuqi.chromatic.com/?path=/story/component-segmented--interactive)
+
+### Card
+
+#### Usage
+
+```jsx
+import { Card } from '@yeonsubaek/yeonsui'
+
+return <Card id="example-card" title="title of card" info="This is a card" image="" size="large" />
+```
+
+#### Props
+
+| Name    | Type                | Description  |
+| ------- | ------------------- | ------------ |
+| id      | string              | **required** |
+| title   | string              | **required** |
+| info    | string              |              |
+| image   | string              |              |
+| size    | `medium` \| `large` | `medium`     |
+| onClick | `() => void`        |              |
+
+상세 카드 보러 가기 [링크](https://65a2410191d174e557802180-exoukbkuqi.chromatic.com/?path=/story/component-card--interactive)
