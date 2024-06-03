@@ -1,9 +1,9 @@
 import React, { ChangeEvent } from 'react'
 import { RadioGroupProps } from '.'
 
-const RadioGroup = ({ id, options, selectedOption, onSelect }: RadioGroupProps) => {
+const RadioGroup = ({ id, options, selectedOption, onSelect, direction = 'vertical' }: RadioGroupProps) => {
   return (
-    <div id={id} className="ui-radio-group">
+    <div id={id} className={`ui-radio-group ${direction}`}>
       {options.map((option) => (
         <div className="ui-radio-option" key={option.id}>
           <input

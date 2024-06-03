@@ -25,6 +25,17 @@
 
 .ui-radio {
   &-group {
+    display: flex;
+    &.vertical {
+      gap: 16px;
+      align-items: center;
+    }
+
+    &.horizontal {
+      flex-direction: column;
+      gap: 8px;
+      justify-content: center;
+    }
   }
 
   &-option {

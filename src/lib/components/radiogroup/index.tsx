@@ -13,6 +13,7 @@ export interface RadioGroupProps {
   options: RadioOptionProps[]
   selectedOption: string
   onSelect: (item: string) => void
+  direction?: 'vertical' | 'horizontal'
 }
 
 export { RadioGroup }
