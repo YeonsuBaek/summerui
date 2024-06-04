@@ -25,6 +25,7 @@ $ npm i @yeonsubaek/yeonsui
 - [6. Toast](#toast)
 - [7. DatePicker](#datepicker)
 - [8. Checkbox](#checkbox)
+  - [Checkbox.Group](#checkboxgroup)
 - [9. RadioGroup](#radiogroup)
 - [10. Segmented](#segmented)
 - [11. Card](#card)
@@ -291,6 +292,78 @@ return <DatePicker id="example-date-picker" value={date} setValue={(val: string)
 | disabled | boolean                        | false        |
 
 상세 데이트픽커 보러 가기 [링크](https://65a2410191d174e557802180-exoukbkuqi.chromatic.com/?path=/story/component-datepicker--interactive)
+
+### Checkbox
+
+#### Usage
+
+```jsx
+import { Checkbox } from '@yeonsubaek/yeonsui'
+
+const [checked, setChecked] = useState(false)
+
+return (
+  <Checkbox
+    id="example-checkbox-1"
+    value="example"
+    text="Example"
+    checked={checked}
+    onChange={(e: ChangeEvent<HTMLInputElement>) => setChecked(e.target.checked)}
+  />
+)
+```
+
+#### Props
+
+| Name     | Type                                         | Description  |
+| -------- | -------------------------------------------- | ------------ |
+| id       | string                                       | **required** |
+| value    | string                                       | **required** |
+| text     | string \| `ReactElement`                     |              |
+| disabled | boolean                                      | false        |
+| checked  | boolean                                      | false        |
+| onChange | `(e: ChangeEvent<HTMLInputElement>) => void` |              |
+
+상세 체크박스 보러 가기 [링크](https://65a2410191d174e557802180-nmwvmtlrlr.chromatic.com/?path=/story/component-checkbox--interactive)
+
+### CheckboxGroup
+
+#### Usage
+
+```jsx
+import { Checkbox } from '@yeonsubaek/yeonsui'
+
+const [checked, setChecked] = useState(false)
+
+return (
+  <Checkbox.Group
+    value="example"
+    text="Example"
+    checked={checked}
+    onChange={(e: ChangeEvent<HTMLInputElement>) => setChecked(e.target.checked)}
+  />
+)
+```
+
+#### Props
+
+| Name           | Type                                         | Description |
+| -------------- | -------------------------------------------- | ----------- |
+| options        | `CheckboxItemType[]`                         |             |
+| checkedOptions | `{ [key: string]: boolean }`                 |             |
+| onChange       | `(e: ChangeEvent<HTMLInputElement>) => void` |             |
+| wrap           | boolean                                      | false       |
+
+#### CheckboxItemType
+
+| Name     | Type                     | Description  |
+| -------- | ------------------------ | ------------ |
+| id       | string                   | **required** |
+| value    | string                   | **required** |
+| text     | string \| `ReactElement` |              |
+| disabled | boolean                  | false        |
+
+상세 체크박스 그룹 보러 가기 [링크](https://65a2410191d174e557802180-nmwvmtlrlr.chromatic.com/?path=/story/component-checkbox--checkbox-group)
 
 ### RadioGroup
 
