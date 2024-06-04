@@ -3,41 +3,55 @@ import { fireEvent, render } from '@testing-library/react'
 import { Checkbox } from '.'
 
 describe('Checkbox test', () => {
-  test('Checkbox is wrap', () => {
-    const OPTIONS = ['option1', 'option2', 'option3']
-    const { container } = render(
-      <Checkbox id="test-checkbox-1" options={OPTIONS} selectedOptions={[]} onSelect={() => {}} wrap />
+  test('Checkbox is clicked', () => {
+    const handleChange = jest.fn()
+    const { getByText } = render(
+      <Checkbox id="checkbox-test-1" value="example" text="Example" checked={false} onChange={handleChange} />
     )
 
-    const CheckboxElem = container.querySelector('.ui-checkbox')
-    expect(CheckboxElem?.classList.contains('wrap')).toBeTruthy()
+    const input = getByText('Example')
+    fireEvent.click(input)
+    expect(handleChange).toBeCalledTimes(1)
   })
 
   test('Checkbox is disabled', () => {
-    const OPTIONS = ['option1', 'option2', 'option3']
-    const handleSelect = jest.fn()
+    const handleChange = jest.fn()
     const { getByText } = render(
-      <Checkbox id="test-checkbox-2" options={OPTIONS} selectedOptions={[]} onSelect={handleSelect} disabled />
+      <Checkbox id="checkbox-test-2" value="example" text="Example" checked={false} onChange={handleChange} disabled />
     )
 
-    const btn = getByText('option2')
-    expect(btn).toBeTruthy()
-
-    fireEvent.click(btn)
-    expect(handleSelect).toHaveBeenCalledTimes(0)
+    const input = getByText('Example')
+    fireEvent.click(input)
+    expect(handleChange).toBeCalledTimes(0)
   })
 
-  test('Checkbox selects a option', () => {
-    const OPTIONS = ['option1', 'option2', 'option3']
-    const handleSelect = jest.fn()
-    const { container, getByText } = render(
-      <Checkbox id="test-checkbox-3" options={OPTIONS} selectedOptions={[]} onSelect={handleSelect} />
+  test('Checkbox is checked', () => {
+    const { container: container1 } = render(
+      <Checkbox id="checkbox-test-3" value="example" text="Example" checked={false} />
     )
 
-    const btn = getByText('option2')
-    expect(btn).toBeTruthy()
+    const icon1 = container1.querySelector('.ui-checkbox-icon')
+    expect(icon1?.classList.contains('checked')).toBeFalsy()
 
-    fireEvent.click(btn)
-    expect(handleSelect).toHaveBeenCalledTimes(1)
+    const { container: container2 } = render(
+      <Checkbox id="checkbox-test-4" value="example" text="Example" checked={true} />
+    )
+
+    const icon2 = container2.querySelector('.ui-checkbox-icon')
+    expect(icon2?.classList.contains('checked')).toBeTruthy()
+  })
+
+  test('Checkbox has text', () => {
+    const { getByText: getByText1 } = render(
+      <Checkbox id="checkbox-test-5" value="example" text="Example" checked={false} />
+    )
+
+    const text1 = getByText1('Example')
+    expect(text1.innerHTML).toBe('Example')
+
+    const { getByText: getByText2 } = render(<Checkbox id="checkbox-test-6" value="example" checked={true} />)
+
+    const text2 = getByText2('example')
+    expect(text2.innerHTML).toBe('example')
   })
 })

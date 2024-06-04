@@ -16,7 +16,7 @@ const Checkbox = ({ id, value, text, checked = false, onChange, disabled = false
       />
       <span className={`ui-checkbox-icon ${checked ? 'checked' : ''}`}>{checked && <Icon icon="Check" />}</span>
       <label className="ui-checkbox-label" htmlFor={id}>
-        {text}
+        {text || value}
       </label>
     </div>
   )
