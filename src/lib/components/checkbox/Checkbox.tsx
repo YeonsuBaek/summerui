@@ -2,31 +2,24 @@ import React from 'react'
 import { CheckboxProps } from '.'
 import { Icon } from '../icon'
 
-const Checkbox = ({ id, options, selectedOptions, onSelect, wrap = false, disabled = false }: CheckboxProps) => {
+const CheckboxItem = ({ id, value, text, checked = false, onChange, disabled = false }: CheckboxProps) => {
   return (
-    <div id={id} className={`ui-checkbox ${wrap ? 'wrap' : ''} ${disabled ? 'disabled' : ''}`}>
-      {options.map((option) => (
-        <div className="ui-checkbox-option" key={option}>
-          <input
-            className="ui-checkbox-option-check"
-            type="checkbox"
-            id={`${id}-${option}`}
-            name={id}
-            value={option}
-            checked={selectedOptions.includes(option)}
-            onChange={() => onSelect(option)}
-            disabled={disabled}
-          />
-          <span className={`ui-checkbox-option-icon ${selectedOptions.includes(option) ? 'checked' : ''}`}>
-            {selectedOptions.includes(option) && <Icon icon="Check" />}
-          </span>
-          <label className="ui-checkbox-option-label" htmlFor={`${id}-${option}`}>
-            {option}
-          </label>
-        </div>
-      ))}
+    <div className={`ui-checkbox ${disabled ? 'disabled' : ''}`}>
+      <input
+        className="ui-checkbox-check"
+        type="checkbox"
+        id={id}
+        value={value}
+        checked={checked}
+        onChange={(e) => onChange && onChange(e)}
+        disabled={disabled}
+      />
+      <span className={`ui-checkbox-icon ${checked ? 'checked' : ''}`}>{checked && <Icon icon="Check" />}</span>
+      <label className="ui-checkbox-label" htmlFor={id}>
+        {text || value}
+      </label>
     </div>
   )
 }
 
-export default Checkbox
+export default CheckboxItem
