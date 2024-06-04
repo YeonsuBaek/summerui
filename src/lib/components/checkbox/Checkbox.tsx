@@ -2,7 +2,7 @@ import React from 'react'
 import { CheckboxProps } from '.'
 import { Icon } from '../icon'
 
-const Checkbox = ({ id, value, text, checked = false, onChange, disabled = false }: CheckboxProps) => {
+const CheckboxItem = ({ id, value, text, checked = false, onChange, disabled = false }: CheckboxProps) => {
   return (
     <div className={`ui-checkbox ${disabled ? 'disabled' : ''}`}>
       <input
@@ -22,4 +22,4 @@ const Checkbox = ({ id, value, text, checked = false, onChange, disabled = false
   )
 }
 
-export default Checkbox
+export default CheckboxItem

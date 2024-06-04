@@ -1,13 +1,25 @@
 import { ChangeEvent, ReactElement } from 'react'
-import Checkbox from './Checkbox'
+import CheckboxItem from './Checkbox'
+import CheckboxGroup from './CheckboxGroup'
 
-export interface CheckboxProps {
+export interface CheckboxItemType {
   id: string
   value: string
   text?: string | ReactElement
-  checked?: boolean
   disabled?: boolean
+}
+export interface CheckboxProps extends CheckboxItemType {
+  checked?: boolean
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void
 }
 
-export { Checkbox }
+export interface CheckboxGroupProps {
+  options: CheckboxItemType[]
+  checkedOptions?: { [key: string]: boolean }
+  onChange?: (e: ChangeEvent<HTMLInputElement>) => void
+  wrap?: boolean
+}
+
+export const Checkbox = Object.assign(CheckboxItem, {
+  Group: CheckboxGroup,
+})
