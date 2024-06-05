@@ -2,6 +2,18 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import { TextFieldProps } from '.'
 import { Icon } from '../icon'
 
+const DEFAULT_RIGHT_PADDING = {
+  small: 7,
+  medium: 11,
+  large: 11,
+}
+const ICON_RIGHT_PADDING = 4
+const ICON_SIZE = {
+  small: 16,
+  medium: 16,
+  large: 20,
+}
+
 const TextField = ({
   id,
   value,
@@ -19,18 +31,6 @@ const TextField = ({
   helperText = '',
   ...props
 }: TextFieldProps) => {
-  const DEFAULT_RIGHT_PADDING = {
-    small: 7,
-    medium: 11,
-    large: 11,
-  }
-  const ICON_RIGHT_PADDING = 4
-  const ICON_SIZE = {
-    small: 16,
-    medium: 16,
-    large: 20,
-  }
-
   const inputRef = useRef(null)
   const suffixRef = useRef(null)
   const [iconWidth, setIconWidth] = useState<number>(0)
@@ -94,4 +94,4 @@ const TextField = ({
   )
 }
 
-export default TextField
+export { TextField }

@@ -1,7 +1,6 @@
 import type { ComponentStory, Meta } from '@storybook/react'
 import { TextField } from '.'
 import { useState } from 'react'
-import PasswordTextField from './PasswordTextField'
 
 const meta: Meta<typeof TextField> = {
   title: 'Component/TextField',
@@ -23,7 +22,7 @@ const TextFieldTemplate: ComponentStory<typeof TextField> = (args) => {
       <TextField {...args} value={text} onChange={(e) => setText(e.target.value)} />
       <br />
       <br />
-      <PasswordTextField {...args} value={pwText} onChange={(e) => setPwtext(e.target.value)} />
+      <TextField.Password {...args} value={pwText} onChange={(e) => setPwtext(e.target.value)} />
     </div>
   )
 }
@@ -126,7 +125,7 @@ export const TextFieldWithIcon = () => {
 export const TextFieldForPassword = () => {
   return (
     <div style={{ width: '300px' }}>
-      <PasswordTextField
+      <TextField.Password
         id="storybook-textfield-password-1"
         value=""
         onChange={() => {}}
@@ -135,7 +134,7 @@ export const TextFieldForPassword = () => {
       />
       <br />
       <br />
-      <PasswordTextField
+      <TextField.Password
         id="storybook-textfield-password-1"
         value=""
         onChange={() => {}}
@@ -143,7 +142,7 @@ export const TextFieldForPassword = () => {
       />
       <br />
       <br />
-      <PasswordTextField
+      <TextField.Password
         id="storybook-textfield-password-1"
         value=""
         onChange={() => {}}
@@ -152,7 +151,7 @@ export const TextFieldForPassword = () => {
       />
       <br />
       <br />
-      <PasswordTextField
+      <TextField.Password
         id="storybook-textfield-password-1"
         value=""
         onChange={() => {}}
@@ -162,7 +161,7 @@ export const TextFieldForPassword = () => {
       />
       <br />
       <br />
-      <PasswordTextField
+      <TextField.Password
         id="storybook-textfield-password-1"
         value=""
         onChange={() => {}}
@@ -171,7 +170,7 @@ export const TextFieldForPassword = () => {
       />
       <br />
       <br />
-      <PasswordTextField
+      <TextField.Password
         id="storybook-textfield-password-1"
         value=""
         onChange={() => {}}
