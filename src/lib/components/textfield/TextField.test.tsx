@@ -1,7 +1,6 @@
 import React from 'react'
 import { fireEvent, render } from '@testing-library/react'
-import TextField from './TextField'
-import PasswordTextField from './PasswordTextField'
+import { TextField } from '.'
 
 describe('TextField test', () => {
   type SIZE_TYPE = 'small' | 'medium' | 'large'
@@ -40,7 +39,7 @@ describe('TextField test', () => {
 
   test('TextField for password', () => {
     const { container, getByDisplayValue } = render(
-      <PasswordTextField id="test-textfield-3" value="1234" onChange={() => {}} />
+      <TextField.Password id="test-textfield-3" value="1234" onChange={() => {}} />
     )
 
     const input = getByDisplayValue('1234')
@@ -51,10 +50,10 @@ describe('TextField test', () => {
   })
 
   test.each<SIZE_TYPE>(['small', 'medium', 'large'])('IconButton Size', (size) => {
-    const { container: PasswordTextFieldContainer } = render(
-      <PasswordTextField id={`test-textfield-4-${size}`} size={size} value="1234" onChange={() => {}} />
+    const { container: PasswordContainer } = render(
+      <TextField.Password id={`test-textfield-4-${size}`} size={size} value="1234" onChange={() => {}} />
     )
-    expect(PasswordTextFieldContainer).toBeTruthy()
+    expect(PasswordContainer).toBeTruthy()
   })
 
   test('TextField is autofocus', () => {

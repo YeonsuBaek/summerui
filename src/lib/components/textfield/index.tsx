@@ -1,5 +1,5 @@
 import { ChangeEvent, InputHTMLAttributes } from 'react'
-import TextField from './TextField'
+import { TextField as DefaultTextfield } from './TextField'
 import PasswordTextField from './PasswordTextField'
 import { FilledIconType } from '../icon/FilledIcons'
 import { OutlinedIconType } from '../icon/OutlinedIcons'
@@ -24,4 +24,6 @@ export interface TextFieldProps extends DefaultTextFieldProps {
   type?: 'text' | 'password' | 'file'
 }
 
-export { TextField, PasswordTextField }
+export const TextField = Object.assign(DefaultTextfield, {
+  Password: PasswordTextField,
+})
