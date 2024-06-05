@@ -19,7 +19,7 @@ $ npm i @yeonsubaek/yeonsui
 - [2. Button](#button)
   - [IconButton](#iconbutton)
 - [3. TextField](#textfield)
-  - [PasswordTextField](#passwordtextfield)
+  - [Password](#password)
 - [4. TextArea](#textarea)
 - [5. Modal](#modal)
 - [6. Toast](#toast)
@@ -168,18 +168,18 @@ return <TextField id="example-textfield" value={text} onChange={(e) => setText(e
 
 상세 텍스트필드 보러 가기 [링크](https://65a2410191d174e557802180-knplnhfafi.chromatic.com/?path=/story/component-textfield--interactive)
 
-### PasswordTextField
+### Password
 
 #### Usage
 
 ```tsx
-import { PasswordTextField } from '@yeonsubaek/yeonsui'
+import { TextField } from '@yeonsubaek/yeonsui'
 ```
 
 ```tsx
 const [text, setText] = useState<string>('')
 
-return <PasswordTextField id="example-password-textfield" value={text} onChange={(e) => setText(e.target.value)} />
+return <TextField.Password id="example-password-textfield" value={text} onChange={(e) => setText(e.target.value)} />
 ```
 
 #### Props
