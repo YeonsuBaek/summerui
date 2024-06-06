@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useRef } from 'react'
-import { DefaultTextFieldProps } from '.'
+import { SearchTextFieldProps } from '.'
 import { Icon } from '../icon'
 
 const SearchTextField = ({
@@ -12,7 +12,8 @@ const SearchTextField = ({
   autoFocus = false,
   isError = false,
   helperText = '',
-}: DefaultTextFieldProps) => {
+  onSearch,
+}: SearchTextFieldProps) => {
   const inputRef = useRef(null)
 
   const searchSize = useMemo(() => (size === 'large' ? 'large' : 'medium'), [size])
@@ -44,7 +45,7 @@ const SearchTextField = ({
             ref={inputRef}
           />
         </div>
-        <button type="button" className={`ui-textfield-search-button ${size}`}>
+        <button type="button" className={`ui-textfield-search-button ${size}`} onClick={onSearch}>
           <Icon icon="Search" size={searchIconSize} />
         </button>
       </div>

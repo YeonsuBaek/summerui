@@ -25,6 +25,10 @@ export interface TextFieldProps extends DefaultTextFieldProps {
   type?: 'text' | 'password' | 'file'
 }
 
+export interface SearchTextFieldProps extends DefaultTextFieldProps {
+  onSearch?: () => void
+}
+
 export const TextField = Object.assign(DefaultTextfield, {
   Password: PasswordTextField,
   Search: SearchTextField,
