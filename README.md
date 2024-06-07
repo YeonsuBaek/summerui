@@ -20,6 +20,7 @@ $ npm i @yeonsubaek/yeonsui
   - [IconButton](#iconbutton)
 - [3. TextField](#textfield)
   - [Password](#password)
+  - [Search](#search)
 - [4. TextArea](#textarea)
 - [5. Modal](#modal)
 - [6. Toast](#toast)
@@ -199,6 +200,44 @@ return <TextField.Password id="example-password-textfield" value={text} onChange
 | helperText  | string                                     |              |
 
 상세 패스워드 텍스트필드 보러 가기 [링크](https://65a2410191d174e557802180-knplnhfafi.chromatic.com/?path=/story/component-textfield--text-field-for-password)
+
+### Search
+
+#### Usage
+
+```tsx
+import { Search } from '@yeonsubaek/yeonsui'
+```
+
+```jsx
+const [text, setText] = useState < string > ''
+
+const handleSearch = () => {
+  console.log(text)
+}
+
+return (
+  <TextField.Search
+    id="example-search-textfield"
+    value={text}
+    onChange={(e) => setText(e.target.value)}
+    onSearch={handleSearch}
+  />
+)
+```
+
+#### Props
+
+| Name        | Type                                       | Description  |
+| ----------- | ------------------------------------------ | ------------ |
+| id          | string                                     | **required** |
+| value       | string                                     | **required** |
+| onChange    | (e: ChangeEvent<HTMLInputElement>) => void | **required** |
+| placeholder | string                                     |              |
+| size        | `medium` \| `large`                        | `medium`     |
+| onSearch    | `() => void`                               |              |
+
+상세 서치 텍스트필드 보러 가기 [링크](https://65a2410191d174e557802180-kdekkwhomf.chromatic.com/?path=/story/component-textfield--text-field-for-search)
 
 ### Modal
 
