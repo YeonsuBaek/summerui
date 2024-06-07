@@ -8,32 +8,16 @@ const SearchTextField = ({
   onChange,
   placeholder = '',
   size = 'medium',
-  disabled = false,
-  autoFocus = false,
-  isError = false,
-  helperText = '',
   onSearch,
 }: SearchTextFieldProps) => {
   const inputRef = useRef(null)
-
   const searchSize = useMemo(() => (size === 'large' ? 'large' : 'medium'), [size])
   const searchIconSize = useMemo(() => (size === 'large' ? 'small' : 'xsmall'), [size])
-
-  useEffect(() => {
-    if (autoFocus && inputRef?.current) {
-      const current = inputRef.current as HTMLElement
-      current.focus()
-    }
-  }, [autoFocus])
 
   return (
     <>
       <div className="ui-textfield-search">
-        <div
-          className={`ui-textfield ${searchSize} ${placeholder ? 'placeholder' : ''} ${disabled ? 'disabled' : ''} ${
-            isError ? 'isError' : ''
-          } ${value ? 'hasValue' : ''}`}
-        >
+        <div className={`ui-textfield ${searchSize} ${placeholder ? 'placeholder' : ''}`}>
           <input
             className="ui-textfield-input"
             type="text"
@@ -41,7 +25,6 @@ const SearchTextField = ({
             value={value}
             onChange={onChange}
             placeholder={placeholder}
-            disabled={disabled}
             ref={inputRef}
           />
         </div>
@@ -49,7 +32,6 @@ const SearchTextField = ({
           <Icon icon="Search" size={searchIconSize} />
         </button>
       </div>
-      {helperText && <p className={`ui-textfield-helper-text ${isError ? 'isError' : ''}`}>{helperText}</p>}
     </>
   )
 }
