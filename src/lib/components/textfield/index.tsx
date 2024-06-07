@@ -25,7 +25,12 @@ export interface TextFieldProps extends DefaultTextFieldProps {
   type?: 'text' | 'password' | 'file'
 }
 
-export interface SearchTextFieldProps extends DefaultTextFieldProps {
+export interface SearchTextFieldProps {
+  id: string
+  value: string
+  onChange: (e: ChangeEvent<HTMLInputElement>) => void
+  placeholder?: string
+  size?: 'medium' | 'large'
   onSearch?: () => void
 }
 

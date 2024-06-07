@@ -21,14 +21,19 @@ const TextFieldTemplate: ComponentStory<typeof TextField> = (args) => {
 
   return (
     <div style={{ width: '300px' }}>
-      <TextField {...args} value={text} onChange={(e) => setText(e.target.value)} />
+      <TextField {...args} id="storybook-textfield-example" value={text} onChange={(e) => setText(e.target.value)} />
       <br />
       <br />
-      <TextField.Password {...args} value={pwText} onChange={(e) => setPwText(e.target.value)} />
+      <TextField.Password
+        {...args}
+        id="storybook-textfield-password-example"
+        value={pwText}
+        onChange={(e) => setPwText(e.target.value)}
+      />
       <br />
       <br />
       <TextField.Search
-        {...args}
+        id="storybook-textfield-search-example"
         value={searchText}
         onChange={(e) => setSearchText(e.target.value)}
         onSearch={action(`search ${searchText}`)}

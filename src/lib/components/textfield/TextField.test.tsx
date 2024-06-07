@@ -68,7 +68,7 @@ describe('TextField test', () => {
     expect(handleSearch).toBeCalledTimes(1)
   })
 
-  test.each<SIZE_TYPE>(['small', 'medium', 'large'])('Search IconButton Size', (size) => {
+  test.each<'medium' | 'large'>(['medium', 'large'])('Search IconButton Size', (size) => {
     const { container } = render(
       <TextField.Search id={`test-textfield-search-${size}`} size={size} value="search" onChange={() => {}} />
     )

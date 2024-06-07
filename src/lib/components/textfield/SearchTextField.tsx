@@ -11,13 +11,12 @@ const SearchTextField = ({
   onSearch,
 }: SearchTextFieldProps) => {
   const inputRef = useRef(null)
-  const searchSize = useMemo(() => (size === 'large' ? 'large' : 'medium'), [size])
   const searchIconSize = useMemo(() => (size === 'large' ? 'small' : 'xsmall'), [size])
 
   return (
     <>
       <div className="ui-textfield-search">
-        <div className={`ui-textfield ${searchSize} ${placeholder ? 'placeholder' : ''}`}>
+        <div className={`ui-textfield ${size} ${placeholder ? 'placeholder' : ''}`}>
           <input
             className="ui-textfield-input"
             type="text"
