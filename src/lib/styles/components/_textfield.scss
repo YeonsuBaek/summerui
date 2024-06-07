@@ -9,6 +9,10 @@
   cursor: text;
   transition: border-color 200ms ease-in-out;
 
+  &:hover {
+    border-color: var(--Primary-Color-5);
+  }
+
   &:has(input:focus) {
     border-color: var(--Primary-Color-5);
   }
@@ -149,6 +153,48 @@
     }
     .ui-textfield-suffix {
       right: 11px;
+    }
+  }
+
+  &-search {
+    display: flex;
+
+    .ui-textfield {
+      border-radius: 2px 0 0 2px;
+      z-index: 1;
+    }
+
+    &-button {
+      margin-left: -1px;
+      background-color: var(--Gray1);
+      border: 1px solid var(--Gray5);
+      border-radius: 0 2px 2px 0;
+      outline: 0;
+      aspect-ratio: 1/1;
+      cursor: pointer;
+      z-index: 0;
+      transition: border-color 200ms ease-in-out;
+
+      path {
+        fill: var(--Font-Color-Secondary);
+        transition: fill 200ms ease-in-out;
+      }
+
+      &:hover {
+        border-color: var(--Primary-Color-5);
+        z-index: 2;
+
+        path {
+          fill: var(--Primary-Color-5);
+        }
+      }
+
+      &.medium {
+        height: 32px;
+      }
+      &.large {
+        height: 40px;
+      }
     }
   }
 

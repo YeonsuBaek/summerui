@@ -1,6 +1,7 @@
 import type { ComponentStory, Meta } from '@storybook/react'
 import { TextField } from '.'
 import { useState } from 'react'
+import { action } from '@storybook/addon-actions'
 
 const meta: Meta<typeof TextField> = {
   title: 'Component/TextField',
@@ -14,15 +15,29 @@ const meta: Meta<typeof TextField> = {
 export default meta
 
 const TextFieldTemplate: ComponentStory<typeof TextField> = (args) => {
-  const [text, setText] = useState<string>('')
-  const [pwText, setPwtext] = useState<string>('')
+  const [text, setText] = useState('')
+  const [pwText, setPwText] = useState('')
+  const [searchText, setSearchText] = useState('')
 
   return (
-    <div style={{ width: '200px' }}>
-      <TextField {...args} value={text} onChange={(e) => setText(e.target.value)} />
+    <div style={{ width: '300px' }}>
+      <TextField {...args} id="storybook-textfield-example" value={text} onChange={(e) => setText(e.target.value)} />
       <br />
       <br />
-      <TextField.Password {...args} value={pwText} onChange={(e) => setPwtext(e.target.value)} />
+      <TextField.Password
+        {...args}
+        id="storybook-textfield-password-example"
+        value={pwText}
+        onChange={(e) => setPwText(e.target.value)}
+      />
+      <br />
+      <br />
+      <TextField.Search
+        id="storybook-textfield-search-example"
+        value={searchText}
+        onChange={(e) => setSearchText(e.target.value)}
+        onSearch={action(`search ${searchText}`)}
+      />
     </div>
   )
 }
@@ -177,6 +192,37 @@ export const TextFieldForPassword = () => {
         placeholder="Enter your password"
         size="large"
         disabled
+      />
+    </div>
+  )
+}
+
+export const TextFieldForSearch = () => {
+  return (
+    <div style={{ width: '400px' }}>
+      <TextField.Search id="storybook-textfield-search-1" placeholder="Search" value="" onChange={() => {}} />
+      <br />
+      <TextField.Search
+        id="storybook-textfield-search-2"
+        placeholder="Search"
+        value="search text"
+        onChange={() => {}}
+      />
+      <br />
+      <TextField.Search
+        id="storybook-textfield-search-3"
+        placeholder="Search"
+        value=""
+        onChange={() => {}}
+        size="large"
+      />
+      <br />
+      <TextField.Search
+        id="storybook-textfield-search-4"
+        placeholder="Search"
+        value="search text"
+        onChange={() => {}}
+        size="large"
       />
     </div>
   )

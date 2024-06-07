@@ -3,6 +3,7 @@ import { TextField as DefaultTextfield } from './TextField'
 import PasswordTextField from './PasswordTextField'
 import { FilledIconType } from '../icon/FilledIcons'
 import { OutlinedIconType } from '../icon/OutlinedIcons'
+import SearchTextField from './SearchTextField'
 
 export interface DefaultTextFieldProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'size'> {
   id: string
@@ -24,6 +25,16 @@ export interface TextFieldProps extends DefaultTextFieldProps {
   type?: 'text' | 'password' | 'file'
 }
 
+export interface SearchTextFieldProps {
+  id: string
+  value: string
+  onChange: (e: ChangeEvent<HTMLInputElement>) => void
+  placeholder?: string
+  size?: 'medium' | 'large'
+  onSearch?: () => void
+}
+
 export const TextField = Object.assign(DefaultTextfield, {
   Password: PasswordTextField,
+  Search: SearchTextField,
 })

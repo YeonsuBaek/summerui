@@ -49,11 +49,30 @@ describe('TextField test', () => {
     expect(input.getAttribute('type')).toBe('text')
   })
 
-  test.each<SIZE_TYPE>(['small', 'medium', 'large'])('IconButton Size', (size) => {
+  test.each<SIZE_TYPE>(['small', 'medium', 'large'])('Password IconButton Size', (size) => {
     const { container: PasswordContainer } = render(
       <TextField.Password id={`test-textfield-4-${size}`} size={size} value="1234" onChange={() => {}} />
     )
     expect(PasswordContainer).toBeTruthy()
+  })
+
+  test('TextField for search', () => {
+    const handleSearch = jest.fn()
+    const { container } = render(
+      <TextField.Search id="test-textfield-search" value="search" onChange={() => {}} onSearch={handleSearch} />
+    )
+
+    const searchButton = container.querySelector('.ui-textfield-search-button') as HTMLButtonElement
+
+    fireEvent.click(searchButton)
+    expect(handleSearch).toBeCalledTimes(1)
+  })
+
+  test.each<'medium' | 'large'>(['medium', 'large'])('Search IconButton Size', (size) => {
+    const { container } = render(
+      <TextField.Search id={`test-textfield-search-${size}`} size={size} value="search" onChange={() => {}} />
+    )
+    expect(container).toBeTruthy()
   })
 
   test('TextField is autofocus', () => {
