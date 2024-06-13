@@ -1,18 +1,16 @@
-import React from "react"
+import React from 'react'
 
 interface ColorItemProps {
-  color: any
+  name: string
+  mode: 'light' | 'dark'
+  color: string
 }
 
-const ColorItem = ({ color }: ColorItemProps) => {
+const ColorItem = ({ name, mode, color }: ColorItemProps) => {
   return (
-    <li
-      key={color.name}
-      className='ui-colors-item light'
-      style={{ background: color.light }}
-    >
-      <span>{color.name}</span>
-      <span>{color.light}</span>
+    <li key={name} className={`ui-colors-item ${mode}`} style={{ background: color }}>
+      <span>{name}</span>
+      <span>{color}</span>
     </li>
   )
 }

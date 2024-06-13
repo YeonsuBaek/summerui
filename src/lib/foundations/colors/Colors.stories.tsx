@@ -1,16 +1,12 @@
-import type { ComponentStory, Meta } from "@storybook/react"
-import { Colors } from "./ColorSetList"
+import type { Meta } from '@storybook/react'
+import { DarkColors } from './DarkColorSetList'
+import { LightColors } from './LightColorSetList'
 
-const meta: Meta<typeof Colors> = {
-  title: "Foundation/Colors",
-  component: Colors,
+const meta = {
+  title: 'Foundation/Colors',
 }
 
 export default meta
-type Story = ComponentStory<typeof Colors>
 
-const ColorsTemplate: Story = () => {
-  return <Colors />
-}
-
-export const ColorSet = ColorsTemplate.bind({})
+export const LightColorSet = () => <LightColors />
+export const DarkColorSet = () => <DarkColors />

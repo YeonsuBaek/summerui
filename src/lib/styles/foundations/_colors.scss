@@ -25,5 +25,9 @@
     &.light:nth-child(n + 6) {
       color: #fff;
     }
+
+    &.dark:nth-child(-n + 5) {
+      color: #fff;
+    }
   }
 }
