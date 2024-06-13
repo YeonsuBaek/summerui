@@ -1,4 +1,10 @@
-export const DUST_RED = [
+export type ColorType = {
+  name: string
+  light: string
+  dark: string
+}
+
+const DUST_RED: ColorType[] = [
   {
     name: 'Red1',
     light: '#fff1f0',
@@ -51,7 +57,7 @@ export const DUST_RED = [
   },
 ]
 
-export const VOLCANO = [
+const VOLCANO: ColorType[] = [
   {
     name: 'Volcano1',
     light: '#fff2e8',
@@ -104,7 +110,7 @@ export const VOLCANO = [
   },
 ]
 
-export const SUNSET_ORANGE = [
+const SUNSET_ORANGE: ColorType[] = [
   {
     name: 'Sunset1',
     light: '#fff7e6',
@@ -157,7 +163,7 @@ export const SUNSET_ORANGE = [
   },
 ]
 
-export const POLAR_GREEN = [
+const POLAR_GREEN: ColorType[] = [
   {
     name: 'Polar1',
     light: '#f6ffed',
@@ -210,7 +216,7 @@ export const POLAR_GREEN = [
   },
 ]
 
-export const CYAN = [
+const CYAN: ColorType[] = [
   {
     name: 'Cyan1',
     light: '#e6fffb',
@@ -263,7 +269,7 @@ export const CYAN = [
   },
 ]
 
-export const DAYBREAK_BLUE = [
+const DAYBREAK_BLUE: ColorType[] = [
   {
     name: 'Daybreak1',
     light: '#e6f7ff',
@@ -316,7 +322,7 @@ export const DAYBREAK_BLUE = [
   },
 ]
 
-export const GOLDEN_PURPLE = [
+const GOLDEN_PURPLE: ColorType[] = [
   {
     name: 'Purple1',
     light: '#f9f0ff',
@@ -369,7 +375,7 @@ export const GOLDEN_PURPLE = [
   },
 ]
 
-export const MAGENTA = [
+const MAGENTA: ColorType[] = [
   {
     name: 'Magenta1',
     light: '#fff0f6',
@@ -422,7 +428,7 @@ export const MAGENTA = [
   },
 ]
 
-export const NEUTRAL = [
+const NEUTRAL: ColorType[] = [
   {
     name: 'Gray1',
     light: '#ffffff',
@@ -489,3 +495,5 @@ export const NEUTRAL = [
     dark: '#ffffff',
   },
 ]
+
+export { DUST_RED, VOLCANO, SUNSET_ORANGE, POLAR_GREEN, CYAN, DAYBREAK_BLUE, GOLDEN_PURPLE, MAGENTA, NEUTRAL }

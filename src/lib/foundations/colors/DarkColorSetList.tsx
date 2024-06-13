@@ -10,6 +10,7 @@ import {
   GOLDEN_PURPLE,
   MAGENTA,
   NEUTRAL,
+  ColorType,
 } from './ColorSet'
 
 const DarkColors = () => {
@@ -18,7 +19,7 @@ const DarkColors = () => {
       <li>
         <h2>Dust Red</h2>
         <ul className="ui-colors-list">
-          {DUST_RED.map(({ name, dark }) => (
+          {DUST_RED.map(({ name, dark }: ColorType) => (
             <ColorItem name={name} color={dark} mode="dark" />
           ))}
         </ul>
@@ -26,7 +27,7 @@ const DarkColors = () => {
       <li>
         <h2>Volcano</h2>
         <ul className="ui-colors-list">
-          {VOLCANO.map(({ name, dark }) => (
+          {VOLCANO.map(({ name, dark }: ColorType) => (
             <ColorItem name={name} color={dark} mode="dark" />
           ))}
         </ul>
@@ -34,7 +35,7 @@ const DarkColors = () => {
       <li>
         <h2>Sunset Orange</h2>
         <ul className="ui-colors-list">
-          {SUNSET_ORANGE.map(({ name, dark }) => (
+          {SUNSET_ORANGE.map(({ name, dark }: ColorType) => (
             <ColorItem name={name} color={dark} mode="dark" />
           ))}
         </ul>
@@ -42,7 +43,7 @@ const DarkColors = () => {
       <li>
         <h2>Polar Green</h2>
         <ul className="ui-colors-list">
-          {POLAR_GREEN.map(({ name, dark }) => (
+          {POLAR_GREEN.map(({ name, dark }: ColorType) => (
             <ColorItem name={name} color={dark} mode="dark" />
           ))}
         </ul>
@@ -50,7 +51,7 @@ const DarkColors = () => {
       <li>
         <h2>Cyan</h2>
         <ul className="ui-colors-list">
-          {CYAN.map(({ name, dark }) => (
+          {CYAN.map(({ name, dark }: ColorType) => (
             <ColorItem name={name} color={dark} mode="dark" />
           ))}
         </ul>
@@ -58,7 +59,7 @@ const DarkColors = () => {
       <li>
         <h2>Daybreak Blue</h2>
         <ul className="ui-colors-list">
-          {DAYBREAK_BLUE.map(({ name, dark }) => (
+          {DAYBREAK_BLUE.map(({ name, dark }: ColorType) => (
             <ColorItem name={name} color={dark} mode="dark" />
           ))}
         </ul>
@@ -66,7 +67,7 @@ const DarkColors = () => {
       <li>
         <h2>Golden Purple</h2>
         <ul className="ui-colors-list">
-          {GOLDEN_PURPLE.map(({ name, dark }) => (
+          {GOLDEN_PURPLE.map(({ name, dark }: ColorType) => (
             <ColorItem name={name} color={dark} mode="dark" />
           ))}
         </ul>
@@ -74,7 +75,7 @@ const DarkColors = () => {
       <li>
         <h2>Magenta</h2>
         <ul className="ui-colors-list">
-          {MAGENTA.map(({ name, dark }) => (
+          {MAGENTA.map(({ name, dark }: ColorType) => (
             <ColorItem name={name} color={dark} mode="dark" />
           ))}
         </ul>
@@ -82,7 +83,7 @@ const DarkColors = () => {
       <li>
         <h2>Neutral</h2>
         <ul className="ui-colors-list">
-          {NEUTRAL.map(({ name, dark }) => (
+          {NEUTRAL.map(({ name, dark }: ColorType) => (
             <ColorItem name={name} color={dark} mode="dark" />
           ))}
         </ul>
