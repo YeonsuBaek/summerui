@@ -1,3 +1,13 @@
+html:root {
+  .theme-light {
+    --Background-Color-Backdrop: rgba(var(--Gray11RGB), 0.45);
+  }
+
+  .theme-dark {
+    --Background-Color-Backdrop: rgba(var(--Gray5RGB), 0.45);
+  }
+}
+
 .ui-backdrop {
   position: fixed;
   top: 0;
@@ -10,7 +20,7 @@
   z-index: 50;
 
   &.dark {
-    background-color: var(--Font-Color-Secondary);
+    background-color: var(--Background-Color-Backdrop);
   }
 
   &.transparent {

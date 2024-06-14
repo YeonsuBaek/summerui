@@ -166,7 +166,7 @@
 
     &-button {
       margin-left: -1px;
-      background-color: var(--Gray1);
+      background-color: transparent;
       border: 1px solid var(--Gray5);
       border-radius: 0 2px 2px 0;
       outline: 0;
@@ -208,6 +208,10 @@
 
     .ui-textfield-suffix {
       color: var(--Font-Color-Disabled);
+    }
+
+    &:is(:hover, :active) {
+      border-color: var(--Gray5);
     }
   }
 }

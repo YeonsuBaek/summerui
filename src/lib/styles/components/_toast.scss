@@ -1,3 +1,13 @@
+html:root {
+  .theme-light {
+    --Color-Toast-Message: var(--Font-Color-Title);
+  }
+
+  .theme-dark {
+    --Color-Toast-Message: var(--Font-Color-Title);
+  }
+}
+
 .ui-toast {
   position: absolute;
   top: 20px;
@@ -63,5 +73,6 @@
 
   &-message {
     margin: 0;
+    color: var(--Font-Color-Title);
   }
 }

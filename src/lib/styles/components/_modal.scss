@@ -12,9 +12,6 @@ $main-padding-sm: 16px;
     height: $header-height;
     padding: 0 24px;
     border-bottom: 1px solid var(--Gray4);
-
-    &-button {
-    }
   }
 
   &-title-wrapper {
@@ -61,6 +58,7 @@ $main-padding-sm: 16px;
     word-break: break-all;
     max-height: calc(90vh - $header-height - $footer-height - $main-padding * 2);
     overflow-y: auto;
+    color: var(--Font-Color-Title);
   }
 
   &-footer {

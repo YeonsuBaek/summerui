@@ -1,7 +1,19 @@
+html:root {
+  .theme-light {
+    --Background-Color-Default: var(--Font-Color-Divider);
+    --Background-Color-Checked: var(--Gray1);
+  }
+
+  .theme-dark {
+    --Background-Color-Default: var(--Font-Color-Border);
+    --Background-Color-Checked: var(--Gray3);
+  }
+}
+
 .ui-segmented {
   display: inline-flex;
   padding: 2px;
-  background-color: var(--Font-Color-Divider);
+  background-color: var(--Background-Color-Default);
   border-radius: 2px;
   overflow: hidden;
 
@@ -48,7 +60,7 @@
 
     &:has(input:checked) {
       color: var(--Gray10);
-      background-color: #fff;
+      background-color: var(--Background-Color-Checked);
       box-shadow: 0 2px 8px rgba(var(--Gray13RGB), 0.05);
     }
 
