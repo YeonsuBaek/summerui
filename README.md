@@ -47,11 +47,11 @@ return (
 
 | Type    | Description                                                                                |
 | ------- | ------------------------------------------------------------------------------------------ |
-| default | `theme-light`                                                                              |
+| default | `theme-light` \| `theme-dark`                                                              |
 | color   | `red` \| `volcano` \| `sunset` \| `polar` \| `cyan` \| `daybreak` \| `purple` \| `magenta` |
 
 **default와 color 테마를 모두 적용해야 올바르게 색상이 적용됩니다.**  
-상세 테마 보러 가기 [링크](https://65a2410191d174e557802180-knplnhfafi.chromatic.com/?path=/story/foundation-colors--color-set)
+상세 테마 보러 가기 [링크](https://65a2410191d174e557802180-qzdehketus.chromatic.com/?path=/story/foundation-colors--light-color-set)
 
 ### Icon
 
