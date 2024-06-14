@@ -1,6 +1,8 @@
 //light
 html:root {
   .theme-light {
+    background-color: var(--Gray1);
+
     @each $name, $color in $light-colors {
       @include hexRGB($name, $color);
     }
@@ -119,6 +121,8 @@ html:root {
   }
 
   .theme-dark {
+    background-color: var(--Gray2);
+
     @each $name, $color in $dark-colors {
       @include hexRGB($name, $color);
     }

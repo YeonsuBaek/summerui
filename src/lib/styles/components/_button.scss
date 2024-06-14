@@ -1,3 +1,17 @@
+html:root {
+  .theme-light {
+    --Color-Pimary-Button: var(--Gray1);
+    --Hover-Text-Button: var(--Gray2);
+    --Active-Text-Button: var(--Gray3);
+  }
+
+  .theme-dark {
+    --Color-Pimary-Button: var(--Gray13);
+    --Hover-Text-Button: var(--Gray3);
+    --Active-Text-Button: var(--Gray4);
+  }
+}
+
 @mixin disabled-button-color() {
   &:disabled,
   &:disabled:is(:hover, :active) {
@@ -13,12 +27,12 @@
 }
 
 @mixin primary-button-color($color) {
-  color: var(--Gray1);
+  color: var(--Color-Pimary-Button);
   background-color: var(--#{$color}6);
   border-color: var(--#{$color}6);
 
   .ui-button-icon path {
-    fill: var(--Gray1);
+    fill: var(--Color-Pimary-Button);
   }
 
   &:hover {
@@ -191,11 +205,15 @@
     background-color: transparent;
     border-color: transparent;
 
+    .ui-button-icon path {
+      fill: var(--Font-Color-Title);
+    }
+
     &:hover {
-      background-color: var(--Gray2);
+      background-color: var(--Hover-Text-Button);
     }
     &:active {
-      background-color: var(--Gray3);
+      background-color: var(--Active-Text-Button);
     }
 
     @include disabled-button-color();
