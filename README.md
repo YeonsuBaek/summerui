@@ -30,6 +30,7 @@ $ npm i @yeonsubaek/yeonsui
 - [9. RadioGroup](#radiogroup)
 - [10. Segmented](#segmented)
 - [11. Card](#card)
+- [12. Loading](#loading)
 
 ### Theme
 
@@ -528,3 +529,22 @@ return <Card id="example-card" title="title of card" info="This is a card" image
 | onClick | `() => void`        |              |
 
 상세 카드 보러 가기 [링크](https://65a2410191d174e557802180-exoukbkuqi.chromatic.com/?path=/story/component-card--interactive)
+
+### Loading
+
+#### Usage
+
+```jsx
+import { Loading } from '@yeonsubaek/yeonsui'
+
+return <Loading size="large" message="Loading" />
+```
+
+#### Props
+
+| Name    | Type                           | Description |
+| ------- | ------------------------------ | ----------- |
+| size    | `small` \| `medium` \| `large` | `medium`    |
+| message | string                         |             |
+
+상세 카드 보러 가기 [링크](https://65a2410191d174e557802180-nqjiwyffgv.chromatic.com/?path=/story/component-loading--interactive)
