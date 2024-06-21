@@ -7,14 +7,16 @@ html:root {
   --Font-Weight-Medium: 500;
   --Font-Weight-Bold: 700;
 
-  --Font-Header-1: var(--Font-Weight-Bold) 38px/46px '#{$font-family}';
-  --Font-Header-2: var(--Font-Weight-Bold) 30px/38px '#{$font-family}';
-  --Font-Header-3: var(--Font-Weight-Bold) 24px/32px '#{$font-family}';
-  --Font-Header-4: var(--Font-Weight-Bold) 20px/28px '#{$font-family}';
-  --Font-Header-5: var(--Font-Weight-Bold) 16px/24px '#{$font-family}';
+  --Font-Family: #{$font-family};
 
-  --Font-Body-Micro: var(--Font-Weight-Regular) 12px/14px '#{$font-family}';
-  --Font-Body-Regular: var(--Font-Weight-Regular) 14px/21px '#{$font-family}';
-  --Font-Body-Medium: var(--Font-Weight-Medium) 14px/21px '#{$font-family}';
-  --Font-Body-Bold: var(--Font-Weight-Bold) 14px/21px '#{$font-family}';
+  --Font-Header-1: var(--Font-Weight-Bold) 38px/46px var(--Font-Family);
+  --Font-Header-2: var(--Font-Weight-Bold) 30px/38px var(--Font-Family);
+  --Font-Header-3: var(--Font-Weight-Bold) 24px/32px var(--Font-Family);
+  --Font-Header-4: var(--Font-Weight-Bold) 20px/28px var(--Font-Family);
+  --Font-Header-5: var(--Font-Weight-Bold) 16px/24px var(--Font-Family);
+
+  --Font-Body-Micro: var(--Font-Weight-Regular) 12px/14px var(--Font-Family);
+  --Font-Body-Regular: var(--Font-Weight-Regular) 14px/21px var(--Font-Family);
+  --Font-Body-Medium: var(--Font-Weight-Medium) 14px/21px var(--Font-Family);
+  --Font-Body-Bold: var(--Font-Weight-Bold) 14px/21px var(--Font-Family);
 }
