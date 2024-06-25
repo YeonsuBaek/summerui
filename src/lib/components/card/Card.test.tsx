@@ -3,18 +3,14 @@ import { render } from '@testing-library/react'
 import Card from './Card'
 
 describe('Card test', () => {
-  type SIZE_TYPE = 'medium' | 'large'
-
-  test.each<SIZE_TYPE>(['medium', 'large'])('Card has info', (size) => {
-    const { getByText } = render(
-      <Card id="test-card-1" title="Test Card" info="This is a test card" image="" size={size} />
-    )
+  test('Card has info', () => {
+    const { getByText } = render(<Card id="test-card-1" title="Test Card" info="This is a test card" image="" />)
 
     const card = getByText('This is a test card')
     expect(card).toBeTruthy()
   })
 
-  test.each<SIZE_TYPE>(['medium', 'large'])('Card has image', (size) => {
+  test('Card has image', () => {
     const handleClick = jest.fn()
     const { container } = render(
       <Card
@@ -22,7 +18,6 @@ describe('Card test', () => {
         title="Test Card"
         info="This is a test card"
         image="http://placehold.it/320x100"
-        size={size}
         onClick={handleClick}
       />
     )

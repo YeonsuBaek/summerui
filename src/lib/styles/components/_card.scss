@@ -16,18 +16,6 @@ html:root {
   border-radius: 2px;
   cursor: pointer;
 
-  &.medium {
-    width: 172px;
-  }
-
-  &.large {
-    width: 240px;
-
-    & > .ui-card-figcaption {
-      padding: 20px;
-    }
-  }
-
   &-image {
     width: 100%;
     aspect-ratio: 3/4;

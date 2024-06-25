@@ -5,8 +5,8 @@ export interface CardProps {
   title: string
   info?: string
   image?: string
-  size?: 'medium' | 'large'
   onClick?: () => void
+  width?: number
 }
 
 export { Card }
