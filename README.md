@@ -10,7 +10,7 @@ $ npm i @yeonsubaek/yeonsui
 
 ### 데모
 
-[Storybook](https://65a2410191d174e557802180-knplnhfafi.chromatic.com/?path=/story/component-button--interactive)을 통해 UI를 살펴볼 수 있습니다.
+[Storybook](https://65a2410191d174e557802180-hgeekmdptj.chromatic.com/)을 통해 UI를 살펴볼 수 있습니다.
 
 ## 🎨 컴포넌트
 
