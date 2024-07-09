@@ -1,4 +1,5 @@
 import {
+  NEUTRAL_COLORS,
   PRIMARY_COLORS,
   SYSTEM_DANGER_COLORS,
   SYSTEM_INFORMATION_COLORS,
@@ -62,6 +63,46 @@ export const PrimaryColor = () => {
           <b>5번</b>을 기본으로, Hover 또는 Focus인 경우 6번, Active인 경우 7번, 비활성화인 경우 <b>Gray 2번</b>을
           사용한다.
         </li>
+      </ul>
+    </>
+  )
+}
+
+export const NeutralColor = () => {
+  const exName = `
+  div {
+    background-color: var(--Gray-Color-1);
+  }
+  h1 {
+    color: var(--Gray-Color-10);
+  }
+  p {
+    color: var(--Gray-Color-8);
+  }
+  `
+
+  return (
+    <>
+      <h1>Neutral Color</h1>
+      <p>
+        정보 전달과 위계를 나타내는 색상이다.
+        <br />
+        텍스트는 가독성을 위해 배경과의 명암비를 고려해야 한다.
+      </p>
+      <h2>⚫️ 예시</h2>
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '16px' }}>
+        <LightColors list={NEUTRAL_COLORS} type="neutral" />
+        <DarkColors list={NEUTRAL_COLORS} type="neutral" />
+      </div>
+      <h2>🛠️ 사용법</h2>
+      <p>팔레트 색상을 사용할 땐 변수명을 사용한다.</p>
+      <pre style={{ backgroundColor: '#f0f0f0' }}>{exName}</pre>
+      <h2>✨ 규칙</h2>
+      <ul>
+        <li>기본 텍스트 색상은 8번, 타이틀 색상은 10번을 사용한다.</li>
+        <li>기본 비활성화 색상은 3번, 텍스트 비활성화 색상은 6번을 사용한다.</li>
+        <li>테두리 색상은 4~6번을 사용한다.</li>
+        <li>배경 색상은 0~2번을 사용한다.</li>
       </ul>
     </>
   )
