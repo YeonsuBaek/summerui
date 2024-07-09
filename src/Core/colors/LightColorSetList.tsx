@@ -1,49 +1,18 @@
 import ColorItem from './ColorItem'
+import { ColorType } from './ColorList'
 
-interface ColorType {
-  name: string
+interface LightColorsProps {
+  list: ColorType[]
+  type?: 'primary' | 'danger' | 'warning' | 'success' | 'information'
 }
 
-const COLOR_LIST: ColorType[] = [
-  {
-    name: 'Primary-Color-01',
-  },
-  {
-    name: 'Primary-Color-02',
-  },
-  {
-    name: 'Primary-Color-03',
-  },
-  {
-    name: 'Primary-Color-04',
-  },
-  {
-    name: 'Primary-Color-05',
-  },
-  {
-    name: 'Primary-Color-06',
-  },
-  {
-    name: 'Primary-Color-07',
-  },
-  {
-    name: 'Primary-Color-08',
-  },
-  {
-    name: 'Primary-Color-09',
-  },
-  {
-    name: 'Primary-Color-10',
-  },
-]
-
-const LightColors = () => {
+const LightColors = ({ list, type = 'primary' }: LightColorsProps) => {
   return (
     <div>
-      <h2>Light Color</h2>
+      <h3>Light Color</h3>
       <ul style={{ padding: '0px' }}>
-        {COLOR_LIST.map(({ name }: ColorType) => (
-          <ColorItem name={name} />
+        {list.map(({ name }: ColorType) => (
+          <ColorItem name={name} type={type} />
         ))}
       </ul>
     </div>

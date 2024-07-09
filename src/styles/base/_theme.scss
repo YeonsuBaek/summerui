@@ -3,6 +3,10 @@
   --primary-color: 222, 100%;
 
   .theme-light {
+    @each $name, $color in $light-colors {
+      --#{$name}: #{($color)};
+    }
+
     --Primary-Color-1: hsl(var(--primary-color), 95%);
     --Primary-Color-2: hsl(var(--primary-color), 90%);
     --Primary-Color-3: hsl(var(--primary-color), 80%);
@@ -16,6 +20,10 @@
   }
 
   .theme-dark {
+    @each $name, $color in $dark-colors {
+      --#{$name}: #{($color)};
+    }
+
     --Primary-Color-1: hsl(var(--primary-color), 10%);
     --Primary-Color-2: hsl(var(--primary-color), 20%);
     --Primary-Color-3: hsl(var(--primary-color), 30%);

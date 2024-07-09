@@ -1,70 +1,350 @@
 .core-color-item {
   &.light {
     &:nth-child(1) {
-      background-color: var(--Primary-Color-1);
+      &.primary {
+        background-color: var(--Primary-Color-1);
+      }
+      &.danger {
+        background-color: var(--Danger-Color-1);
+      }
+      &.warning {
+        background-color: var(--Warning-Color-1);
+      }
+      &.success {
+        background-color: var(--Success-Color-1);
+      }
+      &.information {
+        background-color: var(--Information-Color-1);
+      }
     }
     &:nth-child(2) {
-      background-color: var(--Primary-Color-2);
+      &.primary {
+        background-color: var(--Primary-Color-2);
+      }
+      &.danger {
+        background-color: var(--Danger-Color-2);
+      }
+      &.warning {
+        background-color: var(--Warning-Color-2);
+      }
+      &.success {
+        background-color: var(--Success-Color-2);
+      }
+      &.information {
+        background-color: var(--Information-Color-2);
+      }
     }
     &:nth-child(3) {
-      background-color: var(--Primary-Color-3);
+      &.primary {
+        background-color: var(--Primary-Color-3);
+      }
+      &.danger {
+        background-color: var(--Danger-Color-3);
+      }
+      &.warning {
+        background-color: var(--Warning-Color-3);
+      }
+      &.success {
+        background-color: var(--Success-Color-3);
+      }
+      &.information {
+        background-color: var(--Information-Color-3);
+      }
     }
     &:nth-child(4) {
-      background-color: var(--Primary-Color-4);
+      &.primary {
+        background-color: var(--Primary-Color-4);
+      }
+      &.danger {
+        background-color: var(--Danger-Color-4);
+      }
+      &.warning {
+        background-color: var(--Warning-Color-4);
+      }
+      &.success {
+        background-color: var(--Success-Color-4);
+      }
+      &.information {
+        background-color: var(--Information-Color-4);
+      }
     }
     &:nth-child(5) {
-      background-color: var(--Primary-Color-5);
+      &.primary {
+        background-color: var(--Primary-Color-5);
+      }
+      &.danger {
+        background-color: var(--Danger-Color-5);
+      }
+      &.warning {
+        background-color: var(--Warning-Color-5);
+      }
+      &.success {
+        background-color: var(--Success-Color-5);
+      }
+      &.information {
+        background-color: var(--Information-Color-5);
+      }
     }
     &:nth-child(6) {
-      background-color: var(--Primary-Color-6);
+      &.primary {
+        background-color: var(--Primary-Color-6);
+      }
+      &.danger {
+        background-color: var(--Danger-Color-6);
+      }
+      &.warning {
+        background-color: var(--Warning-Color-6);
+      }
+      &.success {
+        background-color: var(--Success-Color-6);
+      }
+      &.information {
+        background-color: var(--Information-Color-6);
+      }
     }
     &:nth-child(7) {
-      background-color: var(--Primary-Color-7);
+      &.primary {
+        background-color: var(--Primary-Color-7);
+      }
+      &.danger {
+        background-color: var(--Danger-Color-7);
+      }
+      &.warning {
+        background-color: var(--Warning-Color-7);
+      }
+      &.success {
+        background-color: var(--Success-Color-7);
+      }
+      &.information {
+        background-color: var(--Information-Color-7);
+      }
     }
     &:nth-child(8) {
-      background-color: var(--Primary-Color-8);
+      &.primary {
+        background-color: var(--Primary-Color-8);
+      }
+      &.danger {
+        background-color: var(--Danger-Color-8);
+      }
+      &.warning {
+        background-color: var(--Warning-Color-8);
+      }
+      &.success {
+        background-color: var(--Success-Color-8);
+      }
+      &.information {
+        background-color: var(--Information-Color-8);
+      }
     }
     &:nth-child(9) {
-      background-color: var(--Primary-Color-9);
+      &.primary {
+        background-color: var(--Primary-Color-9);
+      }
+      &.danger {
+        background-color: var(--Danger-Color-9);
+      }
+      &.warning {
+        background-color: var(--Warning-Color-9);
+      }
+      &.success {
+        background-color: var(--Success-Color-9);
+      }
+      &.information {
+        background-color: var(--Information-Color-9);
+      }
     }
     &:nth-child(10) {
-      background-color: var(--Primary-Color-10);
+      &.primary {
+        background-color: var(--Primary-Color-10);
+      }
+      &.danger {
+        background-color: var(--Danger-Color-10);
+      }
+      &.warning {
+        background-color: var(--Warning-Color-10);
+      }
+      &.success {
+        background-color: var(--Success-Color-10);
+      }
+      &.information {
+        background-color: var(--Information-Color-10);
+      }
     }
 
-    &:nth-child(n + 5) span {
+    &:nth-child(n + 6) span {
       color: #fff;
     }
   }
   &.dark {
-    &:nth-child(1) {
-      background-color: var(--Primary-Color-10);
-    }
-    &:nth-child(2) {
-      background-color: var(--Primary-Color-9);
-    }
-    &:nth-child(3) {
-      background-color: var(--Primary-Color-8);
-    }
-    &:nth-child(4) {
-      background-color: var(--Primary-Color-7);
-    }
-    &:nth-child(5) {
-      background-color: var(--Primary-Color-6);
-    }
-    &:nth-child(6) {
-      background-color: var(--Primary-Color-5);
-    }
-    &:nth-child(7) {
-      background-color: var(--Primary-Color-4);
-    }
-    &:nth-child(8) {
-      background-color: var(--Primary-Color-3);
+    &:nth-child(10) {
+      &.primary {
+        background-color: var(--Primary-Color-1);
+      }
+      &.danger {
+        background-color: var(--Danger-Color-1);
+      }
+      &.warning {
+        background-color: var(--Warning-Color-1);
+      }
+      &.success {
+        background-color: var(--Success-Color-1);
+      }
+      &.information {
+        background-color: var(--Information-Color-1);
+      }
     }
     &:nth-child(9) {
-      background-color: var(--Primary-Color-2);
+      &.primary {
+        background-color: var(--Primary-Color-2);
+      }
+      &.danger {
+        background-color: var(--Danger-Color-2);
+      }
+      &.warning {
+        background-color: var(--Warning-Color-2);
+      }
+      &.success {
+        background-color: var(--Success-Color-2);
+      }
+      &.information {
+        background-color: var(--Information-Color-2);
+      }
     }
-    &:nth-child(10) {
-      background-color: var(--Primary-Color-1);
+    &:nth-child(8) {
+      &.primary {
+        background-color: var(--Primary-Color-3);
+      }
+      &.danger {
+        background-color: var(--Danger-Color-3);
+      }
+      &.warning {
+        background-color: var(--Warning-Color-3);
+      }
+      &.success {
+        background-color: var(--Success-Color-3);
+      }
+      &.information {
+        background-color: var(--Information-Color-3);
+      }
+    }
+    &:nth-child(7) {
+      &.primary {
+        background-color: var(--Primary-Color-4);
+      }
+      &.danger {
+        background-color: var(--Danger-Color-4);
+      }
+      &.warning {
+        background-color: var(--Warning-Color-4);
+      }
+      &.success {
+        background-color: var(--Success-Color-4);
+      }
+      &.information {
+        background-color: var(--Information-Color-4);
+      }
+    }
+    &:nth-child(6) {
+      &.primary {
+        background-color: var(--Primary-Color-5);
+      }
+      &.danger {
+        background-color: var(--Danger-Color-5);
+      }
+      &.warning {
+        background-color: var(--Warning-Color-5);
+      }
+      &.success {
+        background-color: var(--Success-Color-5);
+      }
+      &.information {
+        background-color: var(--Information-Color-5);
+      }
+    }
+    &:nth-child(5) {
+      &.primary {
+        background-color: var(--Primary-Color-6);
+      }
+      &.danger {
+        background-color: var(--Danger-Color-6);
+      }
+      &.warning {
+        background-color: var(--Warning-Color-6);
+      }
+      &.success {
+        background-color: var(--Success-Color-6);
+      }
+      &.information {
+        background-color: var(--Information-Color-6);
+      }
+    }
+    &:nth-child(4) {
+      &.primary {
+        background-color: var(--Primary-Color-7);
+      }
+      &.danger {
+        background-color: var(--Danger-Color-7);
+      }
+      &.warning {
+        background-color: var(--Warning-Color-7);
+      }
+      &.success {
+        background-color: var(--Success-Color-7);
+      }
+      &.information {
+        background-color: var(--Information-Color-7);
+      }
+    }
+    &:nth-child(3) {
+      &.primary {
+        background-color: var(--Primary-Color-8);
+      }
+      &.danger {
+        background-color: var(--Danger-Color-8);
+      }
+      &.warning {
+        background-color: var(--Warning-Color-8);
+      }
+      &.success {
+        background-color: var(--Success-Color-8);
+      }
+      &.information {
+        background-color: var(--Information-Color-8);
+      }
+    }
+    &:nth-child(2) {
+      &.primary {
+        background-color: var(--Primary-Color-9);
+      }
+      &.danger {
+        background-color: var(--Danger-Color-9);
+      }
+      &.warning {
+        background-color: var(--Warning-Color-9);
+      }
+      &.success {
+        background-color: var(--Success-Color-9);
+      }
+      &.information {
+        background-color: var(--Information-Color-9);
+      }
+    }
+    &:nth-child(1) {
+      &.primary {
+        background-color: var(--Primary-Color-10);
+      }
+      &.danger {
+        background-color: var(--Danger-Color-10);
+      }
+      &.warning {
+        background-color: var(--Warning-Color-10);
+      }
+      &.success {
+        background-color: var(--Success-Color-10);
+      }
+      &.information {
+        background-color: var(--Information-Color-10);
+      }
     }
 
     &:nth-child(-n + 5) span {
