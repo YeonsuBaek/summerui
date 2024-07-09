@@ -1,3 +1,10 @@
+import {
+  PRIMARY_COLORS,
+  SYSTEM_DANGER_COLORS,
+  SYSTEM_INFORMATION_COLORS,
+  SYSTEM_SUCCESS_COLORS,
+  SYSTEM_WARNING_COLORS,
+} from './ColorList'
 import { DarkColors } from './DarkColorSetList'
 import { LightColors } from './LightColorSetList'
 
@@ -30,8 +37,8 @@ export const PrimaryColor = () => {
       </p>
       <h2>🎨 예시</h2>
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: '16px' }}>
-        <LightColors />
-        <DarkColors />
+        <LightColors list={PRIMARY_COLORS} />
+        <DarkColors list={PRIMARY_COLORS} />
       </div>
       <h2>🛠️ 사용법</h2>
       <p>
@@ -54,6 +61,56 @@ export const PrimaryColor = () => {
         <li>
           <b>5번</b>을 기본으로, Hover 또는 Focus인 경우 6번, Active인 경우 7번, 비활성화인 경우 <b>Gray 2번</b>을
           사용한다.
+        </li>
+      </ul>
+    </>
+  )
+}
+
+export const SystemColor = () => {
+  const exName = `
+  div {
+    background-color: var(--Danger-Color-0);
+    color: var(--Danger-Color-6);
+    border-color: var(--Danger-Color-1);
+  }
+  `
+
+  return (
+    <>
+      <h1>System Color</h1>
+      <p>시스템 상태를 보여줄 때 사용하는 색상이다.</p>
+      <h2>🔴 Danger</h2>
+      <p>오류, 금지, 위험, 삭제, 불가</p>
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '16px' }}>
+        <LightColors list={SYSTEM_DANGER_COLORS} type="danger" />
+        <DarkColors list={SYSTEM_DANGER_COLORS} type="danger" />
+      </div>
+      <h2>🟡 Warning</h2>
+      <p>주의</p>
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '16px' }}>
+        <LightColors list={SYSTEM_WARNING_COLORS} type="warning" />
+        <DarkColors list={SYSTEM_WARNING_COLORS} type="warning" />
+      </div>
+      <h2>🟢 Success</h2>
+      <p>성공, 진행</p>
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '16px' }}>
+        <LightColors list={SYSTEM_SUCCESS_COLORS} type="success" />
+        <DarkColors list={SYSTEM_SUCCESS_COLORS} type="success" />
+      </div>
+      <h2>🔵 Information</h2>
+      <p>정보, 강조</p>
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '16px' }}>
+        <LightColors list={SYSTEM_INFORMATION_COLORS} type="information" />
+        <DarkColors list={SYSTEM_INFORMATION_COLORS} type="information" />
+      </div>
+      <h2>🛠️ 사용법</h2>
+      <p>팔레트 색상을 사용할 땐 변수명을 사용한다.</p>
+      <pre style={{ backgroundColor: '#f0f0f0' }}>{exName}</pre>
+      <h2>✨ 규칙</h2>
+      <ul>
+        <li>
+          <b>5번</b>을 기본으로, 6번은 텍스트, 0번은 배경, 1번은 테두리로 사용한다.
         </li>
       </ul>
     </>
