@@ -16,6 +16,9 @@
       &.information {
         background-color: var(--Information-Color-1);
       }
+      &.neutral {
+        background-color: var(--Gray-Color-0);
+      }
     }
     &:nth-child(2) {
       &.primary {
@@ -32,6 +35,9 @@
       }
       &.information {
         background-color: var(--Information-Color-2);
+      }
+      &.neutral {
+        background-color: var(--Gray-Color-1);
       }
     }
     &:nth-child(3) {
@@ -50,6 +56,9 @@
       &.information {
         background-color: var(--Information-Color-3);
       }
+      &.neutral {
+        background-color: var(--Gray-Color-2);
+      }
     }
     &:nth-child(4) {
       &.primary {
@@ -66,6 +75,9 @@
       }
       &.information {
         background-color: var(--Information-Color-4);
+      }
+      &.neutral {
+        background-color: var(--Gray-Color-3);
       }
     }
     &:nth-child(5) {
@@ -84,6 +96,9 @@
       &.information {
         background-color: var(--Information-Color-5);
       }
+      &.neutral {
+        background-color: var(--Gray-Color-4);
+      }
     }
     &:nth-child(6) {
       &.primary {
@@ -100,6 +115,9 @@
       }
       &.information {
         background-color: var(--Information-Color-6);
+      }
+      &.neutral {
+        background-color: var(--Gray-Color-5);
       }
     }
     &:nth-child(7) {
@@ -118,6 +136,9 @@
       &.information {
         background-color: var(--Information-Color-7);
       }
+      &.neutral {
+        background-color: var(--Gray-Color-6);
+      }
     }
     &:nth-child(8) {
       &.primary {
@@ -135,6 +156,9 @@
       &.information {
         background-color: var(--Information-Color-8);
       }
+      &.neutral {
+        background-color: var(--Gray-Color-7);
+      }
     }
     &:nth-child(9) {
       &.primary {
@@ -151,6 +175,9 @@
       }
       &.information {
         background-color: var(--Information-Color-9);
+      }
+      &.neutral {
+        background-color: var(--Gray-Color-8);
       }
     }
     &:nth-child(10) {
@@ -169,6 +196,19 @@
       &.information {
         background-color: var(--Information-Color-10);
       }
+      &.neutral {
+        background-color: var(--Gray-Color-9);
+      }
+    }
+    &:nth-child(11) {
+      &.neutral {
+        background-color: var(--Gray-Color-10);
+      }
+    }
+    &:nth-child(12) {
+      &.neutral {
+        background-color: var(--Gray-Color-10);
+      }
     }
 
     &:nth-child(n + 6) span {
@@ -176,6 +216,16 @@
     }
   }
   &.dark {
+    &:nth-child(12) {
+      &.neutral {
+        background-color: var(--Gray-Color-0);
+      }
+    }
+    &:nth-child(11) {
+      &.neutral {
+        background-color: var(--Gray-Color-1);
+      }
+    }
     &:nth-child(10) {
       &.primary {
         background-color: var(--Primary-Color-1);
@@ -191,6 +241,9 @@
       }
       &.information {
         background-color: var(--Information-Color-1);
+      }
+      &.neutral {
+        background-color: var(--Gray-Color-2);
       }
     }
     &:nth-child(9) {
@@ -209,6 +262,9 @@
       &.information {
         background-color: var(--Information-Color-2);
       }
+      &.neutral {
+        background-color: var(--Gray-Color-3);
+      }
     }
     &:nth-child(8) {
       &.primary {
@@ -225,6 +281,9 @@
       }
       &.information {
         background-color: var(--Information-Color-3);
+      }
+      &.neutral {
+        background-color: var(--Gray-Color-4);
       }
     }
     &:nth-child(7) {
@@ -243,6 +302,9 @@
       &.information {
         background-color: var(--Information-Color-4);
       }
+      &.neutral {
+        background-color: var(--Gray-Color-5);
+      }
     }
     &:nth-child(6) {
       &.primary {
@@ -259,6 +321,9 @@
       }
       &.information {
         background-color: var(--Information-Color-5);
+      }
+      &.neutral {
+        background-color: var(--Gray-Color-6);
       }
     }
     &:nth-child(5) {
@@ -277,6 +342,9 @@
       &.information {
         background-color: var(--Information-Color-6);
       }
+      &.neutral {
+        background-color: var(--Gray-Color-7);
+      }
     }
     &:nth-child(4) {
       &.primary {
@@ -293,6 +361,9 @@
       }
       &.information {
         background-color: var(--Information-Color-7);
+      }
+      &.neutral {
+        background-color: var(--Gray-Color-8);
       }
     }
     &:nth-child(3) {
@@ -311,6 +382,9 @@
       &.information {
         background-color: var(--Information-Color-8);
       }
+      &.neutral {
+        background-color: var(--Gray-Color-9);
+      }
     }
     &:nth-child(2) {
       &.primary {
@@ -327,6 +401,9 @@
       }
       &.information {
         background-color: var(--Information-Color-9);
+      }
+      &.neutral {
+        background-color: var(--Gray-Color-10);
       }
     }
     &:nth-child(1) {
@@ -344,6 +421,9 @@
       }
       &.information {
         background-color: var(--Information-Color-10);
+      }
+      &.neutral {
+        background-color: var(--Gray-Color-100);
       }
     }
 

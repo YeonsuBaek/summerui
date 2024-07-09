@@ -166,3 +166,42 @@ export const SYSTEM_INFORMATION_COLORS: ColorType[] = [
     name: 'Information-Color-10',
   },
 ]
+
+export const NEUTRAL_COLORS: ColorType[] = [
+  {
+    name: 'Gray-Color-0',
+  },
+  {
+    name: 'Gray-Color-1',
+  },
+  {
+    name: 'Gray-Color-2',
+  },
+  {
+    name: 'Gray-Color-3',
+  },
+  {
+    name: 'Gray-Color-4',
+  },
+  {
+    name: 'Gray-Color-5',
+  },
+  {
+    name: 'Gray-Color-6',
+  },
+  {
+    name: 'Gray-Color-7',
+  },
+  {
+    name: 'Gray-Color-8',
+  },
+  {
+    name: 'Gray-Color-9',
+  },
+  {
+    name: 'Gray-Color-10',
+  },
+  {
+    name: 'Gray-Color-100',
+  },
+]

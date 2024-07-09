@@ -3,7 +3,7 @@ import { ColorType } from './ColorList'
 
 interface DarkColorsProps {
   list: ColorType[]
-  type?: 'primary' | 'danger' | 'warning' | 'success' | 'information'
+  type?: 'primary' | 'danger' | 'warning' | 'success' | 'information' | 'neutral'
 }
 
 const DarkColors = ({ list, type = 'primary' }: DarkColorsProps) => {

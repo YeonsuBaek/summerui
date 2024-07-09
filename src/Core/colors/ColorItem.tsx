@@ -1,7 +1,7 @@
 interface ColorItemProps {
   name: string
   mode?: 'light' | 'dark'
-  type?: 'primary' | 'danger' | 'warning' | 'success' | 'information'
+  type?: 'primary' | 'danger' | 'warning' | 'success' | 'information' | 'neutral'
 }
 
 const ColorItem = ({ name, mode = 'light', type = 'primary' }: ColorItemProps) => {
