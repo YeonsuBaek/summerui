@@ -17,6 +17,8 @@
     --Primary-Color-8: hsl(var(--primary-color), 30%);
     --Primary-Color-9: hsl(var(--primary-color), 20%);
     --Primary-Color-10: hsl(var(--primary-color), 10%);
+
+    background-color: var(--Gray-Color-0);
   }
 
   .theme-dark {
@@ -34,5 +36,20 @@
     --Primary-Color-8: hsl(var(--primary-color), 80%);
     --Primary-Color-9: hsl(var(--primary-color), 90%);
     --Primary-Color-10: hsl(var(--primary-color), 95%);
+
+    background-color: var(--Gray-Color-1);
+  }
+
+  body {
+    color: var(--Gray-Color-8);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: var(--Gray-Color-10);
   }
 }
