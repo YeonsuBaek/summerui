@@ -34,6 +34,7 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "chromatic": "npx chromatic --project-token=chpt_04539ffcd0313cb",
+    "icon": "cd src/assets/icon && sh generate-icon.sh",
     "prettier": "prettier --write ."
   },
   "eslintConfig": {
