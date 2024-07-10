@@ -1,0 +1,27 @@
+.core-font {
+  .storybook-example > * {
+    margin: 0;
+  }
+
+  &-display-1 {
+    font: var(--Display-Font-1);
+  }
+  &-display-2 {
+    font: var(--Display-Font-2);
+  }
+  &-body-2 {
+    font: var(--Body-Font-2);
+  }
+  &-detail-1 {
+    font: var(--Detail-Font-1);
+  }
+  &-detail-2 {
+    font: var(--Detail-Font-2);
+  }
+  &-micro-1 {
+    font: var(--Micro-Font-1);
+  }
+  &-micro-2 {
+    font: var(--Micro-Font-2);
+  }
+}

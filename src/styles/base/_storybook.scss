@@ -1,0 +1,21 @@
+.storybook {
+  &-example {
+    padding: 16px;
+    background-color: var(--Gray-Color-2);
+    border-radius: 8px;
+  }
+
+  pre {
+    background-color: var(--Gray-Color-2);
+    border-radius: 8px;
+    font-family: 'Courier New', Courier, monospace;
+  }
+
+  span {
+    padding: 2px 4px;
+    background-color: var(--Gray-Color-2);
+    border-radius: 4px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px;
+  }
+}

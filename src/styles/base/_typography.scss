@@ -1,0 +1,40 @@
+:root {
+  --Display-Font-1: 700 #{$display-1-size}/#{$display-1-leading} #{$font-family};
+  --Display-Font-2: 700 #{$display-2-size}/#{$display-2-leading} #{$font-family};
+  --Title-Font-1: 700 #{$title-1-size}/#{$title-1-leading} #{$font-family};
+  --Title-Font-2: 700 #{$title-2-size}/#{$title-2-leading} #{$font-family};
+  --Title-Font-3: 700 #{$title-3-size}/#{$title-3-leading} #{$font-family};
+  --Heading-Font-1: 700 #{$heading-1-size}/#{$heading-1-leading} #{$font-family};
+  --Heading-Font-2: 700 #{$heading-2-size}/#{$heading-2-leading} #{$font-family};
+  --Heading-Font-3: 700 #{$heading-3-size}/#{$heading-3-leading} #{$font-family};
+  --Body-Font-1: 400 #{$body-size}/#{$body-leading} #{$font-family};
+  --Body-Font-2: 500 #{$body-size}/#{$body-leading} #{$font-family};
+  --Body-Font-3: 700 #{$body-size}/#{$body-leading} #{$font-family};
+  --Detail-Font-1: 400 #{$detail-size}/#{$detail-leading} #{$font-family};
+  --Detail-Font-2: 700 #{$detail-size}/#{$detail-leading} #{$font-family};
+  --Micro-Font-1: 400 #{$micro-size}/#{$micro-leading} #{$font-family};
+  --Micro-Font-2: 700 #{$micro-size}/#{$micro-leading} #{$font-family};
+}
+
+body {
+  font: var(--Body-Font-1);
+}
+
+h1 {
+  font: var(--Title-Font-1);
+}
+h2 {
+  font: var(--Title-Font-2);
+}
+h3 {
+  font: var(--Title-Font-3);
+}
+h4 {
+  font: var(--Heading-Font-1);
+}
+h5 {
+  font: var(--Heading-Font-2);
+}
+h6 {
+  font: var(--Heading-Font-3);
+}
