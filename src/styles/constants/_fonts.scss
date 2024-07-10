@@ -1,0 +1,55 @@
+$font-family:
+  'Pretendard Variable',
+  Pretendard,
+  -apple-system,
+  BlinkMacSystemFont,
+  system-ui,
+  Roboto,
+  'Helvetica Neue',
+  'Segoe UI',
+  'Apple SD Gothic Neo',
+  'Noto Sans KR',
+  'Malgun Gothic',
+  'Apple Color Emoji',
+  'Segoe UI Emoji',
+  'Segoe UI Symbol',
+  sans-serif;
+
+// display
+$display-1-size: toRem(56);
+$display-1-leading: toRem(72);
+
+$display-2-size: toRem(40);
+$display-2-leading: toRem(52);
+
+// title
+$title-1-size: toRem(36);
+$title-1-leading: toRem(48);
+
+$title-2-size: toRem(28);
+$title-2-leading: toRem(38);
+
+$title-3-size: toRem(24);
+$title-3-leading: toRem(32);
+
+// heading
+$heading-1-size: toRem(22);
+$heading-1-leading: toRem(30);
+
+$heading-2-size: toRem(20);
+$heading-2-leading: toRem(28);
+
+$heading-3-size: toRem(18);
+$heading-3-leading: toRem(26);
+
+// body
+$body-size: toRem(16);
+$body-leading: toRem(24);
+
+// detail
+$detail-size: toRem(14);
+$detail-leading: toRem(20);
+
+// micro
+$micro-size: toRem(12);
+$micro-leading: toRem(16);
