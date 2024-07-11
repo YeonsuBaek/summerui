@@ -19,5 +19,5 @@ fs.writeFile(path.join(defaultPath, 'index.tsx'), generatedCodes.join('\n'), (er
     throw error
   }
 
-  console.log('export.generated.ts has been saved!')
+  console.log('Saved successfully🎉')
 })
