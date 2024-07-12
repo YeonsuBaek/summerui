@@ -1,0 +1,58 @@
+import { Meta, Canvas } from '@storybook/addon-docs'
+import * as TypographyStories from './Typography.stories'
+
+<Meta title="Core/Typography" />
+
+# Typography
+
+다양한 상황에 맞도록 일관성 있게 텍스트를 표시한다.  
+글꼴은 [프리텐다드](https://github.com/orioncactus/pretendard)를 사용하며, 반응형을 대비하기 위해 폰트 규격은 **rem** 값을 사용한다.
+
+## 예시
+
+### 1. Display
+
+<Canvas of={TypographyStories.Display} />
+
+### 2. Title
+
+<Canvas of={TypographyStories.Title} />
+
+### 3. Heading
+
+<Canvas of={TypographyStories.Heading} />
+
+### 4. Body
+
+<Canvas of={TypographyStories.Body} />
+
+### 5. Detail
+
+<Canvas of={TypographyStories.Detail} />
+
+### 6. Micro
+
+<Canvas of={TypographyStories.Micro} />
+
+## 🛠️ 사용법
+
+기본 폰트 스타일은 **Body-Font-1**이다.  
+**h1~h3**은 각각 `Title-Font-1`~`Title-Font-3`,
+**h4~h6**은 각각 `Heading-Font-4`~`Heading-Font-6`
+스타일을 갖는다.  
+폰트 스타일을 사용할 땐 변수명을 사용한다.
+
+```css
+.text {
+  font: var(--Detail-Font-2);
+}
+```
+
+## ✨ 규칙
+
+- Display는 주로 마케팅 용도로 사용한다.
+- Title은 페이지 단위 타이틀에 사용한다.
+- Heading은 템플릿 단위, 기능 강조, 본문 상위에 내용을 강조할 때 사용한다.
+- Body는 본문 텍스트로 사용한다.
+- Detail은 추가 정보나 서브 항목 텍스트로 사용한다.
+- Micro는 부가적인 내용을 나타낼 때 사용한다.
