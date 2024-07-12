@@ -18,4 +18,56 @@
     font-family: 'Courier New', Courier, monospace;
     font-size: 14px;
   }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  tr {
+    border-bottom: 1px solid var(--Gray-Color-4);
+    &:last-child {
+      border: 0;
+    }
+  }
+  th {
+    font: var(--Detail-Font-2);
+    padding: 8px;
+    color: var(--Gray-Color-7);
+    text-align: left;
+    &:is(:first-child, :last-child) {
+      width: 25%;
+    }
+  }
+  td:first-child {
+    padding: 8px 0 8px 16px;
+  }
+  td:last-child {
+    padding: 8px 16px 8px 0;
+  }
+  tbody {
+    border: 1px solid var(--Gray-Color-4);
+    border-radius: 8px;
+    vertical-align: top;
+  }
+
+  &-icon {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+  }
+}
+
+.icon-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+  height: 120px;
+  list-style-type: none;
+  font: var(--Micro-Font-1);
+  word-break: break-all;
+  gap: 8px;
 }
