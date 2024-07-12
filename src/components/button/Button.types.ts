@@ -6,7 +6,7 @@ export type ButtonStyle = 'filled' | 'outlined' | 'ghost' | 'icon'
 type ButtonFilledVariant = 'primary'
 type ButtonOutlinedVariant = 'primary' | 'secondary' | 'tertiary'
 type ButtonGhostVariant = 'primary' | 'secondary'
-type ButtonIconVariant = 'primary' | 'secondary' | 'filled' | 'outlined' | 'background'
+type ButtonIconVariant = 'primary' | 'secondary' | 'filled' | 'outlined'
 
 type ButtonSize = 'small' | 'medium' | 'large'
 
