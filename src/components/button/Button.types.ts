@@ -1,4 +1,5 @@
-import { HTMLAttributes, ReactNode } from 'react'
+import { ComponentType, HTMLAttributes, ReactNode } from 'react'
+import { IconProps } from '../../assets/icon/icon.types'
 
 export type ButtonStyle = 'filled' | 'outlined' | 'ghost' | 'icon'
 
@@ -26,4 +27,6 @@ export interface ButtonProps<Style extends ButtonStyle> extends HTMLAttributes<H
   size?: ButtonSize
   type?: 'button' | 'submit' | 'reset'
   disabled?: boolean
+  StartIcon?: ComponentType<IconProps>
+  EndIcon?: ComponentType<IconProps>
 }

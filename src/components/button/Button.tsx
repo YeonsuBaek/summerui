@@ -7,6 +7,8 @@ export const Button = <Style extends ButtonStyle>({
   size = 'medium',
   type = 'button',
   disabled = false,
+  StartIcon,
+  EndIcon,
   ...props
 }: ButtonProps<Style>) => {
   return (
@@ -16,7 +18,9 @@ export const Button = <Style extends ButtonStyle>({
       disabled={disabled}
       {...props}
     >
+      {StartIcon && <StartIcon size={size === 'small' ? 20 : 24} className="ui-button-icon start" />}
       {children}
+      {EndIcon && <EndIcon size={size === 'small' ? 20 : 24} className="ui-button-icon end" />}
     </button>
   )
 }
