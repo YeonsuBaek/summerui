@@ -1,0 +1,262 @@
+:root {
+  .theme-light {
+    --Button-Text-Color: var(--Gray-Color-0);
+  }
+  .theme-dark {
+    --Button-Text-Color: var(--Gray-Color-100);
+  }
+}
+
+.ui-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-color: transparent;
+  outline-color: var(--Primary-Color-8);
+  cursor: pointer;
+
+  &:disabled {
+    cursor: default;
+  }
+
+  &-icon {
+    &.start {
+      margin-right: 4px;
+    }
+    &.end {
+      margin-left: 4px;
+    }
+  }
+
+  // SIZE
+  &.small {
+    height: 32px;
+    padding: 0 12px;
+    border-radius: 4px;
+    font: var(--Detail-Font-2);
+  }
+  &.medium {
+    height: 40px;
+    padding: 0 12px;
+    border-radius: 8px;
+    font: var(--Body-Font-3);
+  }
+  &.large {
+    height: 48px;
+    padding: 0 16px;
+    border-radius: 10px;
+    font: var(--Heading-Font-3);
+  }
+
+  // STYLE
+  &.filled.primary {
+    color: var(--Button-Text-Color);
+    background-color: var(--Primary-Color-5);
+
+    &:is(:hover, :focus) {
+      background-color: var(--Primary-Color-6);
+    }
+    &:active {
+      background-color: var(--Primary-Color-7);
+    }
+    .ui-button-icon path {
+      fill: var(--Button-Text-Color);
+    }
+    &:disabled {
+      color: var(--Gray-Color-5);
+      background-color: var(--Gray-Color-2);
+
+      .ui-button-icon path {
+        fill: var(--Gray-Color-5);
+      }
+    }
+  }
+
+  &.outlined {
+    background-color: transparent;
+
+    &.primary {
+      color: var(--Primary-Color-5);
+      border: 1px solid var(--Primary-Color-5);
+      &:is(:hover, :focus) {
+        background-color: var(--Primary-Color-1);
+      }
+      &:active {
+        background-color: var(--Primary-Color-2);
+      }
+      .ui-button-icon path {
+        fill: var(--Primary-Color-5);
+      }
+    }
+    &.secondary {
+      color: var(--Primary-Color-5);
+      border: 1px solid var(--Gray-Color-4);
+      &:is(:hover, :focus) {
+        background-color: var(--Gray-Color-1);
+      }
+      &:active {
+        background-color: var(--Gray-Color-2);
+      }
+      .ui-button-icon path {
+        fill: var(--Primary-Color-5);
+      }
+    }
+    &.tertiary {
+      color: var(--Gray-Color-8);
+      border: 1px solid var(--Gray-Color-4);
+      &:is(:hover, :focus) {
+        background-color: var(--Gray-Color-1);
+      }
+      &:active {
+        background-color: var(--Gray-Color-2);
+      }
+      .ui-button-icon path {
+        fill: var(--Gray-Color-8);
+      }
+    }
+    &:disabled,
+    &:is(:hover, :focus, :active):disabled {
+      color: var(--Gray-Color-4);
+      background-color: transparent;
+      border-color: var(--Gray-Color-4);
+
+      .ui-button-icon path {
+        fill: var(--Gray-Color-4);
+      }
+    }
+  }
+
+  &.ghost {
+    background-color: transparent;
+
+    &.primary {
+      color: var(--Primary-Color-5);
+      &:is(:hover, :focus) {
+        background-color: var(--Primary-Color-1);
+      }
+      &:active {
+        background-color: var(--Primary-Color-2);
+      }
+      .ui-button-icon path {
+        fill: var(--Primary-Color-5);
+      }
+    }
+    &.secondary {
+      color: var(--Gray-Color-8);
+      &:is(:hover, :focus) {
+        background-color: var(--Gray-Color-1);
+      }
+      &:active {
+        background-color: var(--Gray-Color-2);
+      }
+      .ui-button-icon path {
+        fill: var(--Gray-Color-8);
+      }
+    }
+    &:disabled,
+    &:is(:hover, :focus, :active):disabled {
+      color: var(--Gray-Color-4);
+      background-color: transparent;
+
+      .ui-button-icon path {
+        fill: var(--Gray-Color-4);
+      }
+    }
+  }
+
+  &.icon {
+    border-radius: 100px;
+    aspect-ratio: 1/1;
+
+    &.small {
+      padding: 4px;
+    }
+    &.medium {
+      padding: 4px;
+      svg {
+        width: 24px;
+        height: 24px;
+      }
+    }
+    &.large {
+      padding: 8px;
+      svg {
+        width: 32px;
+        height: 32px;
+      }
+    }
+
+    &.primary {
+      background-color: transparent;
+      path {
+        fill: var(--Primary-Color-5);
+      }
+      &:is(:hover, :focus) {
+        background-color: var(--Primary-Color-1);
+      }
+      &:active {
+        background-color: var(--Primary-Color-2);
+      }
+    }
+    &.secondary {
+      background-color: transparent;
+      path {
+        fill: var(--Gray-Color-8);
+      }
+      &:is(:hover, :focus) {
+        background-color: var(--Gray-Color-1);
+      }
+      &:active {
+        background-color: var(--Gray-Color-2);
+      }
+    }
+    &:is(.primary, .secondary):disabled,
+    &:is(.primary, .secondary):is(:hover, :focus, :active):disabled {
+      background-color: transparent;
+      path {
+        fill: var(--Gray-Color-4);
+      }
+    }
+    &.filled {
+      background-color: var(--Primary-Color-5);
+      path {
+        fill: var(--Button-Text-Color);
+      }
+      &:is(:hover, :focus) {
+        background-color: var(--Primary-Color-6);
+      }
+      &:active {
+        background-color: var(--Primary-Color-7);
+      }
+      &:disabled,
+      &:is(:hover, :focus, :active):disabled {
+        background-color: var(--Gray-Color-2);
+        path {
+          fill: var(--Gray-Color-5);
+        }
+      }
+    }
+    &.outlined {
+      background-color: transparent;
+      border: 1px solid var(--Primary-Color-5);
+      path {
+        fill: var(--Primary-Color-5);
+      }
+      &:is(:hover, :focus) {
+        background-color: var(--Primary-Color-1);
+      }
+      &:active {
+        background-color: var(--Primary-Color-2);
+      }
+      &:disabled,
+      &:is(:hover, :focus, :active):disabled {
+        background-color: transparent;
+        border-color: var(--Gray-Color-4);
+        path {
+          fill: var(--Gray-Color-4);
+        }
+      }
+    }
+  }
+}
