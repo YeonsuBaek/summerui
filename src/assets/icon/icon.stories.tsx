@@ -1,4 +1,20 @@
 import { BirdIcon, CatIcon, FlowerIcon, MoonStarsIcon, PlanetIcon, SunIcon } from '.'
+import {
+  arrowIcons,
+  commerceIcons,
+  communicationIcons,
+  designIcons,
+  educationIcons,
+  gameIcons,
+  mathIcons,
+  mediaIcons,
+  natureIcons,
+  officeIcons,
+  securityIcons,
+  systemIcons,
+  timeIcons,
+  travelIcons,
+} from './IconSet'
 
 const meta = {
   title: 'Assets/Icon',
@@ -56,6 +72,231 @@ export const Icon = () => {
         </tbody>
       </table>
       <pre>{exIcon}</pre>
+    </div>
+  )
+}
+
+export const Arrow = () => {
+  return (
+    <div className="storybook-icon">
+      {Object.entries(arrowIcons).map(([name, Component]) => {
+        return (
+          <div className="icon-item">
+            <Component />
+            <span>{name}</span>
+          </div>
+        )
+      })}
+    </div>
+  )
+}
+
+export const System = () => {
+  return (
+    <div className="storybook-icon">
+      {Object.entries(systemIcons)
+        .sort()
+        .map(([name, Component]) => {
+          return (
+            <div className="icon-item">
+              <Component />
+              <span>{name}</span>
+            </div>
+          )
+        })}
+    </div>
+  )
+}
+
+export const Media = () => {
+  return (
+    <div className="storybook-icon">
+      {Object.entries(mediaIcons).map(([name, Component]) => {
+        return (
+          <div className="icon-item">
+            <Component />
+            <span>{name}</span>
+          </div>
+        )
+      })}
+    </div>
+  )
+}
+
+export const Communication = () => {
+  return (
+    <div className="storybook-icon">
+      {Object.entries(communicationIcons).map(([name, Component]) => {
+        return (
+          <div className="icon-item">
+            <Component />
+            <span>{name}</span>
+          </div>
+        )
+      })}
+    </div>
+  )
+}
+
+export const Design = () => {
+  return (
+    <div className="storybook-icon">
+      {Object.entries(designIcons)
+        .sort()
+        .map(([name, Component]) => {
+          return (
+            <div className="icon-item">
+              <Component />
+              <span>{name}</span>
+            </div>
+          )
+        })}
+    </div>
+  )
+}
+
+export const Education = () => {
+  return (
+    <div className="storybook-icon">
+      {Object.entries(educationIcons)
+        .sort()
+        .map(([name, Component]) => {
+          return (
+            <div className="icon-item">
+              <Component />
+              <span>{name}</span>
+            </div>
+          )
+        })}
+    </div>
+  )
+}
+
+export const Travel = () => {
+  return (
+    <div className="storybook-icon">
+      {Object.entries(travelIcons)
+        .sort()
+        .map(([name, Component]) => {
+          return (
+            <div className="icon-item">
+              <Component />
+              <span>{name}</span>
+            </div>
+          )
+        })}
+    </div>
+  )
+}
+
+export const Office = () => {
+  return (
+    <div className="storybook-icon">
+      {Object.entries(officeIcons)
+        .sort()
+        .map(([name, Component]) => {
+          return (
+            <div className="icon-item">
+              <Component />
+              <span>{name}</span>
+            </div>
+          )
+        })}
+    </div>
+  )
+}
+
+export const Security = () => {
+  return (
+    <div className="storybook-icon">
+      {Object.entries(securityIcons).map(([name, Component]) => {
+        return (
+          <div className="icon-item">
+            <Component />
+            <span>{name}</span>
+          </div>
+        )
+      })}
+    </div>
+  )
+}
+export const Time = () => {
+  return (
+    <div className="storybook-icon">
+      {Object.entries(timeIcons).map(([name, Component]) => {
+        return (
+          <div className="icon-item">
+            <Component />
+            <span>{name}</span>
+          </div>
+        )
+      })}
+    </div>
+  )
+}
+
+export const Nature = () => {
+  return (
+    <div className="storybook-icon">
+      {Object.entries(natureIcons)
+        .sort()
+        .map(([name, Component]) => {
+          return (
+            <div className="icon-item">
+              <Component />
+              <span>{name}</span>
+            </div>
+          )
+        })}
+    </div>
+  )
+}
+
+export const Commerce = () => {
+  return (
+    <div className="storybook-icon">
+      {Object.entries(commerceIcons)
+        .sort()
+        .map(([name, Component]) => {
+          return (
+            <div className="icon-item">
+              <Component />
+              <span>{name}</span>
+            </div>
+          )
+        })}
+    </div>
+  )
+}
+
+export const Game = () => {
+  return (
+    <div className="storybook-icon">
+      {Object.entries(gameIcons)
+        .sort()
+        .map(([name, Component]) => {
+          return (
+            <div className="icon-item">
+              <Component />
+              <span>{name}</span>
+            </div>
+          )
+        })}
+    </div>
+  )
+}
+
+export const Math = () => {
+  return (
+    <div className="storybook-icon">
+      {Object.entries(mathIcons).map(([name, Component]) => {
+        return (
+          <div className="icon-item">
+            <Component />
+            <span>{name}</span>
+          </div>
+        )
+      })}
     </div>
   )
 }
