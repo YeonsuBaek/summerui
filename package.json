@@ -1,10 +1,14 @@
 {
   "name": "@yeonsubaek/yeonsui",
-  "version": "1.0.0",
-  "description": "UI library for frontend developers",
-  "main": "dist/index.umd.cjs",
+  "version": "2.0.0",
+  "description": "UI library for REACT developers",
+  "main": "dist/index.js",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/YeonsuBaek/yeonsui"
+  },
   "dependencies": {
     "@babel/runtime": "^7.23.7",
     "@babel/runtime-corejs3": "^7.23.7",
@@ -26,7 +30,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "prepare": "babel src --out-dir dist --copy-files --extensions \".ts,.tsx\" && tsc",
+    "prepare": "rm -rf dist && mkdir dist && tsc",
     "test": "react-scripts test --watchAll=false",
     "test:v": "react-scripts test --coverage --watchAll=false",
     "eject": "react-scripts eject",
@@ -81,13 +85,13 @@
     "webpack": "^5.89.0",
     "prettier": "^2.3.2"
   },
-  "readme": "ERROR: No README data found!",
-  "_id": "@yeonsubaek/yeonsui@1.0.0",
   "prettier": {
     "printWidth": 120,
     "tabWidth": 2,
     "useTabs": false,
     "semi": false,
     "singleQuote": true
-  }
+  },
+  "readme": "ERROR: No README data found!",
+  "_id": "yeonsui@2.0.0"
 }
