@@ -1,4 +1,3 @@
-import { SVGAttributes } from 'react'
 import {
   AddressBookIcon,
   AirplaneIcon,
@@ -388,11 +387,7 @@ import {
 } from '.'
 import { NumberCircleTwo } from './generated/NumberCircleTwo'
 import { NumberCircleZero } from './generated/NumberCircleZero'
-
-interface IconProps extends SVGAttributes<SVGElement> {
-  size?: 12 | 16 | 20 | 24 | 32 | 40
-  fillColor?: string
-}
+import { IconProps } from './icon.types'
 
 export const arrowIcons: { [key: string]: React.ComponentType<IconProps> } = {
   ArrowCounterClockwise: ArrowCounterClockwiseIcon,
