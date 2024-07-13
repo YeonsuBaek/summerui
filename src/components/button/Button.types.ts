@@ -29,4 +29,5 @@ export interface ButtonProps<Style extends ButtonStyle> extends HTMLAttributes<H
   disabled?: boolean
   StartIcon?: ComponentType<IconProps>
   EndIcon?: ComponentType<IconProps>
+  onClick?: () => void
 }

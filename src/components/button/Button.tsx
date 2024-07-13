@@ -9,6 +9,7 @@ export const Button = <Style extends ButtonStyle>({
   disabled = false,
   StartIcon,
   EndIcon,
+  onClick = () => {},
   ...props
 }: ButtonProps<Style>) => {
   const hasStartIcon = StartIcon && styleType !== 'icon'
@@ -20,6 +21,7 @@ export const Button = <Style extends ButtonStyle>({
     <button
       type={type}
       className={`ui-button ${styleType} ${variant} ${size} ${props.className}`}
+      onClick={onClick}
       disabled={disabled}
       {...props}
     >
