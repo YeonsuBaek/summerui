@@ -1,0 +1,38 @@
+import { ArgTypes, Canvas, Meta, Story, withSource } from '@storybook/addon-docs'
+import * as ButtonStories from './Button.stories'
+import { Button, ButtonProps } from '.'
+
+<Meta of={ButtonStories} component={Button} />
+
+# Button
+
+사용자에게 행동을 유도하고 결과를 예측할 수 있도록 한다.
+
+## 예시
+
+### 1. StyleType
+
+<Canvas of={ButtonStories.StyleTypeButton} />
+
+### 2. Variant
+
+<Canvas of={ButtonStories.FilledVariantButton} />
+<Canvas of={ButtonStories.OutlinedVariantButton} />
+<Canvas of={ButtonStories.GhostVariantButton} />
+<Canvas of={ButtonStories.IconVariantButton} />
+
+### 3. Size
+
+<Canvas of={ButtonStories.ButtonOfSizes} />
+
+### 4. Icons
+
+<Canvas of={ButtonStories.ButtonWithIcons} />
+
+### 5. onClick event
+
+<Canvas of={ButtonStories.ButtonWithClickEvent} />
+
+## API
+
+<ArgTypes of={ButtonStories} />
