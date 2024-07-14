@@ -1,12 +1,12 @@
 type TextFieldSize = 'small' | 'medium' | 'large'
 export type TextFieldType = 'text' | 'email' | 'number' | 'password'
-export type TextFieldValue<Type> = Type extends 'number' ? 'number' : 'string'
+export type TextFieldValue<Type extends TextFieldType> = Type extends 'number' ? number : string
 
 export interface TextFieldProps<Type extends TextFieldType> {
   id: string
   value: TextFieldValue<Type>
-  onChange?: (val: TextFieldValue<Type> | string) => void
-  type?: Type | 'text'
+  onChange?: (val: TextFieldValue<Type>) => void
+  type?: Type
   size?: TextFieldSize
   placeholder?: string
   label?: string

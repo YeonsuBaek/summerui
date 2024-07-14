@@ -1,12 +1,12 @@
-import { TextFieldProps, TextFieldType } from './TextField.types'
+import { TextFieldProps, TextFieldType, TextFieldValue } from './TextField.types'
 import { useRef, useEffect, ChangeEvent } from 'react'
 
-export const TextField = <Type extends TextFieldType>({
+export const TextField = <Type extends TextFieldType = 'text'>({
   id,
   value,
   onChange = () => {},
   size = 'medium',
-  type = 'text',
+  type,
   placeholder = '',
   label = '',
   helperText = '',
@@ -16,8 +16,9 @@ export const TextField = <Type extends TextFieldType>({
   readOnly = false,
   disabled = false,
 }: TextFieldProps<Type>) => {
-  const inputRef = useRef(null)
+  const inputRef = useRef<HTMLInputElement>(null)
 
+  const inputType = type || 'text'
   const isDisabled = disabled || readOnly
 
   const hasHelperText = isError ? !errorText : helperText
@@ -25,7 +26,7 @@ export const TextField = <Type extends TextFieldType>({
 
   useEffect(() => {
     if (autoFocus && inputRef.current) {
-      const current = inputRef.current as HTMLElement
+      const current = inputRef.current
       current.focus()
     }
   }, [autoFocus])
@@ -45,7 +46,7 @@ export const TextField = <Type extends TextFieldType>({
         <input
           id={id}
           value={value}
-          onChange={(e: ChangeEvent<HTMLInputElement>) => onChange(e.target.value)}
+          onChange={(e: ChangeEvent<HTMLInputElement>) => onChange(e.target.value as TextFieldValue<Type>)}
           type={type}
           placeholder={placeholder}
           disabled={isDisabled}
