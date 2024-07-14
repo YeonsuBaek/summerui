@@ -93,9 +93,12 @@ $textfield-font: (
       &::placeholder {
         color: var(--Gray-Color-4);
       }
-
       &:focus {
         outline: 0;
+      }
+      &:-webkit-autofill {
+        -webkit-box-shadow: 0 0 0 1000px white inset;
+        box-shadow: 0 0 0 1000px white inset;
       }
     }
 
