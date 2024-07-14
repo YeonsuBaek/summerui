@@ -30,7 +30,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "prepare": "rm -rf dist && mkdir dist && tsc",
+    "prepare": "rm -rf dist && mkdir dist && tsc  && cp -r src/index.css dist/",
     "test": "react-scripts test --watchAll=false",
     "test:v": "react-scripts test --coverage --watchAll=false",
     "eject": "react-scripts eject",
@@ -39,7 +39,8 @@
     "build-storybook": "storybook build",
     "chromatic": "npx chromatic --project-token=chpt_04539ffcd0313cb",
     "icon": "cd src/assets/icon && sh generate-icon.sh",
-    "prettier": "prettier --write ."
+    "prettier": "prettier --write .",
+    "sass": "sass --watch src/styles/index.scss src/index.css"
   },
   "eslintConfig": {
     "extends": [
