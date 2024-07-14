@@ -4,9 +4,9 @@ export type TextFieldValue<Type> = Type extends 'number' ? 'number' : 'string'
 
 export interface TextFieldProps<Type extends TextFieldType> {
   id: string
-  type: Type | 'text'
   value: TextFieldValue<Type>
   onChange?: (val: TextFieldValue<Type> | string) => void
+  type?: Type | 'text'
   size?: TextFieldSize
   placeholder?: string
   label?: string
