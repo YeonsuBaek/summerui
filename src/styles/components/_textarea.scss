@@ -56,7 +56,7 @@ $textarea-font: (
   &-info {
     margin: 0 4px;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     font: var(--Micro-Font-1);
 
     .value-length {
@@ -69,7 +69,7 @@ $textarea-font: (
 
   &-msg {
     width: 90%;
-    margin: 0;
+    margin: 0 auto 0 0;
     &.error {
       color: var(--Danger-Color-5);
     }
