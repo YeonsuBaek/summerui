@@ -1,0 +1,129 @@
+:root {
+  .theme-light {
+    --TextField-Background-Color: var(--Gray-Color-0);
+  }
+  .theme-dark {
+    --TextField-Background-Color: var(--Gray-Color-1);
+  }
+}
+
+$textarea-height: (
+  sm: 64px,
+  md: 96px,
+);
+
+$textarea-border-radius: (
+  sm: $border-radius-sm,
+  md: $border-radius-md,
+);
+
+$textarea-padding-tb: (
+  sm: 6px,
+  md: 12px,
+);
+
+$textarea-padding-lr: (
+  sm: 8px,
+  md: 16px,
+);
+
+$textarea-font: (
+  sm: var(--Detail-Font-1),
+  md: var(--Body-Font-1),
+);
+
+@mixin textAreaOfSize($size) {
+  border-radius: #{map-get($textarea-border-radius, $size)};
+  textarea {
+    padding: #{map-get($textarea-padding-tb, $size)} #{map-get($textarea-padding-lr, $size)};
+    width: calc(100% - 2 * #{map-get($textarea-padding-lr, $size)});
+    border-radius: #{map-get($textarea-border-radius, $size)};
+    font: #{map-get($textarea-font, $size)};
+  }
+}
+
+.ui-textarea {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  // Label 및 TextMessage
+  &-label {
+    margin: 0 4px;
+    font: var(--Micro-Font-1);
+  }
+
+  &-info {
+    margin: 0 4px;
+    display: flex;
+    justify-content: space-between;
+    font: var(--Micro-Font-1);
+
+    .value-length {
+      color: var(--Primary-Color-5);
+      &.max {
+        color: var(--Danger-Color-5);
+      }
+    }
+  }
+
+  &-msg {
+    width: 90%;
+    margin: 0;
+    &.error {
+      color: var(--Danger-Color-5);
+    }
+  }
+
+  // Input
+  &-input {
+    display: flex;
+    border: 1px solid var(--Gray-Color-4);
+
+    &.is-error {
+      border-color: var(--Danger-Color-5);
+    }
+
+    &.read-only textarea {
+      background-color: var(--Gray-Color-1);
+    }
+
+    &.is-disabled textarea {
+      background-color: var(--Gray-Color-2);
+      color: var(--Gray-Color-5);
+      &::placeholder {
+        color: var(--Gray-Color-3);
+      }
+    }
+
+    &:has(textarea:focus) {
+      border: 1px solid var(--Primary-Color-5);
+      box-shadow: 0 0 5px var(--Primary-Color-1);
+    }
+
+    textarea {
+      margin: 0;
+      border: 0;
+      height: 100%;
+      background-color: var(--TextField-Background-Color);
+      resize: none;
+      &::placeholder {
+        color: var(--Gray-Color-4);
+      }
+      &:focus {
+        outline: 0;
+      }
+      &:-webkit-autofill {
+        -webkit-box-shadow: 0 0 0 1000px white inset;
+        box-shadow: 0 0 0 1000px white inset;
+      }
+    }
+
+    &.small {
+      @include textAreaOfSize('sm');
+    }
+    &.medium {
+      @include textAreaOfSize('md');
+    }
+  }
+}
