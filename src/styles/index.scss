@@ -3,6 +3,7 @@
 @import './constants/color';
 @import './constants/themes';
 @import './constants/fonts';
+@import './constants/border';
 
 @import './base/theme';
 @import './base/typography';
@@ -12,6 +13,7 @@
 @import './core/typography';
 
 @import './components/button';
+@import './components/textfield';
 
 // :root {
 //   --primary-color: 120, 60%;

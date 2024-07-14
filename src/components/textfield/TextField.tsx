@@ -38,7 +38,7 @@ export const TextField = <Type extends TextFieldType>({
         </label>
       )}
       <div
-        className={`ui-textfield-input ${size} ${readOnly ? 'read-only' : ''} ${disabled ? 'is-disabeld' : ''} ${
+        className={`ui-textfield-input ${size} ${readOnly ? 'read-only' : ''} ${disabled ? 'is-disabled' : ''} ${
           isError ? 'is-error' : ''
         }`}
       >
