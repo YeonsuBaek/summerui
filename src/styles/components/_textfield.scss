@@ -1,0 +1,115 @@
+:root {
+  .theme-light {
+    --TextField-Background-Color: var(--Gray-Color-0);
+  }
+  .theme-dark {
+    --TextField-Background-Color: var(--Gray-Color-1);
+  }
+}
+
+$textfield-height: (
+  sm: 32px,
+  md: 40px,
+  lg: 48px,
+);
+
+$textfield-border-radius: (
+  sm: $border-radius-sm,
+  md: $border-radius-md,
+  lg: $border-radius-lg,
+);
+
+$textfield-padding: (
+  sm: 8px,
+  md: 16px,
+  lg: 16px,
+);
+
+$textfield-font: (
+  sm: var(--Detail-Font-1),
+  md: var(--Body-Font-1),
+  lg: var(--Body-Font-1),
+);
+
+@mixin textFieldOfSize($size) {
+  height: #{map-get($textfield-height, $size)};
+  border-radius: #{map-get($textfield-border-radius, $size)};
+  input {
+    padding: 0 #{map-get($textfield-padding, $size)};
+    width: calc(100% - 2 * #{map-get($textfield-padding, $size)});
+    border-radius: #{map-get($textfield-border-radius, $size)};
+    font: #{map-get($textfield-font, $size)};
+  }
+}
+
+.ui-textfield {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  // Label 및 TextMessage
+  &-label,
+  &-msg {
+    margin: 0 0 0 4px;
+    font: var(--Micro-Font-1);
+  }
+
+  &-msg {
+    &.error {
+      color: var(--Danger-Color-5);
+    }
+  }
+
+  // Input
+  &-input {
+    border: 1px solid var(--Gray-Color-4);
+
+    &.is-error {
+      border-color: var(--Danger-Color-5);
+    }
+
+    &.read-only input {
+      background-color: var(--Gray-Color-1);
+    }
+
+    &.is-disabled input {
+      background-color: var(--Gray-Color-2);
+      color: var(--Gray-Color-5);
+      &::placeholder {
+        color: var(--Gray-Color-3);
+      }
+    }
+
+    &:has(input:focus) {
+      border: 1px solid var(--Primary-Color-5);
+      box-shadow: 0 0 5px var(--Primary-Color-1);
+    }
+
+    input {
+      margin: 0;
+      border: 0;
+      height: 100%;
+      background-color: var(--TextField-Background-Color);
+      &::placeholder {
+        color: var(--Gray-Color-4);
+      }
+      &:focus {
+        outline: 0;
+      }
+      &:-webkit-autofill {
+        -webkit-box-shadow: 0 0 0 1000px white inset;
+        box-shadow: 0 0 0 1000px white inset;
+      }
+    }
+
+    &.small {
+      @include textFieldOfSize('sm');
+    }
+    &.medium {
+      @include textFieldOfSize('md');
+    }
+    &.large {
+      @include textFieldOfSize('lg');
+    }
+  }
+}
