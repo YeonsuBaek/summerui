@@ -80,6 +80,11 @@ $textfield-font: (
       }
     }
 
+    &:has(input:focus) {
+      border: 1px solid var(--Primary-Color-5);
+      box-shadow: 0 0 5px var(--Primary-Color-1);
+    }
+
     input {
       margin: 0;
       border: 0;
@@ -90,7 +95,7 @@ $textfield-font: (
       }
 
       &:focus {
-        outline-color: var(--Primary-Color-5);
+        outline: 0;
       }
     }
 
