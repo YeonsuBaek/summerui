@@ -1,7 +1,7 @@
-import { TextFieldProps } from './TextField.types'
+import { TextFieldProps, TextFieldType } from './TextField.types'
 import { useRef, useEffect, ChangeEvent } from 'react'
 
-export const TextField = ({
+export const TextField = <Type extends TextFieldType>({
   id,
   value,
   onChange = () => {},
@@ -15,7 +15,7 @@ export const TextField = ({
   autoFocus = false,
   readOnly = false,
   disabled = false,
-}: TextFieldProps) => {
+}: TextFieldProps<Type>) => {
   const inputRef = useRef(null)
 
   const isDisabled = disabled || readOnly

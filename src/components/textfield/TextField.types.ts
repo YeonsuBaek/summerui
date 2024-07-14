@@ -1,14 +1,13 @@
-import { ComponentType } from 'react'
-import { IconProps } from '../../assets/icon/icon.types'
-
 type TextFieldSize = 'small' | 'medium' | 'large'
+export type TextFieldType = 'text' | 'email' | 'number' | 'password'
+export type TextFieldValue<Type> = Type extends 'number' ? 'number' : 'string'
 
-export interface TextFieldProps {
+export interface TextFieldProps<Type extends TextFieldType> {
   id: string
-  value: string
-  onChange?: (val: string) => void
+  type: Type | 'text'
+  value: TextFieldValue<Type>
+  onChange?: (val: TextFieldValue<Type> | string) => void
   size?: TextFieldSize
-  type?: 'text' | 'email' | 'number' | 'password'
   placeholder?: string
   label?: string
   helperText?: string
