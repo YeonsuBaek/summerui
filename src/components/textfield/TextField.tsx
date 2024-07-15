@@ -1,5 +1,7 @@
+import { InfoIcon, WarningIcon } from '../../assets/icon'
+import { IconProps } from '../../assets/icon/icon.types'
 import { TextFieldProps, TextFieldType, TextFieldValue } from './TextField.types'
-import { useRef, useEffect, ChangeEvent } from 'react'
+import { useRef, useEffect, ChangeEvent, ComponentType } from 'react'
 
 export const TextField = <Type extends TextFieldType = 'text'>({
   id,
@@ -22,6 +24,8 @@ export const TextField = <Type extends TextFieldType = 'text'>({
   const isDisabled = disabled || readOnly
 
   const displayedHelperText = isError && errorText ? errorText : helperText
+
+  const HelperIcon: ComponentType<IconProps> = isError ? WarningIcon : InfoIcon
 
   useEffect(() => {
     if (autoFocus && inputRef.current) {
@@ -56,6 +60,7 @@ export const TextField = <Type extends TextFieldType = 'text'>({
       </div>
       {displayedHelperText && (
         <p id={`${id}-msg`} className={`ui-textfield-msg ${isError ? 'error' : ''}`}>
+          <HelperIcon size={12} aria-hidden />
           {displayedHelperText}
         </p>
       )}

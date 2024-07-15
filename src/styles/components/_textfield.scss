@@ -55,8 +55,17 @@ $textfield-font: (
   }
 
   &-msg {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    path {
+      fill: var(--Gray-Color-8);
+    }
     &.error {
       color: var(--Danger-Color-5);
+      path {
+        fill: var(--Danger-Color-5);
+      }
     }
   }
 
