@@ -10,7 +10,7 @@ type ButtonIconVariant = 'primary' | 'secondary' | 'filled' | 'outlined'
 
 type ButtonSize = 'small' | 'medium' | 'large'
 
-type ButtonVariant<Style> = Style extends 'filled'
+type ButtonStyleVariant<Style> = Style extends 'filled'
   ? ButtonFilledVariant
   : Style extends 'outlined'
   ? ButtonOutlinedVariant
@@ -23,7 +23,7 @@ type ButtonVariant<Style> = Style extends 'filled'
 export interface ButtonProps<Style extends ButtonStyle> extends HTMLAttributes<HTMLButtonElement> {
   children: ReactNode | ReactNode[]
   styleType: Style
-  variant?: ButtonVariant<Style> | 'primary'
+  styleVariant?: ButtonStyleVariant<Style> | 'primary'
   size?: ButtonSize
   type?: 'button' | 'submit' | 'reset'
   disabled?: boolean
