@@ -1,0 +1,23 @@
+import { ArgTypes, Canvas, Meta, Story } from '@storybook/addon-docs'
+import * as TextAreaStories from './TextArea.stories'
+import { TextArea } from '.'
+
+<Meta of={TextAreaStories} component={TextArea} />
+
+# TextArea
+
+사용자가 키보드로 여러 줄의 텍스트를 입력할 때 사용한다.
+
+## 예시
+
+### 1. Size
+
+<Canvas of={TextAreaStories.SizesOfTextArea} />
+
+### 2. Max Length
+
+<Canvas of={TextAreaStories.MaxLengthOfTextArea} />
+
+## API
+
+<ArgTypes of={TextAreaStories} />
