@@ -114,3 +114,13 @@ export const TextFieldWithMessage = () => {
     </div>
   )
 }
+export const TextFieldWithoutLabel = () => {
+  return (
+    <TextField
+      id="storybook-textfield-label-1"
+      value=""
+      placeholder="Placeholder 플레이스홀더"
+      aria-label="TextField without label"
+    />
+  )
+}
