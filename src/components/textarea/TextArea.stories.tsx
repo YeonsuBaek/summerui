@@ -69,3 +69,26 @@ export const MaxLengthOfTextArea = () => {
     </div>
   )
 }
+export const TextAreaGuide = () => {
+  return (
+    <TextArea
+      id="storybook-textarea-guide-1"
+      value=""
+      label="후기"
+      placeholder="예) 즐겁게 관람했습니다."
+      helperText="영화 관람 후기를 10자 이상 작성해주세요."
+      maxLength={10}
+    />
+  )
+}
+export const TextAreaWithoutLabel = () => {
+  return (
+    <TextArea
+      id="storybook-textarea-label-1"
+      value=""
+      placeholder="Placeholder 플레이스홀더"
+      helperText="label이 없는 입력창입니다."
+      aria-label="TextArea without label"
+    />
+  )
+}
