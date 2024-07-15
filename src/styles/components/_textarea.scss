@@ -1,16 +1,31 @@
 :root {
   .theme-light {
-    --TextField-Background-Color: var(--Gray-Color-0);
+    --TextArea-Background-Color: var(--Gray-Color-0);
+    --TextArea-Font-Color: var(--Gray-Color-8);
+    --TextArea-Placeholder-Color: var(--Gray-Color-5);
+    --TextArea-Shadow-Color: var(--Primary-Color-1);
+
+    --TextArea-ReadOnly-Background-Color: var(--Gray-Color-1);
+    --TextArea-ReadOnly-Color: var(--Gray-Color-8);
+
+    --TextArea-Disabled-Background-Color: var(--Gray-Color-2);
+    --TextArea-Disabled-Font-Color: var(--Gray-Color-6);
+    --TextArea-Disabled-Placeholder-Color: var(--Gray-Color-5);
   }
   .theme-dark {
-    --TextField-Background-Color: var(--Gray-Color-1);
+    --TextArea-Background-Color: var(--Gray-Color-1);
+    --TextArea-Font-Color: var(--Gray-Color-10);
+    --TextArea-Placeholder-Color: var(--Gray-Color-5);
+    --TextArea-Shadow-Color: var(--Primary-Color-3);
+
+    --TextArea-ReadOnly-Background-Color: var(--Gray-Color-1);
+    --TextArea-ReadOnly-Color: var(--Gray-Color-5);
+
+    --TextArea-Disabled-Background-Color: var(--Gray-Color-2);
+    --TextArea-Disabled-Font-Color: var(--Gray-Color-6);
+    --TextArea-Disabled-Placeholder-Color: var(--Gray-Color-5);
   }
 }
-
-$textarea-height: (
-  sm: 64px,
-  md: 96px,
-);
 
 $textarea-border-radius: (
   sm: $border-radius-sm,
@@ -18,13 +33,13 @@ $textarea-border-radius: (
 );
 
 $textarea-padding-tb: (
-  sm: 6px,
-  md: 12px,
+  sm: toRem(6),
+  md: toRem(12),
 );
 
 $textarea-padding-lr: (
-  sm: 8px,
-  md: 16px,
+  sm: toRem(8),
+  md: toRem(16),
 );
 
 $textarea-font: (
@@ -45,16 +60,16 @@ $textarea-font: (
 .ui-textarea {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: toRem(4);
 
   // Label 및 TextMessage
   &-label {
-    margin: 0 4px;
+    margin: 0 toRem(4);
     font: var(--Micro-Font-1);
   }
 
   &-info {
-    margin: 0 4px;
+    margin: 0 toRem(4);
     display: flex;
     justify-content: flex-end;
     font: var(--Micro-Font-1);
@@ -78,37 +93,39 @@ $textarea-font: (
   // Input
   &-input {
     display: flex;
-    border: 1px solid var(--Gray-Color-4);
+    border: toRem(1) solid var(--Gray-Color-4);
 
     &.is-error {
       border-color: var(--Danger-Color-5);
     }
 
     &.read-only textarea {
-      background-color: var(--Gray-Color-1);
+      color: var(--TextArea-ReadOnly-Color);
+      background-color: var(--TextArea-ReadOnly-Background-Color);
     }
 
     &.is-disabled textarea {
-      background-color: var(--Gray-Color-2);
-      color: var(--Gray-Color-5);
+      background-color: var(--TextArea-Disabled-Background-Color);
+      color: var(--TextArea-Disabled-Font-Color);
       &::placeholder {
-        color: var(--Gray-Color-3);
+        color: var(--TextArea-Disabled-Placeholder-Color);
       }
     }
 
     &:has(textarea:focus) {
-      border: 1px solid var(--Primary-Color-5);
-      box-shadow: 0 0 5px var(--Primary-Color-1);
+      border: toRem(1) solid var(--Primary-Color-5);
+      box-shadow: 0 0 5px var(--TextArea-Shadow-Color);
     }
 
     textarea {
       margin: 0;
       border: 0;
       height: 100%;
-      background-color: var(--TextField-Background-Color);
+      color: var(--TextArea-Font-Color);
+      background-color: var(--TextArea-Background-Color);
       resize: none;
       &::placeholder {
-        color: var(--Gray-Color-4);
+        color: var(--TextArea-Placeholder-Color);
       }
       &:focus {
         outline: 0;
