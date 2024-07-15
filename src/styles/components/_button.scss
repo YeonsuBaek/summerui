@@ -7,15 +7,49 @@
   }
 }
 
+$button-height: (
+  sm: 32px,
+  md: 40px,
+  lg: 48px,
+);
+
+$button-padding: (
+  sm: 12px,
+  md: 12px,
+  lg: 16px,
+);
+
+$button-border-radius: (
+  sm: $border-radius-sm,
+  md: $border-radius-md,
+  lg: $border-radius-lg,
+);
+
+$button-font: (
+  sm: var(--Detail-Font-2),
+  md: var(--Body-Font-3),
+  lg: var(--Heading-Font-3),
+);
+
+@mixin SizeOfButton($size) {
+  height: #{map-get($button-height, $size)};
+  padding: 0 #{map-get($button-padding, $size)};
+  border-radius: #{map-get($button-border-radius, $size)};
+  font: #{map-get($button-font, $size)};
+}
+
 .ui-button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   border: 0;
   border-color: transparent;
-  outline-color: var(--Primary-Color-8);
+  outline: 0;
   cursor: pointer;
 
+  &:focus {
+    box-shadow: 0 0 5px var(--Primary-Color-3);
+  }
   &:disabled {
     cursor: default;
   }
@@ -31,22 +65,13 @@
 
   // SIZE
   &.small {
-    height: 32px;
-    padding: 0 12px;
-    border-radius: 4px;
-    font: var(--Detail-Font-2);
+    @include SizeOfButton('sm');
   }
   &.medium {
-    height: 40px;
-    padding: 0 12px;
-    border-radius: 8px;
-    font: var(--Body-Font-3);
+    @include SizeOfButton('md');
   }
   &.large {
-    height: 48px;
-    padding: 0 16px;
-    border-radius: 10px;
-    font: var(--Heading-Font-3);
+    @include SizeOfButton('lg');
   }
 
   // STYLE
@@ -54,7 +79,10 @@
     color: var(--Button-Text-Color);
     background-color: var(--Primary-Color-5);
 
-    &:is(:hover, :focus) {
+    &:focus {
+      box-shadow: 0 0 5px var(--Primary-Color-4);
+    }
+    &:hover {
       background-color: var(--Primary-Color-6);
     }
     &:active {
@@ -79,7 +107,7 @@
     &.primary {
       color: var(--Primary-Color-5);
       border: 1px solid var(--Primary-Color-5);
-      &:is(:hover, :focus) {
+      &:hover {
         background-color: var(--Primary-Color-1);
       }
       &:active {
@@ -92,7 +120,7 @@
     &.secondary {
       color: var(--Primary-Color-5);
       border: 1px solid var(--Gray-Color-4);
-      &:is(:hover, :focus) {
+      &:hover {
         background-color: var(--Gray-Color-1);
       }
       &:active {
@@ -105,7 +133,7 @@
     &.tertiary {
       color: var(--Gray-Color-8);
       border: 1px solid var(--Gray-Color-4);
-      &:is(:hover, :focus) {
+      &:hover {
         background-color: var(--Gray-Color-1);
       }
       &:active {
@@ -132,7 +160,7 @@
 
     &.primary {
       color: var(--Primary-Color-5);
-      &:is(:hover, :focus) {
+      &:hover {
         background-color: var(--Primary-Color-1);
       }
       &:active {
@@ -144,7 +172,7 @@
     }
     &.secondary {
       color: var(--Gray-Color-8);
-      &:is(:hover, :focus) {
+      &:hover {
         background-color: var(--Gray-Color-1);
       }
       &:active {
@@ -192,7 +220,7 @@
       path {
         fill: var(--Primary-Color-5);
       }
-      &:is(:hover, :focus) {
+      &:hover {
         background-color: var(--Primary-Color-1);
       }
       &:active {
@@ -204,7 +232,7 @@
       path {
         fill: var(--Gray-Color-8);
       }
-      &:is(:hover, :focus) {
+      &:hover {
         background-color: var(--Gray-Color-1);
       }
       &:active {
@@ -223,7 +251,10 @@
       path {
         fill: var(--Button-Text-Color);
       }
-      &:is(:hover, :focus) {
+      &:focus {
+        box-shadow: 0 0 5px var(--Primary-Color-4);
+      }
+      &:hover {
         background-color: var(--Primary-Color-6);
       }
       &:active {
@@ -243,7 +274,7 @@
       path {
         fill: var(--Primary-Color-5);
       }
-      &:is(:hover, :focus) {
+      &:hover {
         background-color: var(--Primary-Color-1);
       }
       &:active {
