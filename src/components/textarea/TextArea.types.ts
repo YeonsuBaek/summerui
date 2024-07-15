@@ -1,6 +1,8 @@
+import { HTMLAttributes } from 'react'
+
 type TextAreaSize = 'small' | 'medium'
 
-export interface TextAreaProps {
+export interface TextAreaProps extends Omit<HTMLAttributes<HTMLTextAreaElement>, 'onChange'> {
   id: string
   value: string
   onChange?: (val: string) => void

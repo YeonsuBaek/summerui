@@ -16,6 +16,7 @@ export const TextArea = ({
   autoFocus = false,
   readOnly = false,
   disabled = false,
+  ...props
 }: TextAreaProps) => {
   const inputRef = useRef<HTMLTextAreaElement>(null)
 
@@ -56,6 +57,7 @@ export const TextArea = ({
           disabled={isDisabled}
           ref={inputRef}
           aria-describedby={hasErrorText ? `${id}-error` : hasHelperText ? `${id}-helper` : undefined}
+          {...props}
         />
       </div>
       <div className="ui-textarea-info">
