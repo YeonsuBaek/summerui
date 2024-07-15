@@ -14,7 +14,7 @@ export const StyleTypeButton = () => (
     <Button styleType="filled">Filled</Button>
     <Button styleType="outlined">Outlined</Button>
     <Button styleType="ghost">Ghost</Button>
-    <Button styleType="icon" title="Icon Button">
+    <Button styleType="icon" title="Icon Button" aria-label="Check Icon Button">
       <CheckIcon />
     </Button>
   </div>
@@ -55,16 +55,16 @@ export const GhostStyleVariantButton = () => (
 
 export const IconStyleVariantButton = () => (
   <div style={{ display: 'flex', gap: '16px' }}>
-    <Button styleType="icon" styleVariant="primary" title="Primary Button">
+    <Button styleType="icon" styleVariant="primary" title="Primary Button" aria-label="Check Primary Button">
       <CheckIcon />
     </Button>
-    <Button styleType="icon" styleVariant="secondary" title="Secondary Button">
+    <Button styleType="icon" styleVariant="secondary" title="Secondary Button" aria-label="Check Secondary Button">
       <CheckIcon />
     </Button>
-    <Button styleType="icon" styleVariant="filled" title="Filled Button">
+    <Button styleType="icon" styleVariant="filled" title="Filled Button" aria-label="Check Filled Button">
       <CheckIcon />
     </Button>
-    <Button styleType="icon" styleVariant="outlined" title="Outlined Button">
+    <Button styleType="icon" styleVariant="outlined" title="Outlined Button" aria-label="Check Outlined Button">
       <CheckIcon />
     </Button>
   </div>

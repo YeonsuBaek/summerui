@@ -3,7 +3,7 @@ import { ButtonProps, ButtonStyle } from './Button.types'
 export const Button = <Style extends ButtonStyle>({
   children,
   styleType,
-  variant = 'primary',
+  styleVariant = 'primary',
   size = 'medium',
   type = 'button',
   disabled = false,
@@ -20,14 +20,15 @@ export const Button = <Style extends ButtonStyle>({
   return (
     <button
       type={type}
-      className={`ui-button ${styleType} ${variant} ${size} ${props.className}`}
+      className={`ui-button ${styleType} ${styleVariant} ${size} ${props.className ? props.className : ''}`}
       onClick={onClick}
       disabled={disabled}
+      aria-disabled={disabled}
       {...props}
     >
-      {hasStartIcon && <StartIcon size={startIconSize} className="ui-button-icon start" />}
+      {hasStartIcon && <StartIcon size={startIconSize} className="ui-button-icon start" aria-hidden />}
       {children}
-      {hasEndIcon && <EndIcon size={endIconSize} className="ui-button-icon end" />}
+      {hasEndIcon && <EndIcon size={endIconSize} className="ui-button-icon end" aria-hidden />}
     </button>
   )
 }
