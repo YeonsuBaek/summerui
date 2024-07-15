@@ -27,24 +27,19 @@
   }
 }
 
-$textarea-height: (
-  sm: 64px,
-  md: 96px,
-);
-
 $textarea-border-radius: (
   sm: $border-radius-sm,
   md: $border-radius-md,
 );
 
 $textarea-padding-tb: (
-  sm: 6px,
-  md: 12px,
+  sm: toRem(6),
+  md: toRem(12),
 );
 
 $textarea-padding-lr: (
-  sm: 8px,
-  md: 16px,
+  sm: toRem(8),
+  md: toRem(16),
 );
 
 $textarea-font: (
@@ -65,16 +60,16 @@ $textarea-font: (
 .ui-textarea {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: toRem(4);
 
   // Label 및 TextMessage
   &-label {
-    margin: 0 4px;
+    margin: 0 toRem(4);
     font: var(--Micro-Font-1);
   }
 
   &-info {
-    margin: 0 4px;
+    margin: 0 toRem(4);
     display: flex;
     justify-content: flex-end;
     font: var(--Micro-Font-1);
@@ -98,7 +93,7 @@ $textarea-font: (
   // Input
   &-input {
     display: flex;
-    border: 1px solid var(--Gray-Color-4);
+    border: toRem(1) solid var(--Gray-Color-4);
 
     &.is-error {
       border-color: var(--Danger-Color-5);
@@ -118,7 +113,7 @@ $textarea-font: (
     }
 
     &:has(textarea:focus) {
-      border: 1px solid var(--Primary-Color-5);
+      border: toRem(1) solid var(--Primary-Color-5);
       box-shadow: 0 0 5px var(--TextArea-Shadow-Color);
     }
 
