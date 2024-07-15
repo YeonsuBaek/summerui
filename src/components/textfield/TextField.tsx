@@ -1,5 +1,7 @@
+import { InfoIcon, WarningIcon } from '../../assets/icon'
+import { IconProps } from '../../assets/icon/icon.types'
 import { TextFieldProps, TextFieldType, TextFieldValue } from './TextField.types'
-import { useRef, useEffect, ChangeEvent } from 'react'
+import { useRef, useEffect, ChangeEvent, ComponentType } from 'react'
 
 export const TextField = <Type extends TextFieldType = 'text'>({
   id,
@@ -15,14 +17,15 @@ export const TextField = <Type extends TextFieldType = 'text'>({
   autoFocus = false,
   readOnly = false,
   disabled = false,
+  ...props
 }: TextFieldProps<Type>) => {
   const inputRef = useRef<HTMLInputElement>(null)
 
-  const inputType = type || 'text'
   const isDisabled = disabled || readOnly
 
-  const hasHelperText = isError ? !errorText : helperText
-  const hasErrorText = errorText && isError
+  const displayedHelperText = isError && errorText ? errorText : helperText
+
+  const HelperIcon: ComponentType<IconProps> = isError ? WarningIcon : InfoIcon
 
   useEffect(() => {
     if (autoFocus && inputRef.current) {
@@ -33,7 +36,7 @@ export const TextField = <Type extends TextFieldType = 'text'>({
 
   return (
     <div className="ui-textfield">
-      {label !== '' && (
+      {label && (
         <label className="ui-textfield-label" htmlFor={id}>
           {label}
         </label>
@@ -51,10 +54,16 @@ export const TextField = <Type extends TextFieldType = 'text'>({
           placeholder={placeholder}
           disabled={isDisabled}
           ref={inputRef}
+          aria-describedby={displayedHelperText ? `${id}-msg` : undefined}
+          {...props}
         />
       </div>
-      {hasHelperText && <p className="ui-textfield-msg helper">{helperText}</p>}
-      {hasErrorText && <p className="ui-textfield-msg error">{errorText}</p>}
+      {displayedHelperText && (
+        <p id={`${id}-msg`} className={`ui-textfield-msg ${isError ? 'error' : ''}`}>
+          <HelperIcon size={12} aria-hidden />
+          {displayedHelperText}
+        </p>
+      )}
     </div>
   )
 }

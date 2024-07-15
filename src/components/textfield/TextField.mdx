@@ -22,6 +22,21 @@ import { TextField } from '.'
 
 <Canvas of={TextFieldStories.TextFieldWithMessage} />
 
+## TIP
+
+1. 사용자가 입력해야 하는 내용에 대해 쉽게 안내할 수 있도록 한다.
+
+   - `label`: 입력할 텍스트에 대한 안내
+   - `placeholder`: 입력 힌트 또는 예시
+   - `helperText`: 입력 방식에 대한 도움말
+   - `errorText`: 오류 설명 및 해결 방법
+
+   <Canvas of={TextFieldStories.TextFieldGuide} />
+
+2. `label`이 없을 경우 입력 필드가 무엇을 의미하는지 명확하게 전달할 수 있도록 `aria-label` 속성을 추가한다.
+
+   <Canvas of={TextFieldStories.TextFieldWithoutLabel} />
+
 ## API
 
 <ArgTypes of={TextFieldStories} />
