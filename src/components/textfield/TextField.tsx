@@ -18,11 +18,9 @@ export const TextField = <Type extends TextFieldType = 'text'>({
 }: TextFieldProps<Type>) => {
   const inputRef = useRef<HTMLInputElement>(null)
 
-  const inputType = type || 'text'
   const isDisabled = disabled || readOnly
 
-  const hasHelperText = isError ? !errorText : helperText
-  const hasErrorText = errorText && isError
+  const displayedHelperText = isError && errorText ? errorText : helperText
 
   useEffect(() => {
     if (autoFocus && inputRef.current) {
@@ -33,7 +31,7 @@ export const TextField = <Type extends TextFieldType = 'text'>({
 
   return (
     <div className="ui-textfield">
-      {label !== '' && (
+      {label && (
         <label className="ui-textfield-label" htmlFor={id}>
           {label}
         </label>
@@ -51,10 +49,14 @@ export const TextField = <Type extends TextFieldType = 'text'>({
           placeholder={placeholder}
           disabled={isDisabled}
           ref={inputRef}
+          aria-describedby={displayedHelperText ? `${id}-msg` : undefined}
         />
       </div>
-      {hasHelperText && <p className="ui-textfield-msg helper">{helperText}</p>}
-      {hasErrorText && <p className="ui-textfield-msg error">{errorText}</p>}
+      {displayedHelperText && (
+        <p id={`${id}-msg`} className={`ui-textfield-msg ${isError ? 'error' : ''}`}>
+          {displayedHelperText}
+        </p>
+      )}
     </div>
   )
 }
