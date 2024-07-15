@@ -62,7 +62,7 @@ export const TextArea = ({
         {(hasErrorText || hasHelperText) && (
           <p
             id={hasError ? `${id}-error` : `${id}-helper`}
-            className={`ui-textarea-msg ${hasErrorText ? 'error' : ''} `}
+            className={`ui-textarea-msg ${hasErrorText || isMaxValueLength ? 'error' : ''} `}
           >
             {hasErrorText ? errorText : helperText}
           </p>
