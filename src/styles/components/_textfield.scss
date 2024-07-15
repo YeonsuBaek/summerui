@@ -1,9 +1,29 @@
 :root {
   .theme-light {
     --TextField-Background-Color: var(--Gray-Color-0);
+    --TextField-Font-Color: var(--Gray-Color-8);
+    --TextField-Placeholder-Color: var(--Gray-Color-5);
+    --TextField-Shadow-Color: var(--Primary-Color-1);
+
+    --TextField-ReadOnly-Background-Color: var(--Gray-Color-1);
+    --TextField-ReadOnly-Color: var(--Gray-Color-8);
+
+    --TextField-Disabled-Background-Color: var(--Gray-Color-2);
+    --TextField-Disabled-Font-Color: var(--Gray-Color-6);
+    --TextField-Disabled-Placeholder-Color: var(--Gray-Color-5);
   }
   .theme-dark {
     --TextField-Background-Color: var(--Gray-Color-1);
+    --TextField-Font-Color: var(--Gray-Color-10);
+    --TextField-Placeholder-Color: var(--Gray-Color-5);
+    --TextField-Shadow-Color: var(--Primary-Color-3);
+
+    --TextField-ReadOnly-Background-Color: var(--Gray-Color-1);
+    --TextField-ReadOnly-Color: var(--Gray-Color-5);
+
+    --TextField-Disabled-Background-Color: var(--Gray-Color-2);
+    --TextField-Disabled-Font-Color: var(--Gray-Color-6);
+    --TextField-Disabled-Placeholder-Color: var(--Gray-Color-5);
   }
 }
 
@@ -78,29 +98,31 @@ $textfield-font: (
     }
 
     &.read-only input {
-      background-color: var(--Gray-Color-1);
+      color: var(--TextField-ReadOnly-Color);
+      background-color: var(--TextField-ReadOnly-Background-Color);
     }
 
     &.is-disabled input {
-      background-color: var(--Gray-Color-2);
-      color: var(--Gray-Color-5);
+      background-color: var(--TextField-Disabled-Background-Color);
+      color: var(--TextField-Disabled-Font-Color);
       &::placeholder {
-        color: var(--Gray-Color-3);
+        color: var(--TextField-Disabled-Placeholder-Color);
       }
     }
 
     &:has(input:focus) {
       border: toRem(1) solid var(--Primary-Color-5);
-      box-shadow: 0 0 toRem(5) var(--Primary-Color-1);
+      box-shadow: 0 0 toRem(5) var(--TextField-Shadow-Color);
     }
 
     input {
       margin: 0;
       border: 0;
       height: 100%;
+      color: var(--TextField-Font-Color);
       background-color: var(--TextField-Background-Color);
       &::placeholder {
-        color: var(--Gray-Color-4);
+        color: var(--TextField-Placeholder-Color);
       }
       &:focus {
         outline: 0;
