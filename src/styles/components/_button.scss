@@ -44,9 +44,12 @@ $button-font: (
   justify-content: center;
   border: 0;
   border-color: transparent;
-  outline-color: var(--Primary-Color-8);
+  outline: 0;
   cursor: pointer;
 
+  &:focus {
+    box-shadow: 0 0 5px var(--Primary-Color-3);
+  }
   &:disabled {
     cursor: default;
   }
@@ -76,7 +79,10 @@ $button-font: (
     color: var(--Button-Text-Color);
     background-color: var(--Primary-Color-5);
 
-    &:is(:hover, :focus) {
+    &:focus {
+      box-shadow: 0 0 5px var(--Primary-Color-4);
+    }
+    &:hover {
       background-color: var(--Primary-Color-6);
     }
     &:active {
@@ -101,7 +107,7 @@ $button-font: (
     &.primary {
       color: var(--Primary-Color-5);
       border: 1px solid var(--Primary-Color-5);
-      &:is(:hover, :focus) {
+      &:hover {
         background-color: var(--Primary-Color-1);
       }
       &:active {
@@ -114,7 +120,7 @@ $button-font: (
     &.secondary {
       color: var(--Primary-Color-5);
       border: 1px solid var(--Gray-Color-4);
-      &:is(:hover, :focus) {
+      &:hover {
         background-color: var(--Gray-Color-1);
       }
       &:active {
@@ -127,7 +133,7 @@ $button-font: (
     &.tertiary {
       color: var(--Gray-Color-8);
       border: 1px solid var(--Gray-Color-4);
-      &:is(:hover, :focus) {
+      &:hover {
         background-color: var(--Gray-Color-1);
       }
       &:active {
@@ -154,7 +160,7 @@ $button-font: (
 
     &.primary {
       color: var(--Primary-Color-5);
-      &:is(:hover, :focus) {
+      &:hover {
         background-color: var(--Primary-Color-1);
       }
       &:active {
@@ -166,7 +172,7 @@ $button-font: (
     }
     &.secondary {
       color: var(--Gray-Color-8);
-      &:is(:hover, :focus) {
+      &:hover {
         background-color: var(--Gray-Color-1);
       }
       &:active {
@@ -214,7 +220,7 @@ $button-font: (
       path {
         fill: var(--Primary-Color-5);
       }
-      &:is(:hover, :focus) {
+      &:hover {
         background-color: var(--Primary-Color-1);
       }
       &:active {
@@ -226,7 +232,7 @@ $button-font: (
       path {
         fill: var(--Gray-Color-8);
       }
-      &:is(:hover, :focus) {
+      &:hover {
         background-color: var(--Gray-Color-1);
       }
       &:active {
@@ -245,7 +251,10 @@ $button-font: (
       path {
         fill: var(--Button-Text-Color);
       }
-      &:is(:hover, :focus) {
+      &:focus {
+        box-shadow: 0 0 5px var(--Primary-Color-4);
+      }
+      &:hover {
         background-color: var(--Primary-Color-6);
       }
       &:active {
@@ -265,7 +274,7 @@ $button-font: (
       path {
         fill: var(--Primary-Color-5);
       }
-      &:is(:hover, :focus) {
+      &:hover {
         background-color: var(--Primary-Color-1);
       }
       &:active {
