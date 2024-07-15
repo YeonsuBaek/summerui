@@ -114,6 +114,18 @@ export const TextFieldWithMessage = () => {
     </div>
   )
 }
+export const TextFieldGuide = () => {
+  return (
+    <TextField
+      id="storybook-textfield-guide-1"
+      value=""
+      label="전화번호"
+      placeholder="예) 010-1234-5678"
+      aria-label="TextField without label"
+      helperText="하이픈(-)을 반드시 입력해주세요."
+    />
+  )
+}
 export const TextFieldWithoutLabel = () => {
   return (
     <TextField
