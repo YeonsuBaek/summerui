@@ -1,16 +1,36 @@
 :root {
   .theme-light {
     --TextField-Background-Color: var(--Gray-Color-0);
+    --TextField-Font-Color: var(--Gray-Color-8);
+    --TextField-Placeholder-Color: var(--Gray-Color-5);
+    --TextField-Shadow-Color: var(--Primary-Color-1);
+
+    --TextField-ReadOnly-Background-Color: var(--Gray-Color-1);
+    --TextField-ReadOnly-Color: var(--Gray-Color-8);
+
+    --TextField-Disabled-Background-Color: var(--Gray-Color-2);
+    --TextField-Disabled-Font-Color: var(--Gray-Color-6);
+    --TextField-Disabled-Placeholder-Color: var(--Gray-Color-5);
   }
   .theme-dark {
     --TextField-Background-Color: var(--Gray-Color-1);
+    --TextField-Font-Color: var(--Gray-Color-10);
+    --TextField-Placeholder-Color: var(--Gray-Color-5);
+    --TextField-Shadow-Color: var(--Primary-Color-3);
+
+    --TextField-ReadOnly-Background-Color: var(--Gray-Color-1);
+    --TextField-ReadOnly-Color: var(--Gray-Color-5);
+
+    --TextField-Disabled-Background-Color: var(--Gray-Color-2);
+    --TextField-Disabled-Font-Color: var(--Gray-Color-6);
+    --TextField-Disabled-Placeholder-Color: var(--Gray-Color-5);
   }
 }
 
 $textfield-height: (
-  sm: 32px,
-  md: 40px,
-  lg: 48px,
+  sm: toRem(32),
+  md: toRem(40),
+  lg: toRem(48),
 );
 
 $textfield-border-radius: (
@@ -20,9 +40,9 @@ $textfield-border-radius: (
 );
 
 $textfield-padding: (
-  sm: 8px,
-  md: 16px,
-  lg: 16px,
+  sm: toRem(8),
+  md: toRem(16),
+  lg: toRem(16),
 );
 
 $textfield-font: (
@@ -45,19 +65,19 @@ $textfield-font: (
 .ui-textfield {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: toRem(4);
 
   // Label 및 TextMessage
   &-label,
   &-msg {
-    margin: 0 0 0 4px;
+    margin: 0 0 0 toRem(4);
     font: var(--Micro-Font-1);
   }
 
   &-msg {
     display: flex;
     align-items: center;
-    gap: 4px;
+    gap: toRem(4);
     path {
       fill: var(--Gray-Color-8);
     }
@@ -71,36 +91,38 @@ $textfield-font: (
 
   // Input
   &-input {
-    border: 1px solid var(--Gray-Color-4);
+    border: toRem(1) solid var(--Gray-Color-4);
 
     &.is-error {
       border-color: var(--Danger-Color-5);
     }
 
     &.read-only input {
-      background-color: var(--Gray-Color-1);
+      color: var(--TextField-ReadOnly-Color);
+      background-color: var(--TextField-ReadOnly-Background-Color);
     }
 
     &.is-disabled input {
-      background-color: var(--Gray-Color-2);
-      color: var(--Gray-Color-5);
+      background-color: var(--TextField-Disabled-Background-Color);
+      color: var(--TextField-Disabled-Font-Color);
       &::placeholder {
-        color: var(--Gray-Color-3);
+        color: var(--TextField-Disabled-Placeholder-Color);
       }
     }
 
     &:has(input:focus) {
-      border: 1px solid var(--Primary-Color-5);
-      box-shadow: 0 0 5px var(--Primary-Color-1);
+      border: toRem(1) solid var(--Primary-Color-5);
+      box-shadow: 0 0 toRem(5) var(--TextField-Shadow-Color);
     }
 
     input {
       margin: 0;
       border: 0;
       height: 100%;
+      color: var(--TextField-Font-Color);
       background-color: var(--TextField-Background-Color);
       &::placeholder {
-        color: var(--Gray-Color-4);
+        color: var(--TextField-Placeholder-Color);
       }
       &:focus {
         outline: 0;
