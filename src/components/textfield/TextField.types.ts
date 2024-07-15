@@ -1,8 +1,10 @@
+import { HTMLAttributes } from 'react'
+
 type TextFieldSize = 'small' | 'medium' | 'large'
 export type TextFieldType = 'text' | 'email' | 'number' | 'password'
 export type TextFieldValue<Type extends TextFieldType> = Type extends 'number' ? number : string
 
-export interface TextFieldProps<Type extends TextFieldType> {
+export interface TextFieldProps<Type extends TextFieldType> extends Omit<HTMLAttributes<HTMLInputElement>, 'onChange'> {
   id: string
   value: TextFieldValue<Type>
   onChange?: (val: TextFieldValue<Type>) => void

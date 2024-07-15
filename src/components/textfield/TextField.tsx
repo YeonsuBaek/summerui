@@ -15,6 +15,7 @@ export const TextField = <Type extends TextFieldType = 'text'>({
   autoFocus = false,
   readOnly = false,
   disabled = false,
+  ...props
 }: TextFieldProps<Type>) => {
   const inputRef = useRef<HTMLInputElement>(null)
 
@@ -50,6 +51,7 @@ export const TextField = <Type extends TextFieldType = 'text'>({
           disabled={isDisabled}
           ref={inputRef}
           aria-describedby={displayedHelperText ? `${id}-msg` : undefined}
+          {...props}
         />
       </div>
       {displayedHelperText && (
