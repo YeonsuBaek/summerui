@@ -19,6 +19,7 @@
     --Primary-Color-10: hsl(var(--primary-color), 10%);
 
     background-color: var(--Gray-Color-0);
+    color: var(--Gray-Color-8);
   }
 
   .theme-dark {
@@ -38,11 +39,8 @@
     --Primary-Color-10: hsl(var(--primary-color), 95%);
 
     background-color: var(--Gray-Color-1);
+    color: var(--Gray-Color-8);
   }
-}
-
-body {
-  color: var(--Gray-Color-8);
 }
 
 h1,
