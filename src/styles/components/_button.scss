@@ -1,9 +1,11 @@
 :root {
   .theme-light {
     --Button-Text-Color: var(--Gray-Color-0);
+    --Button-Shadow-Color: var(--Primary-Color-3);
   }
   .theme-dark {
     --Button-Text-Color: var(--Gray-Color-100);
+    --Button-Shadow-Color: var(--Primary-Color-6);
   }
 }
 
@@ -17,7 +19,7 @@
   cursor: pointer;
 
   &:focus {
-    box-shadow: 0 0 5px var(--Primary-Color-3);
+    box-shadow: 0 0 5px var(--Button-Shadow-Color);
   }
   &:disabled {
     cursor: default;
@@ -179,7 +181,7 @@
     background-color: var(--Primary-Color-5);
 
     &:focus {
-      box-shadow: 0 0 5px var(--Primary-Color-4);
+      box-shadow: 0 0 5px var(--Button-Shadow-Color);
     }
     &:hover {
       background-color: var(--Primary-Color-6);
@@ -285,7 +287,7 @@
     &.filled {
       @include styleOfIconButton('filled');
       &:focus {
-        box-shadow: 0 0 5px var(--Primary-Color-4);
+        box-shadow: 0 0 5px var(--Button-Shadow-Color);
       }
       &:disabled,
       &:is(:hover, :focus, :active):disabled {
