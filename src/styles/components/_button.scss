@@ -65,7 +65,7 @@
   );
 
   @mixin SizeOfButton($size) {
-    height: #{map-get($button-height, $size)};
+    min-height: #{map-get($button-height, $size)};
     padding: 0 #{map-get($button-padding, $size)};
     border-radius: #{map-get($button-border-radius, $size)};
     font: #{map-get($button-font, $size)};
