@@ -7,37 +7,6 @@
   }
 }
 
-$button-height: (
-  sm: 32px,
-  md: 40px,
-  lg: 48px,
-);
-
-$button-padding: (
-  sm: 12px,
-  md: 12px,
-  lg: 16px,
-);
-
-$button-border-radius: (
-  sm: $border-radius-sm,
-  md: $border-radius-md,
-  lg: $border-radius-lg,
-);
-
-$button-font: (
-  sm: var(--Detail-Font-2),
-  md: var(--Body-Font-3),
-  lg: var(--Heading-Font-3),
-);
-
-@mixin SizeOfButton($size) {
-  height: #{map-get($button-height, $size)};
-  padding: 0 #{map-get($button-padding, $size)};
-  border-radius: #{map-get($button-border-radius, $size)};
-  font: #{map-get($button-font, $size)};
-}
-
 .ui-button {
   display: inline-flex;
   align-items: center;
@@ -64,6 +33,38 @@ $button-font: (
   }
 
   // SIZE
+
+  $button-height: (
+    sm: 32px,
+    md: 40px,
+    lg: 48px,
+  );
+
+  $button-padding: (
+    sm: 12px,
+    md: 12px,
+    lg: 16px,
+  );
+
+  $button-border-radius: (
+    sm: $border-radius-sm,
+    md: $border-radius-md,
+    lg: $border-radius-lg,
+  );
+
+  $button-font: (
+    sm: var(--Detail-Font-2),
+    md: var(--Body-Font-3),
+    lg: var(--Heading-Font-3),
+  );
+
+  @mixin SizeOfButton($size) {
+    height: #{map-get($button-height, $size)};
+    padding: 0 #{map-get($button-padding, $size)};
+    border-radius: #{map-get($button-border-radius, $size)};
+    font: #{map-get($button-font, $size)};
+  }
+
   &.small {
     @include SizeOfButton('sm');
   }
@@ -75,6 +76,104 @@ $button-font: (
   }
 
   // STYLE
+  $button-color: (
+    outlined: (
+      primary: var(--Primary-Color-5),
+      secondary: var(--Primary-Color-5),
+      tertiary: var(--Gray-Color-8),
+    ),
+    ghost: (
+      primary: var(--Primary-Color-5),
+      secondary: var(--Gray-Color-8),
+    ),
+  );
+  $button-hover-bg-color: (
+    outlined: (
+      primary: var(--Primary-Color-1),
+      secondary: var(--Gray-Color-1),
+      tertiary: var(--Gray-Color-1),
+    ),
+    ghost: (
+      primary: var(--Primary-Color-1),
+      secondary: var(--Gray-Color-1),
+    ),
+  );
+  $button-active-bg-color: (
+    outlined: (
+      primary: var(--Primary-Color-2),
+      secondary: var(--Gray-Color-2),
+      tertiary: var(--Gray-Color-2),
+    ),
+    ghost: (
+      primary: var(--Primary-Color-2),
+      secondary: var(--Gray-Color-2),
+    ),
+  );
+  $button-icon-color: (
+    outlined: (
+      primary: var(--Primary-Color-5),
+      secondary: (
+        --Primary-Color-5,
+      ),
+      tertiary: var(--Gray-Color-8),
+    ),
+    ghost: (
+      primary: var(--Primary-Color-5),
+      secondary: var(--Gray-Color-8),
+    ),
+  );
+
+  @mixin styleOfButton($style, $variant) {
+    color: map-get(map-get($button-color, $style), $variant);
+    &:hover {
+      background-color: map-get(map-get($button-hover-bg-color, $style), $variant);
+    }
+    &:active {
+      background-color: map-get(map-get($button-active-bg-color, $style), $variant);
+    }
+    .ui-button-icon path {
+      fill: map-get(map-get($button-icon-color, $style), $variant);
+    }
+  }
+
+  $icon-button-bg: (
+    primary: transparent,
+    secondary: transparent,
+    filled: var(--Primary-Color-5),
+    outlined: transparent,
+  );
+  $icon-button-icon-color: (
+    primary: var(--Primary-Color-5),
+    secondary: var(--Gray-Color-8),
+    filled: var(--Button-Text-Color),
+    outlined: var(--Primary-Color-5),
+  );
+  $icon-button-hover-bg: (
+    primary: var(--Primary-Color-1),
+    secondary: var(--Gray-Color-1),
+    filled: var(--Primary-Color-6),
+    outlined: var(--Primary-Color-1),
+  );
+  $icon-button-active-bg: (
+    primary: var(--Primary-Color-2),
+    secondary: var(--Gray-Color-2),
+    filled: var(--Primary-Color-7),
+    outlined: var(--Primary-Color-2),
+  );
+
+  @mixin styleOfIconButton($variant) {
+    background-color: map-get($icon-button-bg, $variant);
+    &:hover {
+      background-color: map-get($icon-button-hover-bg, $variant);
+    }
+    &:active {
+      background-color: map-get($icon-button-active-bg, $variant);
+    }
+    path {
+      fill: map-get($icon-button-icon-color, $variant);
+    }
+  }
+
   &.filled.primary {
     color: var(--Button-Text-Color);
     background-color: var(--Primary-Color-5);
@@ -105,43 +204,16 @@ $button-font: (
     background-color: transparent;
 
     &.primary {
-      color: var(--Primary-Color-5);
+      @include styleOfButton('outlined', 'primary');
       border: 1px solid var(--Primary-Color-5);
-      &:hover {
-        background-color: var(--Primary-Color-1);
-      }
-      &:active {
-        background-color: var(--Primary-Color-2);
-      }
-      .ui-button-icon path {
-        fill: var(--Primary-Color-5);
-      }
     }
     &.secondary {
-      color: var(--Primary-Color-5);
+      @include styleOfButton('outlined', 'secondary');
       border: 1px solid var(--Gray-Color-4);
-      &:hover {
-        background-color: var(--Gray-Color-1);
-      }
-      &:active {
-        background-color: var(--Gray-Color-2);
-      }
-      .ui-button-icon path {
-        fill: var(--Primary-Color-5);
-      }
     }
     &.tertiary {
-      color: var(--Gray-Color-8);
+      @include styleOfButton('outlined', 'tertiary');
       border: 1px solid var(--Gray-Color-4);
-      &:hover {
-        background-color: var(--Gray-Color-1);
-      }
-      &:active {
-        background-color: var(--Gray-Color-2);
-      }
-      .ui-button-icon path {
-        fill: var(--Gray-Color-8);
-      }
     }
     &:disabled,
     &:is(:hover, :focus, :active):disabled {
@@ -159,28 +231,10 @@ $button-font: (
     background-color: transparent;
 
     &.primary {
-      color: var(--Primary-Color-5);
-      &:hover {
-        background-color: var(--Primary-Color-1);
-      }
-      &:active {
-        background-color: var(--Primary-Color-2);
-      }
-      .ui-button-icon path {
-        fill: var(--Primary-Color-5);
-      }
+      @include styleOfButton('ghost', 'primary');
     }
     &.secondary {
-      color: var(--Gray-Color-8);
-      &:hover {
-        background-color: var(--Gray-Color-1);
-      }
-      &:active {
-        background-color: var(--Gray-Color-2);
-      }
-      .ui-button-icon path {
-        fill: var(--Gray-Color-8);
-      }
+      @include styleOfButton('ghost', 'secondary');
     }
     &:disabled,
     &:is(:hover, :focus, :active):disabled {
@@ -216,28 +270,10 @@ $button-font: (
     }
 
     &.primary {
-      background-color: transparent;
-      path {
-        fill: var(--Primary-Color-5);
-      }
-      &:hover {
-        background-color: var(--Primary-Color-1);
-      }
-      &:active {
-        background-color: var(--Primary-Color-2);
-      }
+      @include styleOfIconButton('primary');
     }
     &.secondary {
-      background-color: transparent;
-      path {
-        fill: var(--Gray-Color-8);
-      }
-      &:hover {
-        background-color: var(--Gray-Color-1);
-      }
-      &:active {
-        background-color: var(--Gray-Color-2);
-      }
+      @include styleOfIconButton('secondary');
     }
     &:is(.primary, .secondary):disabled,
     &:is(.primary, .secondary):is(:hover, :focus, :active):disabled {
@@ -247,18 +283,9 @@ $button-font: (
       }
     }
     &.filled {
-      background-color: var(--Primary-Color-5);
-      path {
-        fill: var(--Button-Text-Color);
-      }
+      @include styleOfIconButton('filled');
       &:focus {
         box-shadow: 0 0 5px var(--Primary-Color-4);
-      }
-      &:hover {
-        background-color: var(--Primary-Color-6);
-      }
-      &:active {
-        background-color: var(--Primary-Color-7);
       }
       &:disabled,
       &:is(:hover, :focus, :active):disabled {
@@ -269,17 +296,8 @@ $button-font: (
       }
     }
     &.outlined {
-      background-color: transparent;
+      @include styleOfIconButton('outlined');
       border: 1px solid var(--Primary-Color-5);
-      path {
-        fill: var(--Primary-Color-5);
-      }
-      &:hover {
-        background-color: var(--Primary-Color-1);
-      }
-      &:active {
-        background-color: var(--Primary-Color-2);
-      }
       &:disabled,
       &:is(:hover, :focus, :active):disabled {
         background-color: transparent;
