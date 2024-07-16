@@ -2,10 +2,14 @@
   .theme-light {
     --Button-Text-Color: var(--Gray-Color-0);
     --Button-Shadow-Color: var(--Primary-Color-3);
+    --Button-Outlined-Hover-Background-Color: var(--Gray-Color-1);
+    --Button-Outlined-Active-Background-Color: var(--Gray-Color-2);
   }
   .theme-dark {
     --Button-Text-Color: var(--Gray-Color-100);
     --Button-Shadow-Color: var(--Primary-Color-6);
+    --Button-Outlined-Hover-Background-Color: var(--Gray-Color-2);
+    --Button-Outlined-Active-Background-Color: var(--Gray-Color-3);
   }
 }
 
@@ -80,47 +84,47 @@
   // STYLE
   $button-color: (
     outlined: (
-      primary: var(--Primary-Color-5),
-      secondary: var(--Primary-Color-5),
+      primary: var(--Primary-Color-6),
+      secondary: var(--Primary-Color-6),
       tertiary: var(--Gray-Color-8),
     ),
     ghost: (
-      primary: var(--Primary-Color-5),
+      primary: var(--Primary-Color-6),
       secondary: var(--Gray-Color-8),
     ),
   );
   $button-hover-bg-color: (
     outlined: (
       primary: var(--Primary-Color-1),
-      secondary: var(--Gray-Color-1),
-      tertiary: var(--Gray-Color-1),
+      secondary: var(--Button-Outlined-Hover-Background-Color),
+      tertiary: var(--Button-Outlined-Hover-Background-Color),
     ),
     ghost: (
       primary: var(--Primary-Color-1),
-      secondary: var(--Gray-Color-1),
+      secondary: var(--Button-Outlined-Hover-Background-Color),
     ),
   );
   $button-active-bg-color: (
     outlined: (
       primary: var(--Primary-Color-2),
-      secondary: var(--Gray-Color-2),
-      tertiary: var(--Gray-Color-2),
+      secondary: var(--Button-Outlined-Active-Background-Color),
+      tertiary: var(--Button-Outlined-Active-Background-Color),
     ),
     ghost: (
       primary: var(--Primary-Color-2),
-      secondary: var(--Gray-Color-2),
+      secondary: var(--Button-Outlined-Active-Background-Color),
     ),
   );
   $button-icon-color: (
     outlined: (
-      primary: var(--Primary-Color-5),
+      primary: var(--Primary-Color-6),
       secondary: (
-        --Primary-Color-5,
+        --Primary-Color-6,
       ),
       tertiary: var(--Gray-Color-8),
     ),
     ghost: (
-      primary: var(--Primary-Color-5),
+      primary: var(--Primary-Color-6),
       secondary: var(--Gray-Color-8),
     ),
   );
@@ -141,26 +145,26 @@
   $icon-button-bg: (
     primary: transparent,
     secondary: transparent,
-    filled: var(--Primary-Color-5),
+    filled: var(--Primary-Color-6),
     outlined: transparent,
   );
   $icon-button-icon-color: (
-    primary: var(--Primary-Color-5),
+    primary: var(--Primary-Color-6),
     secondary: var(--Gray-Color-8),
     filled: var(--Button-Text-Color),
-    outlined: var(--Primary-Color-5),
+    outlined: var(--Primary-Color-6),
   );
   $icon-button-hover-bg: (
     primary: var(--Primary-Color-1),
-    secondary: var(--Gray-Color-1),
-    filled: var(--Primary-Color-6),
-    outlined: var(--Primary-Color-1),
+    secondary: var(--Button-Outlined-Hover-Background-Color),
+    filled: var(--Primary-Color-7),
+    outlined: var(--Button-Outlined-Hover-Background-Color),
   );
   $icon-button-active-bg: (
     primary: var(--Primary-Color-2),
-    secondary: var(--Gray-Color-2),
-    filled: var(--Primary-Color-7),
-    outlined: var(--Primary-Color-2),
+    secondary: var(--Button-Outlined-Active-Background-Color),
+    filled: var(--Primary-Color-8),
+    outlined: var(--Button-Outlined-Active-Background-Color),
   );
 
   @mixin styleOfIconButton($variant) {
@@ -178,16 +182,16 @@
 
   &.filled.primary {
     color: var(--Button-Text-Color);
-    background-color: var(--Primary-Color-5);
+    background-color: var(--Primary-Color-6);
 
     &:focus {
       box-shadow: 0 0 5px var(--Button-Shadow-Color);
     }
     &:hover {
-      background-color: var(--Primary-Color-6);
+      background-color: var(--Primary-Color-7);
     }
     &:active {
-      background-color: var(--Primary-Color-7);
+      background-color: var(--Primary-Color-8);
     }
     .ui-button-icon path {
       fill: var(--Button-Text-Color);
@@ -207,7 +211,7 @@
 
     &.primary {
       @include styleOfButton('outlined', 'primary');
-      border: 1px solid var(--Primary-Color-5);
+      border: 1px solid var(--Primary-Color-6);
     }
     &.secondary {
       @include styleOfButton('outlined', 'secondary');
@@ -299,7 +303,7 @@
     }
     &.outlined {
       @include styleOfIconButton('outlined');
-      border: 1px solid var(--Primary-Color-5);
+      border: 1px solid var(--Primary-Color-6);
       &:disabled,
       &:is(:hover, :focus, :active):disabled {
         background-color: transparent;
