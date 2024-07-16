@@ -1,41 +1,16 @@
 :root {
   .theme-light {
     --Button-Text-Color: var(--Gray-Color-0);
+    --Button-Shadow-Color: var(--Primary-Color-3);
+    --Button-Outlined-Hover-Background-Color: var(--Gray-Color-1);
+    --Button-Outlined-Active-Background-Color: var(--Gray-Color-2);
   }
   .theme-dark {
     --Button-Text-Color: var(--Gray-Color-100);
+    --Button-Shadow-Color: var(--Primary-Color-6);
+    --Button-Outlined-Hover-Background-Color: var(--Gray-Color-2);
+    --Button-Outlined-Active-Background-Color: var(--Gray-Color-3);
   }
-}
-
-$button-height: (
-  sm: 32px,
-  md: 40px,
-  lg: 48px,
-);
-
-$button-padding: (
-  sm: 12px,
-  md: 12px,
-  lg: 16px,
-);
-
-$button-border-radius: (
-  sm: $border-radius-sm,
-  md: $border-radius-md,
-  lg: $border-radius-lg,
-);
-
-$button-font: (
-  sm: var(--Detail-Font-2),
-  md: var(--Body-Font-3),
-  lg: var(--Heading-Font-3),
-);
-
-@mixin SizeOfButton($size) {
-  height: #{map-get($button-height, $size)};
-  padding: 0 #{map-get($button-padding, $size)};
-  border-radius: #{map-get($button-border-radius, $size)};
-  font: #{map-get($button-font, $size)};
 }
 
 .ui-button {
@@ -48,7 +23,7 @@ $button-font: (
   cursor: pointer;
 
   &:focus {
-    box-shadow: 0 0 5px var(--Primary-Color-3);
+    box-shadow: 0 0 toRem(5) var(--Button-Shadow-Color);
   }
   &:disabled {
     cursor: default;
@@ -56,14 +31,46 @@ $button-font: (
 
   &-icon {
     &.start {
-      margin-right: 4px;
+      margin-right: toRem(4);
     }
     &.end {
-      margin-left: 4px;
+      margin-left: toRem(4);
     }
   }
 
   // SIZE
+
+  $button-height: (
+    sm: toRem(32),
+    md: toRem(40),
+    lg: toRem(48),
+  );
+
+  $button-padding: (
+    sm: toRem(12),
+    md: toRem(12),
+    lg: toRem(16),
+  );
+
+  $button-border-radius: (
+    sm: $border-radius-sm,
+    md: $border-radius-md,
+    lg: $border-radius-lg,
+  );
+
+  $button-font: (
+    sm: var(--Detail-Font-2),
+    md: var(--Body-Font-3),
+    lg: var(--Heading-Font-3),
+  );
+
+  @mixin SizeOfButton($size) {
+    min-height: #{map-get($button-height, $size)};
+    padding: 0 #{map-get($button-padding, $size)};
+    border-radius: #{map-get($button-border-radius, $size)};
+    font: #{map-get($button-font, $size)};
+  }
+
   &.small {
     @include SizeOfButton('sm');
   }
@@ -75,18 +82,116 @@ $button-font: (
   }
 
   // STYLE
-  &.filled.primary {
-    color: var(--Button-Text-Color);
-    background-color: var(--Primary-Color-5);
+  $button-color: (
+    outlined: (
+      primary: var(--Primary-Color-6),
+      secondary: var(--Primary-Color-6),
+      tertiary: var(--Gray-Color-8),
+    ),
+    ghost: (
+      primary: var(--Primary-Color-6),
+      secondary: var(--Gray-Color-8),
+    ),
+  );
+  $button-hover-bg-color: (
+    outlined: (
+      primary: var(--Primary-Color-1),
+      secondary: var(--Button-Outlined-Hover-Background-Color),
+      tertiary: var(--Button-Outlined-Hover-Background-Color),
+    ),
+    ghost: (
+      primary: var(--Primary-Color-1),
+      secondary: var(--Button-Outlined-Hover-Background-Color),
+    ),
+  );
+  $button-active-bg-color: (
+    outlined: (
+      primary: var(--Primary-Color-2),
+      secondary: var(--Button-Outlined-Active-Background-Color),
+      tertiary: var(--Button-Outlined-Active-Background-Color),
+    ),
+    ghost: (
+      primary: var(--Primary-Color-2),
+      secondary: var(--Button-Outlined-Active-Background-Color),
+    ),
+  );
+  $button-icon-color: (
+    outlined: (
+      primary: var(--Primary-Color-6),
+      secondary: (
+        --Primary-Color-6,
+      ),
+      tertiary: var(--Gray-Color-8),
+    ),
+    ghost: (
+      primary: var(--Primary-Color-6),
+      secondary: var(--Gray-Color-8),
+    ),
+  );
 
-    &:focus {
-      box-shadow: 0 0 5px var(--Primary-Color-4);
-    }
+  @mixin styleOfButton($style, $variant) {
+    color: map-get(map-get($button-color, $style), $variant);
     &:hover {
-      background-color: var(--Primary-Color-6);
+      background-color: map-get(map-get($button-hover-bg-color, $style), $variant);
     }
     &:active {
+      background-color: map-get(map-get($button-active-bg-color, $style), $variant);
+    }
+    .ui-button-icon path {
+      fill: map-get(map-get($button-icon-color, $style), $variant);
+    }
+  }
+
+  $icon-button-bg: (
+    primary: transparent,
+    secondary: transparent,
+    filled: var(--Primary-Color-6),
+    outlined: transparent,
+  );
+  $icon-button-icon-color: (
+    primary: var(--Primary-Color-6),
+    secondary: var(--Gray-Color-8),
+    filled: var(--Button-Text-Color),
+    outlined: var(--Primary-Color-6),
+  );
+  $icon-button-hover-bg: (
+    primary: var(--Primary-Color-1),
+    secondary: var(--Button-Outlined-Hover-Background-Color),
+    filled: var(--Primary-Color-7),
+    outlined: var(--Button-Outlined-Hover-Background-Color),
+  );
+  $icon-button-active-bg: (
+    primary: var(--Primary-Color-2),
+    secondary: var(--Button-Outlined-Active-Background-Color),
+    filled: var(--Primary-Color-8),
+    outlined: var(--Button-Outlined-Active-Background-Color),
+  );
+
+  @mixin styleOfIconButton($variant) {
+    background-color: map-get($icon-button-bg, $variant);
+    &:hover {
+      background-color: map-get($icon-button-hover-bg, $variant);
+    }
+    &:active {
+      background-color: map-get($icon-button-active-bg, $variant);
+    }
+    path {
+      fill: map-get($icon-button-icon-color, $variant);
+    }
+  }
+
+  &.filled.primary {
+    color: var(--Button-Text-Color);
+    background-color: var(--Primary-Color-6);
+
+    &:focus {
+      box-shadow: 0 0 toRem(5) var(--Button-Shadow-Color);
+    }
+    &:hover {
       background-color: var(--Primary-Color-7);
+    }
+    &:active {
+      background-color: var(--Primary-Color-8);
     }
     .ui-button-icon path {
       fill: var(--Button-Text-Color);
@@ -105,43 +210,16 @@ $button-font: (
     background-color: transparent;
 
     &.primary {
-      color: var(--Primary-Color-5);
-      border: 1px solid var(--Primary-Color-5);
-      &:hover {
-        background-color: var(--Primary-Color-1);
-      }
-      &:active {
-        background-color: var(--Primary-Color-2);
-      }
-      .ui-button-icon path {
-        fill: var(--Primary-Color-5);
-      }
+      @include styleOfButton('outlined', 'primary');
+      border: toRem(1) solid var(--Primary-Color-6);
     }
     &.secondary {
-      color: var(--Primary-Color-5);
-      border: 1px solid var(--Gray-Color-4);
-      &:hover {
-        background-color: var(--Gray-Color-1);
-      }
-      &:active {
-        background-color: var(--Gray-Color-2);
-      }
-      .ui-button-icon path {
-        fill: var(--Primary-Color-5);
-      }
+      @include styleOfButton('outlined', 'secondary');
+      border: toRem(1) solid var(--Gray-Color-4);
     }
     &.tertiary {
-      color: var(--Gray-Color-8);
-      border: 1px solid var(--Gray-Color-4);
-      &:hover {
-        background-color: var(--Gray-Color-1);
-      }
-      &:active {
-        background-color: var(--Gray-Color-2);
-      }
-      .ui-button-icon path {
-        fill: var(--Gray-Color-8);
-      }
+      @include styleOfButton('outlined', 'tertiary');
+      border: toRem(1) solid var(--Gray-Color-4);
     }
     &:disabled,
     &:is(:hover, :focus, :active):disabled {
@@ -159,28 +237,10 @@ $button-font: (
     background-color: transparent;
 
     &.primary {
-      color: var(--Primary-Color-5);
-      &:hover {
-        background-color: var(--Primary-Color-1);
-      }
-      &:active {
-        background-color: var(--Primary-Color-2);
-      }
-      .ui-button-icon path {
-        fill: var(--Primary-Color-5);
-      }
+      @include styleOfButton('ghost', 'primary');
     }
     &.secondary {
-      color: var(--Gray-Color-8);
-      &:hover {
-        background-color: var(--Gray-Color-1);
-      }
-      &:active {
-        background-color: var(--Gray-Color-2);
-      }
-      .ui-button-icon path {
-        fill: var(--Gray-Color-8);
-      }
+      @include styleOfButton('ghost', 'secondary');
     }
     &:disabled,
     &:is(:hover, :focus, :active):disabled {
@@ -198,46 +258,28 @@ $button-font: (
     aspect-ratio: 1/1;
 
     &.small {
-      padding: 4px;
+      padding: toRem(4);
     }
     &.medium {
-      padding: 4px;
+      padding: toRem(4);
       svg {
-        width: 24px;
-        height: 24px;
+        width: toRem(24);
+        height: toRem(24);
       }
     }
     &.large {
-      padding: 8px;
+      padding: toRem(8);
       svg {
-        width: 32px;
-        height: 32px;
+        width: toRem(32);
+        height: toRem(32);
       }
     }
 
     &.primary {
-      background-color: transparent;
-      path {
-        fill: var(--Primary-Color-5);
-      }
-      &:hover {
-        background-color: var(--Primary-Color-1);
-      }
-      &:active {
-        background-color: var(--Primary-Color-2);
-      }
+      @include styleOfIconButton('primary');
     }
     &.secondary {
-      background-color: transparent;
-      path {
-        fill: var(--Gray-Color-8);
-      }
-      &:hover {
-        background-color: var(--Gray-Color-1);
-      }
-      &:active {
-        background-color: var(--Gray-Color-2);
-      }
+      @include styleOfIconButton('secondary');
     }
     &:is(.primary, .secondary):disabled,
     &:is(.primary, .secondary):is(:hover, :focus, :active):disabled {
@@ -247,18 +289,9 @@ $button-font: (
       }
     }
     &.filled {
-      background-color: var(--Primary-Color-5);
-      path {
-        fill: var(--Button-Text-Color);
-      }
+      @include styleOfIconButton('filled');
       &:focus {
-        box-shadow: 0 0 5px var(--Primary-Color-4);
-      }
-      &:hover {
-        background-color: var(--Primary-Color-6);
-      }
-      &:active {
-        background-color: var(--Primary-Color-7);
+        box-shadow: 0 0 toRem(5) var(--Button-Shadow-Color);
       }
       &:disabled,
       &:is(:hover, :focus, :active):disabled {
@@ -269,17 +302,8 @@ $button-font: (
       }
     }
     &.outlined {
-      background-color: transparent;
-      border: 1px solid var(--Primary-Color-5);
-      path {
-        fill: var(--Primary-Color-5);
-      }
-      &:hover {
-        background-color: var(--Primary-Color-1);
-      }
-      &:active {
-        background-color: var(--Primary-Color-2);
-      }
+      @include styleOfIconButton('outlined');
+      border: toRem(1) solid var(--Primary-Color-6);
       &:disabled,
       &:is(:hover, :focus, :active):disabled {
         background-color: transparent;
