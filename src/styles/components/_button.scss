@@ -23,7 +23,7 @@
   cursor: pointer;
 
   &:focus {
-    box-shadow: 0 0 5px var(--Button-Shadow-Color);
+    box-shadow: 0 0 toRem(5) var(--Button-Shadow-Color);
   }
   &:disabled {
     cursor: default;
@@ -31,25 +31,25 @@
 
   &-icon {
     &.start {
-      margin-right: 4px;
+      margin-right: toRem(4);
     }
     &.end {
-      margin-left: 4px;
+      margin-left: toRem(4);
     }
   }
 
   // SIZE
 
   $button-height: (
-    sm: 32px,
-    md: 40px,
-    lg: 48px,
+    sm: toRem(32),
+    md: toRem(40),
+    lg: toRem(48),
   );
 
   $button-padding: (
-    sm: 12px,
-    md: 12px,
-    lg: 16px,
+    sm: toRem(12),
+    md: toRem(12),
+    lg: toRem(16),
   );
 
   $button-border-radius: (
@@ -185,7 +185,7 @@
     background-color: var(--Primary-Color-6);
 
     &:focus {
-      box-shadow: 0 0 5px var(--Button-Shadow-Color);
+      box-shadow: 0 0 toRem(5) var(--Button-Shadow-Color);
     }
     &:hover {
       background-color: var(--Primary-Color-7);
@@ -211,15 +211,15 @@
 
     &.primary {
       @include styleOfButton('outlined', 'primary');
-      border: 1px solid var(--Primary-Color-6);
+      border: toRem(1) solid var(--Primary-Color-6);
     }
     &.secondary {
       @include styleOfButton('outlined', 'secondary');
-      border: 1px solid var(--Gray-Color-4);
+      border: toRem(1) solid var(--Gray-Color-4);
     }
     &.tertiary {
       @include styleOfButton('outlined', 'tertiary');
-      border: 1px solid var(--Gray-Color-4);
+      border: toRem(1) solid var(--Gray-Color-4);
     }
     &:disabled,
     &:is(:hover, :focus, :active):disabled {
@@ -258,20 +258,20 @@
     aspect-ratio: 1/1;
 
     &.small {
-      padding: 4px;
+      padding: toRem(4);
     }
     &.medium {
-      padding: 4px;
+      padding: toRem(4);
       svg {
-        width: 24px;
-        height: 24px;
+        width: toRem(24);
+        height: toRem(24);
       }
     }
     &.large {
-      padding: 8px;
+      padding: toRem(8);
       svg {
-        width: 32px;
-        height: 32px;
+        width: toRem(32);
+        height: toRem(32);
       }
     }
 
@@ -291,7 +291,7 @@
     &.filled {
       @include styleOfIconButton('filled');
       &:focus {
-        box-shadow: 0 0 5px var(--Button-Shadow-Color);
+        box-shadow: 0 0 toRem(5) var(--Button-Shadow-Color);
       }
       &:disabled,
       &:is(:hover, :focus, :active):disabled {
@@ -303,7 +303,7 @@
     }
     &.outlined {
       @include styleOfIconButton('outlined');
-      border: 1px solid var(--Primary-Color-6);
+      border: toRem(1) solid var(--Primary-Color-6);
       &:disabled,
       &:is(:hover, :focus, :active):disabled {
         background-color: transparent;
