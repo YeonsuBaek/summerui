@@ -1,5 +1,5 @@
-import { Checkbox } from './Checkbox'
-import { CheckboxGroupProps, OptionType } from './Checkbox.types'
+import { Checkbox } from '../checkbox/Checkbox'
+import { CheckboxGroupProps, OptionType } from './CheckboxGroup.types'
 
 export const CheckboxGroup = ({
   options,
