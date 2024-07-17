@@ -1,6 +1,6 @@
 import { ChangeEvent } from 'react'
 import { RadioProps } from './Radio.types'
-import { CircleIcon } from '../../assets/icon'
+import { CircleFilledIcon } from '../../assets/icon'
 
 export const Radio = ({
   id,
@@ -15,7 +15,7 @@ export const Radio = ({
   return (
     <div className={`ui-radio ${size}`}>
       <span className="ui-radio-icon" role="radio" aria-checked={checked} aria-disabled={disabled}>
-        {checked && <CircleIcon size={12} />}
+        {checked && <CircleFilledIcon size={12} />}
       </span>
       <input
         type="radio"
