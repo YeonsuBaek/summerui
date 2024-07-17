@@ -94,3 +94,27 @@
     }
   }
 }
+
+.ui-checkbox-group {
+  margin: 0;
+  padding: 0;
+  border: none;
+
+  &-label {
+    padding: 0;
+    margin-bottom: toRem(4);
+    font: var(--Micro-Font-1);
+  }
+
+  &-options {
+    display: flex;
+
+    &.horizontal {
+      gap: toRem(24);
+    }
+    &.vertical {
+      flex-direction: column;
+      gap: toRem(16);
+    }
+  }
+}
