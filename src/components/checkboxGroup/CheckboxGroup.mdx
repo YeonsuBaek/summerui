@@ -1,0 +1,39 @@
+import { ArgTypes, Canvas, Meta } from '@storybook/addon-docs'
+import * as CheckboxGroupStories from './CheckboxGroup.stories'
+import { CheckboxGroup } from '.'
+
+<Meta of={CheckboxGroupStories} component={CheckboxGroup} />
+
+# Checkbox
+
+사용자가 여러 개의 옵션 중 한 개 이상의 값을 선택할 때 사용한다.
+
+## 예시
+
+### Direction
+
+<Canvas of={CheckboxGroupStories.GroupOfCheckbox} />
+
+## TIP
+
+1. 선택한 옵션에 대한 배열에는 옵션의 `value` 값이 들어가야 한다.
+
+```jsx
+const [checkedOptions, setCheckedOptions] = useState(['value-1'])
+const options = [
+  {
+    id: 'option-1',
+    value: 'value-1',
+    label: 'label-1',
+  },
+  {
+    id: 'option-2',
+    value: 'value-2',
+    label: 'label-2',
+  },
+]
+```
+
+## API
+
+<ArgTypes of={CheckboxGroupStories} />
