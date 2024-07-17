@@ -10,7 +10,29 @@ import { CheckboxGroup } from '.'
 
 ## 예시
 
+### Direction
+
 <Canvas of={CheckboxGroupStories.GroupOfCheckbox} />
+
+## TIP
+
+1. 선택한 옵션에 대한 배열에는 옵션의 `value` 값이 들어가야 한다.
+
+```jsx
+const [checkedOptions, setCheckedOptions] = useState(['value-1'])
+const options = [
+  {
+    id: 'option-1',
+    value: 'value-1',
+    label: 'label-1',
+  },
+  {
+    id: 'option-2',
+    value: 'value-2',
+    label: 'label-2',
+  },
+]
+```
 
 ## API
 

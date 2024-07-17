@@ -31,31 +31,41 @@ export const GroupOfCheckbox = () => {
   ]
 
   return (
-    <div style={{ padding: '16px', display: 'flex', flexDirection: 'column', gap: '16px' }}>
-      <CheckboxGroup
-        options={options}
-        label="label 라벨"
-        name="example"
-        checkedOptions={selected}
-        onChange={setSelected}
-        size="small"
-      />
-      <CheckboxGroup
-        options={options}
-        label="label 라벨"
-        name="example"
-        checkedOptions={selected}
-        onChange={setSelected}
-      />
-      <CheckboxGroup
-        options={options}
-        label="label 라벨"
-        name="example"
-        checkedOptions={selected}
-        onChange={setSelected}
-        size="large"
-        direction="vertical"
-      />
-    </div>
+    <>
+      <div style={{ padding: '16px', display: 'flex', flexDirection: 'column', gap: '16px' }}>
+        <CheckboxGroup
+          options={options}
+          label="horizontal"
+          name="horizontal"
+          checkedOptions={selected}
+          onChange={setSelected}
+        />
+        <CheckboxGroup
+          options={options}
+          label="vertical"
+          name="vertical"
+          checkedOptions={selected}
+          onChange={setSelected}
+          direction="vertical"
+        />
+      </div>
+      <div className="theme-dark" style={{ padding: '16px', display: 'flex', flexDirection: 'column', gap: '16px' }}>
+        <CheckboxGroup
+          options={options}
+          label="horizontal"
+          name="horizontal"
+          checkedOptions={selected}
+          onChange={setSelected}
+        />
+        <CheckboxGroup
+          options={options}
+          label="vertical"
+          name="vertical"
+          checkedOptions={selected}
+          onChange={setSelected}
+          direction="vertical"
+        />
+      </div>
+    </>
   )
 }
