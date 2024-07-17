@@ -1,0 +1,97 @@
+:root {
+  .theme-light {
+    --Radio-Icon-Color: var(--Gray-Color-0);
+    --Radio-Shadow-Color: var(--Primary-Color-1);
+  }
+  .theme-dark {
+    --Radio-Icon-Color: var(--Gray-Color-100);
+    --Radio-Shadow-Color: var(--Primary-Color-3);
+  }
+}
+
+.ui-radio {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+
+  input {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    opacity: 0;
+    cursor: pointer;
+
+    &:disabled {
+      cursor: default;
+
+      ~ .ui-radio-label {
+        color: var(--Gray-Color-6);
+      }
+    }
+  }
+
+  &-icon {
+    position: relative;
+    display: inline-block;
+    border-radius: toRem(100);
+    border: toRem(1) solid var(--Gray-Color-4);
+
+    svg {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    path {
+      fill: var(--Radio-Icon-Color);
+    }
+
+    &:has(~ input:disabled:checked) {
+      background-color: var(--Primary-Color-3);
+      border-color: var(--Primary-Color-3);
+    }
+    &:has(~ input:checked) {
+      background-color: var(--Primary-Color-6);
+      border-color: var(--Primary-Color-6);
+    }
+    &:has(~ input:disabled) {
+      border-color: var(--Gray-Color-2);
+    }
+    &:has(~ input:focus) {
+      border-color: var(--Primary-Color-6);
+      box-shadow: 0 0 toRem(5) var(--Radio-Shadow-Color);
+    }
+  }
+
+  &.small {
+    .ui-radio-icon {
+      width: toRem(14);
+      height: toRem(14);
+      margin-right: toRem(4);
+    }
+    .ui-radio-label {
+      font: var(--Detail-Font-1);
+    }
+  }
+  &.medium {
+    .ui-radio-icon {
+      width: toRem(18);
+      height: toRem(18);
+      margin-right: toRem(8);
+    }
+    .ui-radio-label {
+      font: var(--Body-Font-1);
+    }
+  }
+  &.large {
+    .ui-radio-icon {
+      width: toRem(22);
+      height: toRem(22);
+      margin-right: toRem(8);
+    }
+    .ui-radio-label {
+      font: var(--Body-Font-1);
+    }
+  }
+}

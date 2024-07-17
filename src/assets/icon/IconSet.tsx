@@ -95,6 +95,7 @@ import {
   ChefHatIcon,
   CigaretteIcon,
   CigaretteSlashIcon,
+  CircleFilledIcon,
   CircleIcon,
   ClipboardTextIcon,
   ClockClockwiseIcon,
@@ -549,6 +550,7 @@ export const designIcons: { [key: string]: React.ComponentType<IconProps> } = {
   Palette: PaletteIcon,
   Paint: PaintIcon,
   Circle: CircleIcon,
+  CircleFilled: CircleFilledIcon,
 }
 
 export const educationIcons: { [key: string]: React.ComponentType<IconProps> } = {
