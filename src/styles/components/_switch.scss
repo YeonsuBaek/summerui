@@ -1,0 +1,98 @@
+:root {
+  .theme-light {
+    --Switch-Icon-Color: var(--Gray-Color-0);
+    --Switch-Disabled-Icon-Color: var(--Gray-Color-1);
+    --Switch-Shadow-Color: var(--Primary-Color-3);
+  }
+  .theme-dark {
+    --Switch-Icon-Color: var(--Gray-Color-100);
+    --Switch-Disabled-Icon-Color: var(--Gray-Color-3);
+    --Switch-Shadow-Color: var(--Primary-Color-3);
+  }
+}
+
+.ui-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: toRem(8);
+  cursor: pointer;
+
+  & * {
+    cursor: pointer;
+  }
+  &:has(.ui-switch-button:disabled),
+  &:has(.ui-switch-button:disabled) * {
+    cursor: default;
+  }
+
+  &.small {
+    gap: toRem(4);
+    .ui-switch-button {
+      width: toRem(32);
+      height: toRem(16);
+    }
+    .ui-switch-label {
+      font: var(--Detail-Font-1);
+    }
+  }
+  &.medium {
+    .ui-switch-button {
+      width: toRem(40);
+      height: toRem(20);
+    }
+    .ui-switch-label {
+      font: var(--Body-Font-1);
+    }
+  }
+  &.large {
+    .ui-switch-button {
+      width: toRem(48);
+      height: toRem(24);
+    }
+    .ui-switch-label {
+      font: var(--Body-Font-1);
+    }
+  }
+
+  &-button {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    border-radius: 100px;
+
+    &.switch-on {
+      justify-content: flex-end;
+      background-color: var(--Primary-Color-6);
+    }
+    &.switch-off {
+      justify-content: flex-start;
+      background-color: var(--Gray-Color-4);
+    }
+
+    path {
+      fill: var(--Switch-Icon-Color);
+    }
+
+    &:focus {
+      box-shadow: 0 0 toRem(5) var(--Switch-Shadow-Color);
+    }
+
+    &:disabled {
+      &.switch-on {
+        background-color: var(--Primary-Color-3);
+      }
+      &.switch-off {
+        background-color: var(--Gray-Color-2);
+      }
+      path {
+        fill: var(--Switch-Disabled-Icon-Color);
+      }
+      & ~ .ui-switch-label {
+        color: var(--Gray-Color-6);
+        pointer-events: none;
+      }
+    }
+  }
+}
