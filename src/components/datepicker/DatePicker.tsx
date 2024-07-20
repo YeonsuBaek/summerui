@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import { Button } from '../button'
 import { TextField } from '../textfield'
 import { DatePickerProps } from './DatePicker.types'
@@ -13,6 +13,7 @@ export const DatePicker = ({
   onChange = () => {},
   size = 'medium',
   format = 'YYYY/MM/DD',
+  autoFormatting = true,
   label = '',
   helperText = '',
   isError = false,
@@ -27,7 +28,55 @@ export const DatePicker = ({
 
   const iconSize = size === 'small' ? 'small' : 'medium'
 
-  const handleChange = (selectedDate: string | Moment | null) => {
+  const getSeparator = useCallback(() => {
+    const regex = /[^0-9a-zA-Z]+/
+    const match = format.match(regex)
+
+    if (match) {
+      const symbol = match[0]
+      const indexes = []
+
+      for (let i = 0; i < format.length; i++) {
+        if (format[i] === symbol) {
+          indexes.push(i)
+        }
+      }
+
+      return { symbol, indexes }
+    }
+    return { symbol: undefined, indexes: [] }
+  }, [format])
+
+  const applyFormat = useCallback(
+    (date: string) => {
+      const { symbol, indexes } = getSeparator()
+      let formattedDate = date
+
+      if (symbol && indexes.length > 0) {
+        indexes.forEach((index) => {
+          if (index < formattedDate.length && formattedDate[index] !== symbol) {
+            formattedDate = formattedDate.slice(0, index) + symbol + formattedDate.slice(index)
+          }
+        })
+      }
+
+      return formattedDate
+    },
+    [getSeparator]
+  )
+
+  const handleChangeDateText = (selectedDate: string) => {
+    const cleanedDate = selectedDate.replace(/[^\d]/g, '')
+    const formattedDate = applyFormat(cleanedDate)
+
+    if (autoFormatting) {
+      onChange(formattedDate)
+    } else {
+      onChange(selectedDate)
+    }
+  }
+
+  const handleChangeDateClick = (selectedDate: string | Moment | null) => {
     if (moment.isMoment(selectedDate)) {
       onChange(selectedDate.format(format))
     }
@@ -66,7 +115,7 @@ export const DatePicker = ({
           autoFocus={autoFocus}
           readOnly={readOnly}
           disabled={disabled}
-          onChange={onChange}
+          onChange={handleChangeDateText}
         >
           <Button styleType="icon" size={iconSize} onClick={() => setIsOpen((prev) => !prev)}>
             <CalendarBlankFilledIcon />
@@ -81,7 +130,7 @@ export const DatePicker = ({
             timeFormat={false}
             dateFormat={format}
             value={moment(value, format)}
-            onChange={handleChange}
+            onChange={handleChangeDateClick}
             locale="ko"
           />
         </div>

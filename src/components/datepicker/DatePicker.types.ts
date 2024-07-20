@@ -8,6 +8,7 @@ export interface DatePickerProps {
   onChange?: (val: string) => void
   size?: DatePickerSize
   format?: DatePickerFormat
+  autoFormatting?: boolean
   label?: string
   helperText?: string
   isError?: boolean
