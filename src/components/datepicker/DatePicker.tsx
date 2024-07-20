@@ -1,11 +1,11 @@
 import { useState } from 'react'
-import { CalendarBlankFilled } from '../../assets/icon/generated/CalendarBlankFilled'
 import { Button } from '../button'
 import { TextField } from '../textfield'
 import { DatePickerProps } from './DatePicker.types'
 import Datetime from 'react-datetime'
 import 'react-datetime/css/react-datetime.css'
 import moment, { Moment } from 'moment'
+import { CalendarBlankFilledIcon } from '../../assets/icon'
 
 export const DatePicker = ({
   id,
@@ -48,7 +48,7 @@ export const DatePicker = ({
         onChange={onChange}
       >
         <Button styleType="icon" size={iconSize} onClick={() => setIsOpen((prev) => !prev)}>
-          <CalendarBlankFilled />
+          <CalendarBlankFilledIcon />
         </Button>
       </TextField>
       {isOpen && (
