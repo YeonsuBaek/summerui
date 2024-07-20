@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { FocusEvent, useCallback, useEffect, useRef, useState } from 'react'
 import { Button } from '../button'
 import { TextField } from '../textfield'
 import { DatePickerProps } from './DatePicker.types'
@@ -93,6 +93,16 @@ export const DatePicker = ({
     }
   }
 
+  const checkValidDate = (e: FocusEvent<HTMLInputElement>) => {
+    const { value } = e.target
+    const selectedDate = moment(value, format, true)
+    const isValid = selectedDate.isValid()
+
+    if (!isValid) {
+      onChange('')
+    }
+  }
+
   useEffect(() => {
     if (isOpen && inputRef?.current && calendarRef?.current) {
       document.addEventListener('click', handleClickOut)
@@ -102,7 +112,7 @@ export const DatePicker = ({
 
   return (
     <div className={`ui-datepicker ${size}`}>
-      <div ref={inputRef}>
+      <div ref={inputRef} onBlur={checkValidDate}>
         <TextField
           id={id}
           value={value}
