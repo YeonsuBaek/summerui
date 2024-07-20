@@ -1,0 +1,91 @@
+:root {
+  .theme-light {
+    --DatePicker-Calender-Background: var(--Gray-Color-0);
+    --DatePicker-Calender-Selected: var(--Gray-Color-0);
+    --DatePicker-Calender-DateOut: var(--Gray-Color-4);
+  }
+  .theme-dark {
+    --DatePicker-Calender-Background: var(--Gray-Color-1);
+    --DatePicker-Calender-Selected: var(--Gray-Color-100);
+    --DatePicker-Calender-DateOut: var(--Gray-Color-3);
+  }
+}
+
+.ui-datepicker {
+  position: relative;
+  .ui-textfield-input {
+    position: relative;
+  }
+
+  button {
+    position: absolute;
+    top: 50%;
+    right: #{toRem(8)};
+    transform: translateY(-50%);
+  }
+
+  &-calendar {
+    position: absolute;
+    top: calc(100% + #{toRem(4)});
+
+    z-index: $datepicker-calendar;
+    background-color: var(--DatePicker-Calender-Background);
+
+    border-radius: toRem(8);
+    border: 1px solid var(--Gray-Color-4);
+
+    &,
+    &.rdtPicker {
+      width: 100%;
+      min-width: toRem(320);
+      max-width: toRem(360);
+      height: toRem(420);
+    }
+
+    .rdtPrev,
+    .rdtNext,
+    .rdtSwitch {
+      cursor: pointer;
+    }
+
+    .rdtOld,
+    .rdtNew {
+      color: var(--DatePicker-Calender-DateOut);
+    }
+
+    .rdtToday {
+      border: 1px solid var(--Primary-Color-6);
+    }
+
+    .rdtActive {
+      color: var(--DatePicker-Calender-Selected);
+      background-color: var(--Primary-Color-6);
+      border-color: var(--Primary-Color-6);
+    }
+
+    table {
+      width: 100%;
+    }
+    thead {
+      tr:nth-child(1) {
+        height: toRem(64);
+      }
+      tr:nth-child(2) {
+        height: toRem(40);
+        th {
+          font: var(--Body-Font-1);
+        }
+      }
+    }
+    tbody {
+      td {
+        padding: 0;
+        height: toRem(44);
+        text-align: center;
+        border-radius: 100px;
+        border: toRem(1) solid transparent;
+        cursor: pointer;
+      }
+    }
+  }
+}

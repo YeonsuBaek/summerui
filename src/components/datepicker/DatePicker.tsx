@@ -3,9 +3,9 @@ import { Button } from '../button'
 import { TextField } from '../textfield'
 import { DatePickerProps } from './DatePicker.types'
 import Datetime from 'react-datetime'
-import 'react-datetime/css/react-datetime.css'
 import moment, { Moment } from 'moment'
 import { CalendarBlankFilledIcon } from '../../assets/icon'
+import 'moment/locale/ko'
 
 export const DatePicker = ({
   id,
@@ -53,11 +53,14 @@ export const DatePicker = ({
       </TextField>
       {isOpen && (
         <Datetime
+          className="ui-datepicker-calendar"
+          open={isOpen}
           input={false}
           timeFormat={false}
           dateFormat={format}
           value={moment(value, format)}
           onChange={handleChange}
+          locale="ko"
         />
       )}
     </div>
