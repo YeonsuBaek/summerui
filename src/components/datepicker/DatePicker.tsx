@@ -103,6 +103,21 @@ export const DatePicker = ({
     }
   }
 
+  const handleChange = (value: string) => {
+    if (inputRef.current) {
+      const input = inputRef.current.querySelector('input') as HTMLInputElement
+      const cursorStart = input.selectionStart ?? 0
+      const cursorEnd = input.selectionEnd ?? 0
+
+      handleChangeDateText(value)
+
+      requestAnimationFrame(() => {
+        input.selectionStart = cursorStart
+        input.selectionEnd = cursorEnd
+      })
+    }
+  }
+
   useEffect(() => {
     if (isOpen && inputRef?.current && calendarRef?.current) {
       document.addEventListener('click', handleClickOut)
@@ -125,7 +140,7 @@ export const DatePicker = ({
           autoFocus={autoFocus}
           readOnly={readOnly}
           disabled={disabled}
-          onChange={handleChangeDateText}
+          onChange={handleChange}
         >
           <Button styleType="icon" size={iconSize} onClick={() => setIsOpen((prev) => !prev)}>
             <CalendarBlankFilledIcon />
