@@ -76,6 +76,21 @@ export const DatePicker = ({
     }
   }
 
+  const handleChange = (value: string) => {
+    if (inputRef.current) {
+      const input = inputRef.current.querySelector('input') as HTMLInputElement
+      const cursorStart = input.selectionStart ?? 0
+      const cursorEnd = input.selectionEnd ?? 0
+
+      handleChangeDateText(value)
+
+      requestAnimationFrame(() => {
+        input.selectionStart = cursorStart
+        input.selectionEnd = cursorEnd
+      })
+    }
+  }
+
   const handleChangeDateClick = (selectedDate: string | Moment | null) => {
     if (moment.isMoment(selectedDate)) {
       onChange(selectedDate.format(format))
@@ -103,21 +118,6 @@ export const DatePicker = ({
     }
   }
 
-  const handleChange = (value: string) => {
-    if (inputRef.current) {
-      const input = inputRef.current.querySelector('input') as HTMLInputElement
-      const cursorStart = input.selectionStart ?? 0
-      const cursorEnd = input.selectionEnd ?? 0
-
-      handleChangeDateText(value)
-
-      requestAnimationFrame(() => {
-        input.selectionStart = cursorStart
-        input.selectionEnd = cursorEnd
-      })
-    }
-  }
-
   useEffect(() => {
     if (isOpen && inputRef?.current && calendarRef?.current) {
       document.addEventListener('click', handleClickOut)
@@ -142,13 +142,20 @@ export const DatePicker = ({
           disabled={disabled}
           onChange={handleChange}
         >
-          <Button styleType="icon" size={iconSize} onClick={() => setIsOpen((prev) => !prev)}>
+          <Button
+            styleType="icon"
+            size={iconSize}
+            onClick={() => setIsOpen((prev) => !prev)}
+            aria-haspopup="true"
+            aria-expanded={isOpen}
+            aria-controls={`${id}-calendar`}
+          >
             <CalendarBlankFilledIcon />
           </Button>
         </TextField>
       </div>
       {isOpen && (
-        <div ref={calendarRef} className="ui-datepicker-calendar">
+        <div ref={calendarRef} id={`${id}-calendar`} className="ui-datepicker-calendar">
           <Datetime
             open={isOpen}
             input={false}
