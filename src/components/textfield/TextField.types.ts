@@ -1,4 +1,4 @@
-import { HTMLAttributes } from 'react'
+import { HTMLAttributes, ReactNode } from 'react'
 
 type TextFieldSize = 'small' | 'medium' | 'large'
 export type TextFieldType = 'text' | 'email' | 'number' | 'password'
@@ -18,4 +18,5 @@ export interface TextFieldProps<Type extends TextFieldType> extends Omit<HTMLAtt
   autoFocus?: boolean
   readOnly?: boolean
   disabled?: boolean
+  children?: ReactNode | ReactNode[]
 }
