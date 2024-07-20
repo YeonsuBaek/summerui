@@ -27,24 +27,16 @@
   &-calendar {
     position: absolute;
     top: calc(100% + #{toRem(4)});
-
-    z-index: $datepicker-calendar;
     background-color: var(--DatePicker-Calender-Background);
-
     border-radius: toRem(8);
     border: 1px solid var(--Gray-Color-4);
-
-    &,
-    &.rdtPicker {
-      width: 100%;
-      min-width: toRem(320);
-      max-width: toRem(360);
-      height: toRem(420);
-    }
+    z-index: $datepicker-calendar;
 
     .rdtPrev,
     .rdtNext,
-    .rdtSwitch {
+    .rdtSwitch,
+    .rdtMonth,
+    .rdtYear {
       cursor: pointer;
     }
 
@@ -65,6 +57,25 @@
 
     table {
       width: 100%;
+      max-width: toRem(360);
+    }
+    thead,
+    tbody {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    tr {
+      display: flex;
+      width: 100%;
+    }
+    th,
+    td {
+      width: 100%;
+      aspect-ratio: 1/1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: toRem(4);
     }
     thead {
       tr:nth-child(1) {
@@ -78,9 +89,8 @@
       }
     }
     tbody {
-      td {
+      .rdtDay {
         padding: 0;
-        height: toRem(44);
         text-align: center;
         border-radius: 100px;
         border: toRem(1) solid transparent;
