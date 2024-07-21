@@ -1,0 +1,17 @@
+:root {
+  .theme-light {
+    --Popover-Backgound: var(--Gray-Color-0);
+  }
+  .theme-dark {
+    --Popover-Backgound: var(--Gray-Color-1);
+  }
+}
+
+.ui-popover {
+  position: absolute;
+  left: 0;
+  background-color: var(--Popover-Backgound);
+  border-radius: toRem(8);
+  border: 1px solid var(--Gray-Color-4);
+  z-index: $z-index-popover;
+}

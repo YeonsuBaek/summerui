@@ -1,11 +1,9 @@
 :root {
   .theme-light {
-    --DatePicker-Calender-Background: var(--Gray-Color-0);
     --DatePicker-Calender-Selected: var(--Gray-Color-0);
     --DatePicker-Calender-DateOut: var(--Gray-Color-4);
   }
   .theme-dark {
-    --DatePicker-Calender-Background: var(--Gray-Color-1);
     --DatePicker-Calender-Selected: var(--Gray-Color-100);
     --DatePicker-Calender-DateOut: var(--Gray-Color-3);
   }
@@ -25,13 +23,6 @@
   }
 
   &-calendar {
-    position: absolute;
-    top: calc(100% + #{toRem(4)});
-    background-color: var(--DatePicker-Calender-Background);
-    border-radius: toRem(8);
-    border: 1px solid var(--Gray-Color-4);
-    z-index: $datepicker-calendar;
-
     .rdtPrev,
     .rdtNext,
     .rdtSwitch,

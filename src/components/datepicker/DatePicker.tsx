@@ -1,4 +1,4 @@
-import { FocusEvent, useCallback, useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import { Button } from '../button'
 import { TextField } from '../textfield'
 import { DatePickerProps } from './DatePicker.types'
@@ -6,6 +6,7 @@ import Datetime from 'react-datetime'
 import moment, { Moment } from 'moment'
 import { CalendarBlankFilledIcon } from '../../assets/icon'
 import 'moment/locale/ko'
+import { Popover } from '../../utils/popover'
 
 export const DatePicker = ({
   id,
@@ -152,7 +153,7 @@ export const DatePicker = ({
           </Button>
         </TextField>
       </div>
-      {isOpen && (
+      <Popover container={inputRef.current} isOpen={isOpen} onClose={() => setIsOpen((prev) => !prev)}>
         <div ref={calendarRef} id={`${id}-calendar`} className="ui-datepicker-calendar">
           <Datetime
             open={isOpen}
@@ -164,7 +165,7 @@ export const DatePicker = ({
             locale="ko"
           />
         </div>
-      )}
+      </Popover>
     </div>
   )
 }
