@@ -1,12 +1,13 @@
 import { Portal } from '../portal'
 import { PopoverProps } from './Popover.types'
 import { useState, useRef, useEffect, useCallback } from 'react'
+import { debounce } from 'lodash'
 
 export const Popover = ({ children, container, isOpen = false }: PopoverProps) => {
   const popoverRef = useRef<HTMLDivElement>(null)
   const [posY, setPosY] = useState(-9999)
 
-  const getPlacement = useCallback(() => {
+  const getPositionY = useCallback(() => {
     if (!container || !popoverRef?.current) return -9999
     const gap = 4
     const popoverInfo = popoverRef.current.getBoundingClientRect()
@@ -23,17 +24,20 @@ export const Popover = ({ children, container, isOpen = false }: PopoverProps) =
     return yPos
   }, [container, popoverRef])
 
-  const handlePosition = useCallback(() => {
-    if (isOpen && container) {
-      const offset = getPlacement()
-      setPosY(offset)
-    }
-  }, [isOpen, container, getPlacement])
+  const handlePosition = useCallback(
+    debounce(() => {
+      if (isOpen && container) {
+        const offsetY = getPositionY()
+        setPosY(offsetY)
+      }
+    }, 50),
+    [isOpen, container, getPositionY]
+  )
 
   useEffect(() => {
     if (isOpen && container) {
-      const offset = getPlacement()
-      setPosY(offset)
+      const offsetY = getPositionY()
+      setPosY(offsetY)
     }
   }, [isOpen, container])
 
