@@ -1,0 +1,23 @@
+import { ArgTypes, Canvas, Meta } from '@storybook/addon-docs'
+import * as DatePickerStories from './DatePicker.stories'
+import { DatePicker } from '.'
+
+<Meta of={DatePickerStories} component={DatePicker} />
+
+# DatePicker
+
+날짜와 관련된 정보와 기능을 제공할 때 사용한다.
+
+## 예시
+
+### 1. Size
+
+<Canvas of={DatePickerStories.SizeOfDatePicker} />
+
+### 2. Format
+
+<Canvas of={DatePickerStories.FormatOfDatePicker} />
+
+## API
+
+<ArgTypes of={DatePickerStories} />
