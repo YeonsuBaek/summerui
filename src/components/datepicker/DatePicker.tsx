@@ -95,6 +95,15 @@ export const DatePicker = ({
     }
   }
 
+  const checkValidDate = () => {
+    const selectedDate = moment(value, format, true)
+    const isValid = selectedDate.isValid()
+
+    if (!isValid) {
+      onChange('')
+    }
+  }
+
   const handleClickOut = (e: MouseEvent) => {
     if (inputRef?.current && calendarRef?.current) {
       const inputArea = inputRef.current
@@ -103,16 +112,6 @@ export const DatePicker = ({
       if (!inputArea.contains(target) && !calendarArea.contains(target)) {
         setIsOpen(false)
       }
-    }
-  }
-
-  const checkValidDate = (e: FocusEvent<HTMLInputElement>) => {
-    const { value } = e.target
-    const selectedDate = moment(value, format, true)
-    const isValid = selectedDate.isValid()
-
-    if (!isValid) {
-      onChange('')
     }
   }
 
