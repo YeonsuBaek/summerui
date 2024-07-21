@@ -52,7 +52,7 @@ export const Popover = ({ children, container, isOpen = false }: PopoverProps) =
 
   return isOpen ? (
     <Portal container={container}>
-      <div className="ui-popover" ref={popoverRef} style={{ top: `${posY / 16}rem` }}>
+      <div className="ui-popover" ref={popoverRef} style={{ top: `${posY / 16}rem` }} aria-hidden={!isOpen}>
         {children}
       </div>
     </Portal>
