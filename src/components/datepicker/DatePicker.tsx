@@ -146,6 +146,7 @@ export const DatePicker = ({
             aria-haspopup="true"
             aria-expanded={isOpen}
             aria-controls={`${id}-calendar`}
+            disabled={disabled || readOnly}
           >
             <CalendarBlankFilledIcon />
           </Button>
