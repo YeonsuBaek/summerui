@@ -80,13 +80,11 @@ export const DatePicker = ({
     if (inputRef.current) {
       const input = inputRef.current.querySelector('input') as HTMLInputElement
       const cursorStart = input.selectionStart ?? 0
-      const cursorEnd = input.selectionEnd ?? 0
 
       handleChangeDateText(value)
 
       requestAnimationFrame(() => {
-        input.selectionStart = cursorStart
-        input.selectionEnd = cursorEnd
+        input.selectionStart = cursorStart + 1
       })
     }
   }
