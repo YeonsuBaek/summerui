@@ -1,6 +1,7 @@
 import './index.css'
 
 export * from './assets/icon'
+export { Portal } from './utils/Portal'
 export { Button } from './components/button'
 export { TextField } from './components/textfield'
 export { TextArea } from './components/textarea'
