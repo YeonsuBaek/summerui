@@ -385,6 +385,7 @@ import {
   WindIcon,
   WrenchIcon,
   XIcon,
+  CalendarBlankFilledIcon,
 } from '.'
 import { NumberCircleTwo } from './generated/NumberCircleTwo'
 import { NumberCircleZero } from './generated/NumberCircleZero'
@@ -653,6 +654,7 @@ export const timeIcons: { [key: string]: React.ComponentType<IconProps> } = {
   Alarm: AlarmIcon,
   Calendar: CalendarIcon,
   CalendarBlank: CalendarBlankIcon,
+  CalendarBlankFilled: CalendarBlankFilledIcon,
   CalendarCheck: CalendarCheckIcon,
   CalendarDot: CalendarDotIcon,
   CalendarDots: CalendarDotsIcon,

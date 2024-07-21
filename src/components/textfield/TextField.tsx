@@ -17,6 +17,7 @@ export const TextField = <Type extends TextFieldType = 'text'>({
   autoFocus = false,
   readOnly = false,
   disabled = false,
+  children,
   ...props
 }: TextFieldProps<Type>) => {
   const inputRef = useRef<HTMLInputElement>(null)
@@ -57,6 +58,7 @@ export const TextField = <Type extends TextFieldType = 'text'>({
           aria-describedby={displayedHelperText ? `${id}-msg` : undefined}
           {...props}
         />
+        {children && children}
       </div>
       {displayedHelperText && (
         <p id={`${id}-msg`} className={`ui-textfield-msg ${isError ? 'error' : ''}`}>
