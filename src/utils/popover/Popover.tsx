@@ -3,7 +3,7 @@ import { PopoverProps } from './Popover.types'
 import { useState, useRef, useEffect, useCallback } from 'react'
 import { debounce } from 'lodash'
 
-export const Popover = ({ children, container, isOpen = false }: PopoverProps) => {
+export const Popover = ({ children, container, isOpen = false, onClose = () => {} }: PopoverProps) => {
   const popoverRef = useRef<HTMLDivElement>(null)
   const [posY, setPosY] = useState(-9999)
 
@@ -34,6 +34,12 @@ export const Popover = ({ children, container, isOpen = false }: PopoverProps) =
     [isOpen, container, getPositionY]
   )
 
+  const handleKeyDown = (event: KeyboardEvent) => {
+    if (event.key === 'Escape' && isOpen) {
+      onClose()
+    }
+  }
+
   useEffect(() => {
     if (isOpen && container) {
       const offsetY = getPositionY()
@@ -48,7 +54,16 @@ export const Popover = ({ children, container, isOpen = false }: PopoverProps) =
     return () => {
       window.removeEventListener('scroll', handlePosition)
     }
-  }, [isOpen, handlePosition])
+  }, [isOpen])
+
+  useEffect(() => {
+    if (isOpen) {
+      window.addEventListener('keydown', handleKeyDown)
+    }
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown)
+    }
+  }, [isOpen])
 
   return isOpen ? (
     <Portal container={container}>
