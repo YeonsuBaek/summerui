@@ -2,6 +2,7 @@ import './index.css'
 
 export * from './assets/icon'
 export { Portal } from './utils/portal'
+export { Popover } from './utils/popover'
 export { Button } from './components/button'
 export { TextField } from './components/textfield'
 export { TextArea } from './components/textarea'
