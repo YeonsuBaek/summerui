@@ -6,7 +6,7 @@ export type TextFieldValue<Type extends TextFieldType> = Type extends 'number' ?
 
 export interface TextFieldProps<Type extends TextFieldType> extends Omit<HTMLAttributes<HTMLInputElement>, 'onChange'> {
   id: string
-  value: TextFieldValue<Type>
+  value?: TextFieldValue<Type>
   onChange?: (val: TextFieldValue<Type>) => void
   type?: Type
   size?: TextFieldSize
