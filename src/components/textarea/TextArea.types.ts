@@ -4,7 +4,7 @@ type TextAreaSize = 'small' | 'medium'
 
 export interface TextAreaProps extends Omit<HTMLAttributes<HTMLTextAreaElement>, 'onChange'> {
   id: string
-  value: string
+  value?: string
   onChange?: (val: string) => void
   size?: TextAreaSize
   placeholder?: string

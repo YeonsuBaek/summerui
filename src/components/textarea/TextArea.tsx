@@ -3,7 +3,7 @@ import { TextAreaProps } from './TextArea.types'
 
 export const TextArea = ({
   id,
-  value,
+  value = '',
   onChange = () => {},
   size = 'medium',
   placeholder = '',
