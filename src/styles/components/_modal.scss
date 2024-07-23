@@ -1,0 +1,61 @@
+:root {
+  .theme-light {
+    --Modal-Background-Color: var(--Gray-Color-0);
+  }
+  .theme-dark {
+    --Modal-Background-Color: var(--Gray-Color-100);
+  }
+}
+
+.ui-popover:has(.ui-modal) {
+  width: calc(100% - toRem(16));
+  max-width: toRem(560);
+}
+
+.ui-modal {
+  display: flex;
+  flex-direction: column;
+  gap: toRem(24);
+  padding: toRem(32);
+
+  &-header {
+    display: flex;
+    justify-content: space-between;
+
+    button {
+      position: absolute;
+      top: toRem(24);
+      right: toRem(24);
+    }
+  }
+
+  &-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: toRem(8);
+  }
+
+  &-title {
+    display: flex;
+    align-items: center;
+    gap: toRem(8);
+
+    h2 {
+      font: var(--Heading-Font-3);
+      margin: 0;
+    }
+
+    .warning path {
+      fill: var(--Warning-Color-6);
+    }
+    .error path {
+      fill: var(--Danger-Color-6);
+    }
+    .success path {
+      fill: var(--Success-Color-6);
+    }
+    .information path {
+      fill: var(--Information-Color-6);
+    }
+  }
+}
