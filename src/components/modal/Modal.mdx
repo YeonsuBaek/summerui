@@ -1,0 +1,60 @@
+import { Meta, Canvas, Story, ArgTypes } from '@storybook/addon-docs'
+import { Modal } from '.'
+import * as ModalStories from './Modal.stories'
+import * as ModalButtonStories from './ModalButton.stories'
+import * as ModalTitleStories from './ModalTitle.stories'
+import * as ModalHeaderStories from './ModalHeader.stories'
+import * as ModalContentStories from './ModalContent.stories'
+import * as ModalFooterStories from './ModalFooter.stories'
+import { Button } from '../button'
+
+<Meta title="Components/Modal" component={Modal} />
+
+# Modal
+
+날짜와 관련된 정보와 기능을 제공할 때 사용합니다.
+
+## 예시
+
+<Canvas of={ModalStories.ModalExample} />
+
+## 하위 컴포넌트
+
+### 1. Header
+
+<Canvas of={ModalHeaderStories.ModalHeader} />
+
+- 하위에 `Modal.Title` 컴포넌트를 포함하는 것을 권장합니다.
+
+<ArgTypes of={ModalHeaderStories} />
+
+### 2. Content
+
+<Canvas of={ModalContentStories.ModalContent} />
+
+- 사용자 입력에 대한 컨트롤을 할 수 있습니다.
+
+### 3. Footer
+
+<Canvas of={ModalFooterStories.ModalFooter} />
+
+- 사용자 행동을 확정하는 액션을 제공합니다.
+- 하위에 `Modal.Button` 컴포넌트를 포함하는 것을 권장합니다.
+
+### 4. Title
+
+<Canvas of={ModalTitleStories.ModalTitle} />
+
+<ArgTypes of={ModalTitleStories} />
+
+### 5. Button
+
+<Canvas of={ModalButtonStories.ModalButton} />
+
+- 취소 또는 모달을 닫는 버튼을 기본적으로 제공하는 것을 권장합니다.
+
+<ArgTypes of={ModalButtonStories} />
+
+## API
+
+<ArgTypes of={ModalStories} />

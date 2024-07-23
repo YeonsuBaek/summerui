@@ -1,14 +1,40 @@
 import { Portal } from '../portal'
 import { PopoverProps } from './Popover.types'
-import { useState, useRef, useEffect, useCallback } from 'react'
+import { useState, useRef, useEffect, useCallback, useMemo } from 'react'
 import { debounce } from 'lodash'
 
-export const Popover = ({ children, container, isOpen = false, onClose = () => {} }: PopoverProps) => {
+export const Popover = ({
+  children,
+  container = document.body,
+  isOpen = false,
+  onClose = () => {},
+  pos,
+}: PopoverProps) => {
   const popoverRef = useRef<HTMLDivElement>(null)
   const [posY, setPosY] = useState(-9999)
 
+  const popoverStyle: React.CSSProperties = useMemo(() => {
+    let positionValue: 'fixed' | 'absolute'
+
+    if (pos === 'center') {
+      positionValue = 'fixed'
+      return {
+        position: positionValue,
+        top: '50%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
+      }
+    } else {
+      positionValue = 'absolute'
+      return {
+        position: positionValue,
+        top: typeof posY === 'number' ? `${posY / 16}rem` : '0rem',
+      }
+    }
+  }, [pos, posY])
+
   const getPositionY = useCallback(() => {
-    if (!container || !popoverRef?.current) return -9999
+    if (!container || !popoverRef?.current || !pos) return -9999
     const gap = 4
     const popoverInfo = popoverRef.current.getBoundingClientRect()
     const containerInfo = container.getBoundingClientRect()
@@ -67,7 +93,7 @@ export const Popover = ({ children, container, isOpen = false, onClose = () => {
 
   return isOpen ? (
     <Portal container={container}>
-      <div className="ui-popover" ref={popoverRef} style={{ top: `${posY / 16}rem` }} aria-hidden={!isOpen}>
+      <div className="ui-popover" ref={popoverRef} style={popoverStyle} aria-hidden={!isOpen}>
         {children}
       </div>
     </Portal>
