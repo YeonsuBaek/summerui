@@ -12,7 +12,7 @@ import {
 
 export const ModalWrapper = ({ isOpen, onClose, children }: ModalProps) => {
   return (
-    <Popover isOpen={isOpen} onClose={onClose}>
+    <Popover isOpen={isOpen} onClose={onClose} pos="center">
       <div className="ui-modal">{children}</div>
     </Popover>
   )
