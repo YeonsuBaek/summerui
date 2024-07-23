@@ -386,6 +386,10 @@ import {
   WrenchIcon,
   XIcon,
   CalendarBlankFilledIcon,
+  CheckCircleFilledIcon,
+  InfoFilledIcon,
+  WarningFilledIcon,
+  WarningCircleFilledIcon,
 } from '.'
 import { NumberCircleTwo } from './generated/NumberCircleTwo'
 import { NumberCircleZero } from './generated/NumberCircleZero'
@@ -454,6 +458,7 @@ export const systemIcons: { [key: string]: React.ComponentType<IconProps> } = {
   CheckSquare: CheckSquareIcon,
   CheckFat: CheckFatIcon,
   CheckCircle: CheckCircleIcon,
+  CheckCircleFilled: CheckCircleFilledIcon,
   Check: CheckIcon,
   BellSlash: BellSlashIcon,
   BellRinging: BellRingingIcon,
@@ -632,6 +637,7 @@ export const securityIcons: { [key: string]: React.ComponentType<IconProps> } = 
   Fingerprint: FingerprintIcon,
   FireExtinguisher: FireExtinguisherIcon,
   Info: InfoIcon,
+  InfoFilled: InfoFilledIcon,
   Key: KeyIcon,
   Keyhole: KeyholeIcon,
   Lock: LockIcon,
@@ -647,7 +653,9 @@ export const securityIcons: { [key: string]: React.ComponentType<IconProps> } = 
   ShieldCheck: ShieldCheckIcon,
   Siren: SirenIcon,
   Warning: WarningIcon,
+  WarningFilled: WarningFilledIcon,
   WarningCircle: WarningCircleIcon,
+  WarningCircleFilled: WarningCircleFilledIcon,
 }
 
 export const timeIcons: { [key: string]: React.ComponentType<IconProps> } = {
