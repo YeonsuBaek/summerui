@@ -14,7 +14,7 @@ export const Toast = ({ isOpen, onClose, state = 'warning', hasCloseButton = tru
       : null
 
   return (
-    <Popover isOpen={isOpen} onClose={onClose} pos="center">
+    <Popover isOpen={isOpen} onClose={onClose} pos="top-right">
       <div className="ui-toast">
         {StateIcon && <StateIcon size={20} className={state} />}
         <div className="ui-toast-content">
