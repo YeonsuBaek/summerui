@@ -16,10 +16,18 @@ export const Toast = ({ children, isOpen, onClose, state = 'warning', hasCloseBu
   return (
     <Popover isOpen={isOpen} onClose={onClose} pos="top-right">
       <div className="ui-toast">
-        {StateIcon && <StateIcon size={20} className={state} />}
-        <div className="ui-toast-content">{children}</div>
+        {StateIcon && <StateIcon size={20} className={state} aria-label={`${state} notification`} />}
+        <div className="ui-toast-content" role="alert" aria-live="assertive">
+          {children}
+        </div>
         {hasCloseButton && (
-          <Button styleType="icon" styleVariant="secondary" size="small" onClick={onClose}>
+          <Button
+            styleType="icon"
+            styleVariant="secondary"
+            size="small"
+            onClick={onClose}
+            aria-label="Close notification"
+          >
             <XIcon />
           </Button>
         )}
