@@ -24,7 +24,7 @@ export const ModalHeader = ({ children, hasCloseButton }: ModalHeaderProps) => {
     <div className="ui-modal-header">
       {children}
       {hasCloseButton && (
-        <Button size="small" styleType="icon" styleVariant="secondary" onClick={hasCloseButton}>
+        <Button size="small" styleType="icon" styleVariant="normal" onClick={hasCloseButton}>
           <XIcon />
         </Button>
       )}
