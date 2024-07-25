@@ -1,0 +1,38 @@
+.ui-popover:has(.ui-toast) {
+  width: calc(100% - toRem(16));
+  max-width: toRem(400);
+}
+
+.ui-toast {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: toRem(16) toRem(20);
+
+  & > svg {
+    margin-right: toRem(8);
+
+    &.warning path {
+      fill: var(--Warning-Color-6);
+    }
+    &.error path {
+      fill: var(--Danger-Color-6);
+    }
+    &.success path {
+      fill: var(--Success-Color-6);
+    }
+    &.information path {
+      fill: var(--Information-Color-6);
+    }
+  }
+
+  &-content {
+    width: 100%;
+    font: var(--Detail-Font-1);
+    color: var(--Gray-Color-10);
+  }
+
+  .ui-button {
+    margin-left: toRem(8);
+  }
+}
