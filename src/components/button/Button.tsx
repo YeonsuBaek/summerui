@@ -17,10 +17,12 @@ export const Button = <Style extends ButtonStyle>({
   const startIconSize = size === 'small' ? 20 : 24
   const endIconSize = size === 'small' ? 20 : 24
 
+  const buttonSize = styleVariant === 'normal' ? '' : size
+
   return (
     <button
       type={type}
-      className={`ui-button ${styleType} ${styleVariant} ${size} ${props.className ? props.className : ''}`}
+      className={`ui-button ${styleType} ${styleVariant} ${buttonSize} ${props.className ? props.className : ''}`}
       onClick={onClick}
       disabled={disabled}
       aria-disabled={disabled}
