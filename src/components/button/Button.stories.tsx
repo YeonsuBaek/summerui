@@ -96,6 +96,9 @@ export const GhostStyleVariantButton = () => (
 export const IconStyleVariantButton = () => (
   <>
     <div style={{ padding: '16px', display: 'flex', gap: '16px' }}>
+      <Button styleType="icon" styleVariant="normal" title="Primary Button" aria-label="Check Primary Button">
+        <CheckIcon size={24} />
+      </Button>
       <Button styleType="icon" styleVariant="primary" title="Primary Button" aria-label="Check Primary Button">
         <CheckIcon />
       </Button>
@@ -110,6 +113,9 @@ export const IconStyleVariantButton = () => (
       </Button>
     </div>
     <div className="theme-dark" style={{ padding: '16px', display: 'flex', gap: '16px' }}>
+      <Button styleType="icon" styleVariant="normal" title="Primary Button" aria-label="Check Primary Button">
+        <CheckIcon size={24} />
+      </Button>
       <Button styleType="icon" styleVariant="primary" title="Primary Button" aria-label="Check Primary Button">
         <CheckIcon />
       </Button>

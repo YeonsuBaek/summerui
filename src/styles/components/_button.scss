@@ -143,24 +143,28 @@
   }
 
   $icon-button-bg: (
+    normal: transparent,
     primary: transparent,
     secondary: transparent,
     filled: var(--Primary-Color-6),
     outlined: transparent,
   );
   $icon-button-icon-color: (
+    normal: var(--Gray-Color-8),
     primary: var(--Primary-Color-6),
     secondary: var(--Gray-Color-8),
     filled: var(--Button-Text-Color),
     outlined: var(--Primary-Color-6),
   );
   $icon-button-hover-bg: (
+    normal: transparent,
     primary: var(--Primary-Color-1),
     secondary: var(--Button-Outlined-Hover-Background-Color),
     filled: var(--Primary-Color-7),
     outlined: var(--Button-Outlined-Hover-Background-Color),
   );
   $icon-button-active-bg: (
+    normal: transparent,
     primary: var(--Primary-Color-2),
     secondary: var(--Button-Outlined-Active-Background-Color),
     filled: var(--Primary-Color-8),
@@ -275,6 +279,29 @@
       }
     }
 
+    &.normal {
+      @include styleOfIconButton('normal');
+      padding: 0;
+      &:focus,
+      &:hover {
+        box-shadow: none;
+        path {
+          fill: var(--Primary-Color-7);
+        }
+      }
+      &:active {
+        path {
+          fill: var(--Primary-Color-8);
+        }
+      }
+      &:disabled,
+      &:is(:hover, :focus, :active):disabled {
+        background-color: transparent;
+        path {
+          fill: var(--Gray-Color-5);
+        }
+      }
+    }
     &.primary {
       @include styleOfIconButton('primary');
     }
