@@ -21,13 +21,7 @@ export const Toast = ({ children, isOpen, onClose, state = 'warning', hasCloseBu
           {children}
         </div>
         {hasCloseButton && (
-          <Button
-            styleType="icon"
-            styleVariant="secondary"
-            size="small"
-            onClick={onClose}
-            aria-label="Close notification"
-          >
+          <Button styleType="icon" styleVariant="normal" size="small" onClick={onClose} aria-label="Close notification">
             <XIcon />
           </Button>
         )}
