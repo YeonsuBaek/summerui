@@ -37,6 +37,7 @@ export const SegmentedControlButton = ({
       className={`ui-segmented-control-button ${isSelected ? 'isSelected' : ''}`}
       onClick={() => onChange && onChange(value)}
       disabled={disabled}
+      aria-pressed={isSelected ? 'true' : 'false'}
     >
       {children}
     </button>
