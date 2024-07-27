@@ -5,15 +5,19 @@ export const SegmentedControlWrapper = ({
   children,
   size = 'medium',
   selectedValue = '',
-  onChange = () => {},
+  onChange,
   resizing = 'hug',
 }: SegmentedControlProps) => {
-  const clonedChildren = Children.map(children, (child) => {
-    if (isValidElement(child)) {
-      return cloneElement(child, { selectedValue, onChange } as SegmentedControlButtonProps)
-    }
-    return child
-  })
+  const clonedChildren = useMemo(
+    () =>
+      Children.map(children, (child) => {
+        if (isValidElement(child)) {
+          return cloneElement(child, { selectedValue, onChange } as SegmentedControlButtonProps)
+        }
+        return child
+      }),
+    [children, selectedValue, onChange]
+  )
 
   return <div className={`ui-segmented-control ${size} ${resizing}`}>{clonedChildren}</div>
 }
