@@ -5,5 +5,5 @@ export interface PopoverProps {
   container?: Element | null
   isOpen?: boolean
   onClose?: () => void
-  pos?: 'center'
+  pos?: 'center' | 'top-right'
 }
