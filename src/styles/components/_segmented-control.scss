@@ -1,0 +1,90 @@
+:root {
+  .theme-light {
+    --Selected-Button-Background: var(--Gray-Color-0);
+    --Selected-Button-Color: var(--Gray-Color-10);
+    --Button-Shadow-Color: var(--Primary-Color-3);
+  }
+  .theme-dark {
+    --Selected-Button-Background: var(--Gray-Color-100);
+    --Selected-Button-Color: var(--Gray-Color-1);
+    --Button-Shadow-Color: var(--Primary-Color-6);
+  }
+}
+
+.ui-segmented-control {
+  gap: toRem(4);
+  background-color: var(--Gray-Color-2);
+  padding: toRem(4);
+  border-radius: toRem(8);
+
+  &.hug {
+    display: inline-flex;
+  }
+
+  &.fill {
+    display: flex;
+  }
+
+  &-button {
+    display: flex;
+    gap: toRem(4);
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    border-radius: toRem(6);
+    outline: 0;
+    border: 0;
+    font: var(--Body-Font-1);
+    color: var(--Gray-Color-10);
+    background-color: transparent;
+    cursor: pointer;
+
+    path {
+      fill: var(--Gray-Color-10);
+    }
+
+    &.isSelected {
+      background-color: var(--Selected-Button-Background);
+      color: var(--Selected-Button-Color);
+
+      path {
+        fill: var(--Selected-Button-Color);
+      }
+    }
+
+    &:disabled {
+      color: var(--Gray-Color-4);
+      cursor: default;
+
+      path {
+        fill: var(--Gray-Color-4);
+      }
+    }
+
+    &:focus {
+      box-shadow: 0 0 toRem(5) var(--Button-Shadow-Color);
+    }
+  }
+
+  &.small {
+    border-radius: toRem(4);
+
+    .ui-segmented-control-button {
+      height: toRem(24);
+      border-radius: toRem(3);
+      font: var(--Detail-Font-1);
+    }
+  }
+
+  &.medium {
+    .ui-segmented-control-button {
+      height: toRem(32);
+    }
+  }
+
+  &.large {
+    .ui-segmented-control-button {
+      height: toRem(40);
+    }
+  }
+}
