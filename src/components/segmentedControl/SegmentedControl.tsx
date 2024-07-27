@@ -1,33 +1,28 @@
-import { Children, cloneElement, isValidElement, useMemo, useState } from 'react'
+import { Children, cloneElement, isValidElement, useMemo } from 'react'
 import { SegmentedControlButtonProps, SegmentedControlProps } from './SegmentedControl.types'
 
 export const SegmentedControlWrapper = ({
   children,
   size = 'medium',
-  defaultSelectedValue = '',
+  selectedValue = '',
+  onChange = () => {},
   resizing = 'hug',
 }: SegmentedControlProps) => {
-  const [selectedValue, setSelectedValue] = useState(defaultSelectedValue)
-
   const clonedChildren = Children.map(children, (child) => {
     if (isValidElement(child)) {
-      return cloneElement(child, { selectedValue, setSelectedValue } as SegmentedControlButtonProps)
+      return cloneElement(child, { selectedValue, onChange } as SegmentedControlButtonProps)
     }
     return child
   })
 
-  return (
-    <div className={`ui-segmented-control ${size} ${resizing}`} style={{ background: 'gray' }}>
-      {clonedChildren}
-    </div>
-  )
+  return <div className={`ui-segmented-control ${size} ${resizing}`}>{clonedChildren}</div>
 }
 
 export const SegmentedControlButton = ({
   children,
   value,
   selectedValue,
-  setSelectedValue,
+  onChange,
   disabled = false,
 }: SegmentedControlButtonProps) => {
   const isSelected = useMemo(() => selectedValue === value, [selectedValue, value])
@@ -35,8 +30,8 @@ export const SegmentedControlButton = ({
   return (
     <button
       type="button"
-      onClick={() => setSelectedValue && setSelectedValue(value)}
-      style={{ backgroundColor: isSelected ? 'blue' : 'white' }}
+      className={`ui-segmented-control-button ${isSelected ? 'isSelected' : ''}`}
+      onClick={() => onChange && onChange(value)}
       disabled={disabled}
     >
       {children}
