@@ -7,7 +7,6 @@ export interface SegmentedControlProps {
   selectedValue?: string
   onChange?: (val: string) => void
   size?: SegmentedControlSize
-  defaultSelectedValue?: string
   resizing?: 'hug' | 'fill'
 }
 
