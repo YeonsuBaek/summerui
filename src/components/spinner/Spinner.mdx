@@ -1,0 +1,23 @@
+import { ArgTypes, Canvas, Meta, Story, withSource } from '@storybook/addon-docs'
+import * as SpinnerStories from './Spinner.stories'
+import { Spinner, SpinnerProps } from '.'
+
+<Meta of={SpinnerStories} component={Spinner} />
+
+# Spinner
+
+일정 시간 대기가 필요할 때 사용자에게 안내하기 위해 사용한다.
+
+## 예시
+
+### Size
+
+<Canvas of={SpinnerStories.SizesOfSpinner} />
+
+### With other components
+
+<Canvas of={SpinnerStories.WithOtherComponents} />
+
+## API
+
+<ArgTypes of={SpinnerStories} />
