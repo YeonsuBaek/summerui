@@ -1,0 +1,59 @@
+.ui-datatable {
+  border-collapse: collapse;
+
+  .ui-header {
+    height: toRem(40);
+    background-color: var(--Gray-Color-1);
+    border-bottom: toRem(1) solid var(--Gray-Color-4);
+  }
+
+  .ui-column {
+    &.sortable {
+      cursor: pointer;
+    }
+
+    &:hover {
+      background-color: var(--Gray-Color-2);
+    }
+
+    &-value {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: toRem(4);
+      font: var(--Body-Font-2);
+      color: var(--Gray-Color-10);
+
+      path {
+        fill: var(--Gray-Color-10);
+      }
+
+      &.sorted {
+        color: var(--Primary-Color-6);
+        path {
+          fill: var(--Primary-Color-6);
+        }
+      }
+    }
+  }
+
+  .ui-row {
+    height: toRem(40);
+    border-bottom: toRem(1) solid var(--Gray-Color-2);
+  }
+
+  .ui-content {
+    padding: 0;
+
+    &-value {
+      display: flex;
+      margin: 0 toRem(12);
+      font: var(--Body-Font-1);
+      align-items: center;
+
+      &.center {
+        justify-content: center;
+      }
+    }
+  }
+}

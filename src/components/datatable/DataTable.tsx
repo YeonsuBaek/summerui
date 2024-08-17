@@ -35,28 +35,41 @@ export const DataTable = ({ columns, rows }: DataTableProps) => {
     setSortedColumn(field)
   }
 
+  const isSortedColumn = (field: string) => {
+    return sortType !== 'none' && sortedColumn === field
+  }
+
   return (
-    <table>
+    <table className="ui-datatable">
       <thead>
-        <tr role="row">
+        <tr className="ui-header" role="row">
           {columns.map(({ field, header, width, sortable = false }: DataTableColumn) => (
             <th
+              className={`ui-column ${sortable ? 'sortable' : ''}`}
+              key={field}
               role="columnheader"
               scope="col"
               onClick={() => onSort({ sortable, field })}
               aria-sort={sortedColumn === field ? sortType : 'none'}
+              style={{ width: width ? `${width / 16}rem` : 'auto' }}
             >
-              <span>{field ?? header}</span>
-              {sortable && <ArrowsDownUpIcon aria-label={`Sort by ${header}`} />}
+              <div className={`ui-column-value ${isSortedColumn(field) ? 'sorted' : ''}`}>
+                <span>{field ?? header}</span>
+                {sortable && <ArrowsDownUpIcon aria-label={`Sort by ${header}`} />}
+              </div>
             </th>
           ))}
         </tr>
       </thead>
-      <tbody>
+      <tbody className="ui-body">
         {value.map((row) => (
-          <tr role="row" key={row.id}>
+          <tr className="ui-row" role="row" key={row.id}>
             {columns?.map(({ field }) => (
-              <td key={field}>{row[field]}</td>
+              <td className="ui-content" key={field}>
+                <span className={`ui-content-value  ${typeof row[field] === 'number' ? 'center' : ''}`}>
+                  {row[field]}
+                </span>
+              </td>
             ))}
           </tr>
         ))}
