@@ -1,9 +1,20 @@
+:root {
+  .theme-light {
+    --DataTable-Header-Background: var(--Gray-Color-1);
+    --DataTable-Sorted-Color: var(--Primary-Color-6);
+  }
+  .theme-dark {
+    --DataTable-Header-Background: var(--Gray-Color-2);
+    --DataTable-Sorted-Color: var(--Primary-Color-7);
+  }
+}
+
 .ui-datatable {
   border-collapse: collapse;
 
   .ui-header {
     height: toRem(40);
-    background-color: var(--Gray-Color-1);
+    background-color: var(--DataTable-Header-Background);
     border-bottom: toRem(1) solid var(--Gray-Color-4);
   }
 
@@ -29,9 +40,9 @@
       }
 
       &.sorted {
-        color: var(--Primary-Color-6);
+        color: var(--DataTable-Sorted-Color);
         path {
-          fill: var(--Primary-Color-6);
+          fill: var(--DataTable-Sorted-Color);
         }
       }
     }
