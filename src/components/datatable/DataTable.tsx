@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useCallback, useState } from 'react'
 import { ArrowsDownUpIcon } from '../../assets/icon'
 import { DataTableColumn, DataTableProps, SortType } from './DataTable.types'
 
@@ -7,33 +7,41 @@ export const DataTable = ({ columns, rows }: DataTableProps) => {
   const [sortType, setSortType] = useState<SortType>('none')
   const [sortedColumn, setSortedColumn] = useState<string>('none')
 
-  const onSort = ({ sortable, field }: { sortable: boolean; field: string }) => {
-    if (!sortable) return
+  const onSort = useCallback(
+    ({ sortable, field }: { sortable: boolean; field: string }) => {
+      if (!sortable) return
 
-    const currentSortType = sortType === 'none' ? 'ascending' : sortType === 'ascending' ? 'descending' : 'none'
-
-    if (currentSortType === 'none') {
-      setValue(rows)
-      setSortType('none')
-      return
-    }
-
-    const sortedValue = value.slice().sort((a, b) => {
-      const first = currentSortType === 'ascending' ? a : b
-      const second = currentSortType === 'ascending' ? b : a
-
-      if (typeof first[field] === 'number') {
-        return (first[field] as number) - (second[field] as number)
-      } else if (typeof first[field] === 'string') {
-        return (first[field] as string).localeCompare(second[field] as string)
+      let currentSortType: SortType
+      if (field !== sortedColumn) {
+        currentSortType = 'ascending'
+      } else {
+        currentSortType = sortType === 'none' ? 'ascending' : sortType === 'ascending' ? 'descending' : 'none'
       }
-      return 0
-    })
 
-    setValue(sortedValue)
-    setSortType(currentSortType)
-    setSortedColumn(field)
-  }
+      if (currentSortType === 'none') {
+        setValue(rows)
+        setSortType('none')
+        return
+      }
+
+      const sortedValue = value.slice().sort((a, b) => {
+        const first = currentSortType === 'ascending' ? a : b
+        const second = currentSortType === 'ascending' ? b : a
+
+        if (typeof first[field] === 'number') {
+          return (first[field] as number) - (second[field] as number)
+        } else if (typeof first[field] === 'string') {
+          return (first[field] as string).localeCompare(second[field] as string)
+        }
+        return 0
+      })
+
+      setValue(sortedValue)
+      setSortType(currentSortType)
+      setSortedColumn(field)
+    },
+    [rows, sortType, value]
+  )
 
   const isSortedColumn = (field: string) => {
     return sortType !== 'none' && sortedColumn === field
