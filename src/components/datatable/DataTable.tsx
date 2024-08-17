@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react'
+import { KeyboardEvent, useCallback, useState } from 'react'
 import { ArrowsDownUpIcon } from '../../assets/icon'
 import { DataTableColumn, DataTableProps, SortType } from './DataTable.types'
 
@@ -47,6 +47,13 @@ export const DataTable = ({ columns, rows }: DataTableProps) => {
     return sortType !== 'none' && sortedColumn === field
   }
 
+  const onEnter = (e: KeyboardEvent, { sortable, field }: { sortable: boolean; field: string }) => {
+    if (e.key === 'Enter') {
+      e.preventDefault()
+      onSort({ sortable, field })
+    }
+  }
+
   return (
     <table className="ui-datatable">
       <thead>
@@ -60,6 +67,8 @@ export const DataTable = ({ columns, rows }: DataTableProps) => {
               onClick={() => onSort({ sortable, field })}
               aria-sort={sortedColumn === field ? sortType : 'none'}
               style={{ width: width ? `${width / 16}rem` : 'auto' }}
+              tabIndex={0}
+              onKeyDown={(e) => onEnter(e, { sortable, field })}
             >
               <div className={`ui-column-value ${isSortedColumn(field) ? 'sorted' : ''}`}>
                 <span>{field ?? header}</span>
