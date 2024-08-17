@@ -63,7 +63,7 @@ export const DataTable = ({ columns, rows }: DataTableProps) => {
             >
               <div className={`ui-column-value ${isSortedColumn(field) ? 'sorted' : ''}`}>
                 <span>{field ?? header}</span>
-                {sortable && <ArrowsDownUpIcon aria-label={`Sort by ${header}`} />}
+                {sortable && <ArrowsDownUpIcon size={16} aria-label={`Sort by ${header}`} />}
               </div>
             </th>
           ))}
