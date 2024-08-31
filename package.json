@@ -1,6 +1,6 @@
 {
   "name": "@yeonsubaek/yeonsui",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "UI library for REACT developers",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -96,5 +96,5 @@
     "singleQuote": true
   },
   "readme": "ERROR: No README data found!",
-  "_id": "yeonsui@2.0.0"
+  "_id": "yeonsui@2.0.1"
 }
