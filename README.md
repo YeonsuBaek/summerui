@@ -6,7 +6,7 @@ UI Library for React
 
 - **작업 기간** | 2024.05.01 - 07.04
 - **구성원** | 1명 (기여도 100%)
-- **스토리북** | [스토리북 보러가기]([https://libookrary.vercel.app](https://65a2410191d174e557802180-wdqnggihlw.chromatic.com/?path=/docs/core-color--docs))
+- **스토리북** | [스토리북 보러가기](https://65a2410191d174e557802180-wdqnggihlw.chromatic.com/?path=/docs/core-color--docs)
 - **패키지** | [https://www.npmjs.com/package/@yeonsubaek/yeonsui](https://www.npmjs.com/package/@yeonsubaek/yeonsui)
 
 ## 기술
