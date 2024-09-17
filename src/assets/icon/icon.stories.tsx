@@ -10,6 +10,7 @@ import {
   mediaIcons,
   natureIcons,
   officeIcons,
+  personIcons,
   securityIcons,
   systemIcons,
   timeIcons,
@@ -290,6 +291,21 @@ export const Math = () => {
   return (
     <div className="storybook-icon">
       {Object.entries(mathIcons).map(([name, Component]) => {
+        return (
+          <div className="icon-item">
+            <Component />
+            <span>{name}</span>
+          </div>
+        )
+      })}
+    </div>
+  )
+}
+
+export const Person = () => {
+  return (
+    <div className="storybook-icon">
+      {Object.entries(personIcons).map(([name, Component]) => {
         return (
           <div className="icon-item">
             <Component />
