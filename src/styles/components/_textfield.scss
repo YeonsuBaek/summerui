@@ -106,16 +106,23 @@ $textfield-font: (
       border-color: var(--Danger-Color-5);
     }
 
-    &.read-only input {
-      color: var(--TextField-ReadOnly-Color);
+    &.read-only {
       background-color: var(--TextField-ReadOnly-Background-Color);
+
+      input {
+        background-color: transparent;
+        color: var(--TextField-ReadOnly-Color);
+      }
     }
 
-    &.is-disabled input {
+    &.is-disabled {
       background-color: var(--TextField-Disabled-Background-Color);
-      color: var(--TextField-Disabled-Font-Color);
-      &::placeholder {
-        color: var(--TextField-Disabled-Placeholder-Color);
+      input {
+        background-color: transparent;
+        color: var(--TextField-Disabled-Font-Color);
+        &::placeholder {
+          color: var(--TextField-Disabled-Placeholder-Color);
+        }
       }
     }
 
