@@ -544,6 +544,17 @@ import {
   CalendarHeartFilledIcon,
   CalendarFilledIcon,
   CalendarCheckFilledIcon,
+  BookmarkFilledIcon,
+  BookmarksFilledIcon,
+  BookOpenFilledIcon,
+  BookBookmarkFilledIcon,
+  VideoFilledIcon,
+  BookOpenTextFilledIcon,
+  StudentFilledIcon,
+  CertificateFilledIcon,
+  ExamFilledIcon,
+  LecternFilledIcon,
+  BooksFilledIcon,
 } from '.'
 import { NumberCircleTwo } from './generated/NumberCircleTwo'
 import { NumberCircleZero } from './generated/NumberCircleZero'
@@ -778,16 +789,27 @@ export const designIcons: { [key: string]: React.ComponentType<IconProps> } = {
 
 export const educationIcons: { [key: string]: React.ComponentType<IconProps> } = {
   Bookmark: BookmarkIcon,
+  BookmarkFilled: BookmarkFilledIcon,
   Bookmarks: BookmarksIcon,
+  BookmarksFilled: BookmarksFilledIcon,
   BookOpen: BookOpenIcon,
+  BookOpenFilled: BookOpenFilledIcon,
   BookOpenText: BookOpenTextIcon,
+  BookOpenTextFilled: BookOpenTextFilledIcon,
   BookBookmark: BookBookmarkIcon,
+  BookBookmarkFilled: BookBookmarkFilledIcon,
   Video: VideoIcon,
+  VideoFilled: VideoFilledIcon,
   Student: StudentIcon,
+  StudentFilled: StudentFilledIcon,
   Lectern: LecternIcon,
+  LecternFilled: LecternFilledIcon,
   Exam: ExamIcon,
+  ExamFilled: ExamFilledIcon,
   Certificate: CertificateIcon,
+  CertificateFilled: CertificateFilledIcon,
   Books: BooksIcon,
+  BooksFilled: BooksFilledIcon,
 }
 
 export const travelIcons: { [key: string]: React.ComponentType<IconProps> } = {
