@@ -63,7 +63,7 @@ export const TextField = <Type extends TextFieldType = 'text'>({
           {...props}
         />
         {ButtonIcon && (
-          <Button styleType="icon" styleVariant="normal" size={size} onClick={onClickButton}>
+          <Button styleType="icon" styleVariant="normal" size={size} onClick={onClickButton} disabled={isDisabled}>
             <ButtonIcon />
           </Button>
         )}

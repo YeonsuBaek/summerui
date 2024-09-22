@@ -65,7 +65,46 @@ export const FormatOfDatePicker = () => {
           label="YYMMDD"
           value={date5}
           onChange={setDate5}
+        />
+      </div>
+    </>
+  )
+}
+
+export const DisabledDatePicker = () => {
+  const [date, setDate] = useState('')
+  return (
+    <>
+      <div style={{ padding: '16px', display: 'flex', flexDirection: 'column', gap: '16px' }}>
+        <DatePicker
+          id="storybook-datepicker-readonly"
+          label="ReadOnly DatePicket"
+          value={date}
+          onChange={setDate}
           readOnly
+        />
+        <DatePicker
+          id="storybook-datepicker-disabled"
+          label="Disabled DatePicket"
+          value={date}
+          onChange={setDate}
+          disabled
+        />
+      </div>
+      <div className="theme-dark" style={{ padding: '16px', display: 'flex', flexDirection: 'column', gap: '16px' }}>
+        <DatePicker
+          id="storybook-datepicker-readonly-dark"
+          label="ReadOnly DatePicket"
+          value={date}
+          onChange={setDate}
+          readOnly
+        />
+        <DatePicker
+          id="storybook-datepicker-disabled-dark"
+          label="Disabled DatePicket"
+          value={date}
+          onChange={setDate}
+          disabled
         />
       </div>
     </>
