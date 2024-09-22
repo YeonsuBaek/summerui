@@ -1,5 +1,6 @@
 import { InfoIcon, WarningIcon } from '../../assets/icon'
 import { IconProps } from '../../assets/icon/icon.types'
+import { Button } from '../button'
 import { TextFieldProps, TextFieldType, TextFieldValue } from './TextField.types'
 import { useRef, useEffect, ChangeEvent, ComponentType } from 'react'
 
@@ -14,10 +15,12 @@ export const TextField = <Type extends TextFieldType = 'text'>({
   helperText = '',
   isError = false,
   errorText = '',
+  required = false,
   autoFocus = false,
   readOnly = false,
   disabled = false,
-  children,
+  ButtonIcon,
+  onClickButton = () => {},
   ...props
 }: TextFieldProps<Type>) => {
   const inputRef = useRef<HTMLInputElement>(null)
@@ -40,6 +43,7 @@ export const TextField = <Type extends TextFieldType = 'text'>({
       {label && (
         <label className="ui-textfield-label" htmlFor={id}>
           {label}
+          {required && <span className="ui-textfield-required">*</span>}
         </label>
       )}
       <div
@@ -58,7 +62,11 @@ export const TextField = <Type extends TextFieldType = 'text'>({
           aria-describedby={displayedHelperText ? `${id}-msg` : undefined}
           {...props}
         />
-        {children && children}
+        {ButtonIcon && (
+          <Button styleType="icon" styleVariant="normal" size={size} onClick={onClickButton}>
+            <ButtonIcon />
+          </Button>
+        )}
       </div>
       {displayedHelperText && (
         <p id={`${id}-msg`} className={`ui-textfield-msg ${isError ? 'error' : ''}`}>

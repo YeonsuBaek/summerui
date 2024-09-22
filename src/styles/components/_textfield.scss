@@ -54,8 +54,9 @@ $textfield-font: (
 @mixin textFieldOfSize($size) {
   height: #{map-get($textfield-height, $size)};
   border-radius: #{map-get($textfield-border-radius, $size)};
+  padding: 0 #{map-get($textfield-padding, $size)};
   input {
-    padding: 0 #{map-get($textfield-padding, $size)};
+    padding: 0;
     width: calc(100% - 2 * #{map-get($textfield-padding, $size)});
     border-radius: #{map-get($textfield-border-radius, $size)};
     font: #{map-get($textfield-font, $size)};
@@ -72,6 +73,11 @@ $textfield-font: (
   &-msg {
     margin: 0 0 0 toRem(4);
     font: var(--Micro-Font-1);
+  }
+
+  &-required {
+    color: var(--Danger-Color-6);
+    padding-left: 2px;
   }
 
   &-msg {
@@ -91,6 +97,9 @@ $textfield-font: (
 
   // Input
   &-input {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     border: toRem(1) solid var(--Gray-Color-4);
 
     &.is-error {

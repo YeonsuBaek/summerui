@@ -1,6 +1,7 @@
 import { fireEvent, render, screen } from '@testing-library/react'
 import { TextField } from './TextField'
 import { Button } from '../button'
+import { SearchIcon } from '../../assets/icon'
 
 describe('TextField 컴포넌트', () => {
   test('라벨이 있는 경우', () => {
@@ -55,18 +56,28 @@ describe('TextField 컴포넌트', () => {
     expect(input).toBeDisabled()
   })
 
-  test('추가적인 요소를 내장한 경우', () => {
-    render(
-      <TextField id="test">
-        <Button styleType="filled">버튼</Button>
-      </TextField>
-    )
-    const input = screen.getByRole('textbox')
-    const button = screen.getByRole('button', { name: '버튼' })
+  test('아이콘 버튼을 추가한 경우', () => {
+    const handleClick = jest.fn()
+    render(<TextField id="test" ButtonIcon={SearchIcon} onClickButton={handleClick} />)
+    const button = screen.getByRole('button')
 
-    expect(input).toBeInTheDocument()
     expect(button).toBeInTheDocument()
 
-    expect(input.nextElementSibling).toBe(button)
+    fireEvent.click(button)
+    expect(handleClick).toHaveBeenCalledTimes(1)
+  })
+
+  test('필수로 입력해야 하는 경우, 라벨에 * 표시가 포함되는지 확인', () => {
+    render(<TextField id="test" label="라벨" required />)
+
+    const input = screen.getByRole('textbox')
+    expect(input).toBeInTheDocument()
+
+    const label = screen.getByText('라벨')
+    expect(label).toBeInTheDocument()
+
+    const requiredMark = screen.getByText('*')
+    expect(requiredMark).toBeInTheDocument()
+    expect(requiredMark).toHaveClass('ui-textfield-required')
   })
 })

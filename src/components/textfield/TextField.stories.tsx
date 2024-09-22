@@ -1,6 +1,7 @@
 import type { Meta } from '@storybook/react'
 import { TextField } from './TextField'
 import { useState } from 'react'
+import { SearchIcon } from '../../assets/icon'
 
 const meta: Meta<typeof TextField> = {
   title: 'Components/TextField',
@@ -82,6 +83,13 @@ export const TextFieldOfTypes = () => {
     </div>
   )
 }
+export const RequiredTextField = () => {
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+      <TextField id="storybook-required" required label="Required Text" placeholder="Placeholder 플레이스홀더" />
+    </div>
+  )
+}
 export const TextFieldWithMessage = () => {
   const [text, setValue] = useState('')
 
@@ -134,5 +142,36 @@ export const TextFieldWithoutLabel = () => {
       placeholder="Placeholder 플레이스홀더"
       aria-label="TextField without label"
     />
+  )
+}
+export const TextFieldWithButton = () => {
+  return (
+    <>
+      <TextField
+        id="storybook-textfield-button-1"
+        size="small"
+        value=""
+        placeholder="Placeholder 플레이스홀더"
+        ButtonIcon={SearchIcon}
+        onClickButton={() => alert("It's a small button")}
+      />
+      <br />
+      <TextField
+        id="storybook-textfield-button-2"
+        value=""
+        placeholder="Placeholder 플레이스홀더"
+        ButtonIcon={SearchIcon}
+        onClickButton={() => alert("It's a medium button")}
+      />
+      <br />
+      <TextField
+        id="storybook-textfield-button-3"
+        size="large"
+        value=""
+        placeholder="Placeholder 플레이스홀더"
+        ButtonIcon={SearchIcon}
+        onClickButton={() => alert("It's a large button")}
+      />
+    </>
   )
 }

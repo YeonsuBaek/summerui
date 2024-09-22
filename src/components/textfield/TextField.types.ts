@@ -1,4 +1,5 @@
-import { HTMLAttributes, ReactNode } from 'react'
+import { ComponentType, HTMLAttributes, ReactNode } from 'react'
+import { IconProps } from '../../assets/icon/icon.types'
 
 type TextFieldSize = 'small' | 'medium' | 'large'
 export type TextFieldType = 'text' | 'email' | 'number' | 'password'
@@ -15,8 +16,10 @@ export interface TextFieldProps<Type extends TextFieldType> extends Omit<HTMLAtt
   helperText?: string
   isError?: boolean
   errorText?: string
+  required?: boolean
   autoFocus?: boolean
   readOnly?: boolean
   disabled?: boolean
-  children?: ReactNode | ReactNode[]
+  ButtonIcon?: ComponentType<IconProps>
+  onClickButton?: () => void
 }
