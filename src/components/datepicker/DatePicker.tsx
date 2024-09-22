@@ -1,5 +1,4 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
-import { Button } from '../button'
 import { TextField } from '../textfield'
 import { DatePickerProps } from './DatePicker.types'
 import Datetime from 'react-datetime'
@@ -139,19 +138,9 @@ export const DatePicker = ({
           readOnly={readOnly}
           disabled={disabled}
           onChange={handleChange}
-        >
-          <Button
-            styleType="icon"
-            size={iconSize}
-            onClick={() => setIsOpen((prev) => !prev)}
-            aria-haspopup="true"
-            aria-expanded={isOpen}
-            aria-controls={`${id}-calendar`}
-            disabled={disabled || readOnly}
-          >
-            <CalendarBlankFilledIcon />
-          </Button>
-        </TextField>
+          ButtonIcon={CalendarBlankFilledIcon}
+          onClickButton={() => setIsOpen((prev) => !prev)}
+        />
       </div>
       <Popover container={inputRef.current} isOpen={isOpen} onClose={() => setIsOpen((prev) => !prev)}>
         <div ref={calendarRef} id={`${id}-calendar`} className="ui-datepicker-calendar">
