@@ -15,6 +15,7 @@ export const TextField = <Type extends TextFieldType = 'text'>({
   helperText = '',
   isError = false,
   errorText = '',
+  required = false,
   autoFocus = false,
   readOnly = false,
   disabled = false,
@@ -42,6 +43,7 @@ export const TextField = <Type extends TextFieldType = 'text'>({
       {label && (
         <label className="ui-textfield-label" htmlFor={id}>
           {label}
+          {required && <span className="ui-textfield-required">*</span>}
         </label>
       )}
       <div

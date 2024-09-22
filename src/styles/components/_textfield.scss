@@ -75,6 +75,11 @@ $textfield-font: (
     font: var(--Micro-Font-1);
   }
 
+  &-required {
+    color: var(--Danger-Color-6);
+    padding-left: 2px;
+  }
+
   &-msg {
     display: flex;
     align-items: center;

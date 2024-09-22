@@ -83,6 +83,13 @@ export const TextFieldOfTypes = () => {
     </div>
   )
 }
+export const RequiredTextField = () => {
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+      <TextField id="storybook-required" required label="Required Text" placeholder="Placeholder 플레이스홀더" />
+    </div>
+  )
+}
 export const TextFieldWithMessage = () => {
   const [text, setValue] = useState('')
 

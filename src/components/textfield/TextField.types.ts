@@ -16,6 +16,7 @@ export interface TextFieldProps<Type extends TextFieldType> extends Omit<HTMLAtt
   helperText?: string
   isError?: boolean
   errorText?: string
+  required?: boolean
   autoFocus?: boolean
   readOnly?: boolean
   disabled?: boolean
