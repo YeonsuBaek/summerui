@@ -10,6 +10,7 @@ export const Button = <Style extends ButtonStyle>({
   StartIcon,
   EndIcon,
   onClick = () => {},
+  color = 'default',
   ...props
 }: ButtonProps<Style>) => {
   const hasStartIcon = StartIcon && styleType !== 'icon'
@@ -22,7 +23,9 @@ export const Button = <Style extends ButtonStyle>({
   return (
     <button
       type={type}
-      className={`ui-button ${styleType} ${styleVariant} ${buttonSize} ${props.className ? props.className : ''}`}
+      className={`ui-button ${styleType} ${styleVariant} ${buttonSize} ${
+        props.className ? props.className : ''
+      } ${color}`}
       onClick={onClick}
       disabled={disabled}
       aria-disabled={disabled}

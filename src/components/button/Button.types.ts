@@ -30,4 +30,5 @@ export interface ButtonProps<Style extends ButtonStyle> extends HTMLAttributes<H
   StartIcon?: ComponentType<IconProps>
   EndIcon?: ComponentType<IconProps>
   onClick?: () => void
+  color?: 'default' | 'danger' | 'warning' | 'success' | 'information'
 }

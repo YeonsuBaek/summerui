@@ -191,3 +191,132 @@ export const ButtonWithClickEvent = () => (
     Click!
   </Button>
 )
+
+export const DangerButton = () => (
+  <>
+    <div style={{ padding: '16px', display: 'flex', gap: '16px' }}>
+      <Button styleType="filled" color="danger">
+        Filled
+      </Button>
+      <Button styleType="outlined" color="danger">
+        Outlined
+      </Button>
+      <Button styleType="ghost" color="danger">
+        Ghost
+      </Button>
+      <Button styleType="icon" title="Icon Button" aria-label="Check Icon Button" color="danger">
+        <CheckIcon />
+      </Button>
+    </div>
+    <div className="theme-dark" style={{ padding: '16px', display: 'flex', gap: '16px' }}>
+      <Button styleType="filled" color="danger">
+        Filled
+      </Button>
+      <Button styleType="outlined" color="danger">
+        Outlined
+      </Button>
+      <Button styleType="ghost" color="danger">
+        Ghost
+      </Button>
+      <Button styleType="icon" title="Icon Button" aria-label="Check Icon Button" color="danger">
+        <CheckIcon />
+      </Button>
+    </div>
+  </>
+)
+export const WarningButton = () => (
+  <>
+    <div style={{ padding: '16px', display: 'flex', gap: '16px' }}>
+      <Button styleType="filled" color="warning">
+        Filled
+      </Button>
+      <Button styleType="outlined" color="warning">
+        Outlined
+      </Button>
+      <Button styleType="ghost" color="warning">
+        Ghost
+      </Button>
+      <Button styleType="icon" title="Icon Button" aria-label="Check Icon Button" color="warning">
+        <CheckIcon />
+      </Button>
+    </div>
+    <div className="theme-dark" style={{ padding: '16px', display: 'flex', gap: '16px' }}>
+      <Button styleType="filled" color="warning">
+        Filled
+      </Button>
+      <Button styleType="outlined" color="warning">
+        Outlined
+      </Button>
+      <Button styleType="ghost" color="warning">
+        Ghost
+      </Button>
+      <Button styleType="icon" title="Icon Button" aria-label="Check Icon Button" color="warning">
+        <CheckIcon />
+      </Button>
+    </div>
+  </>
+)
+export const SuccessButton = () => (
+  <>
+    <div style={{ padding: '16px', display: 'flex', gap: '16px' }}>
+      <Button styleType="filled" color="success">
+        Filled
+      </Button>
+      <Button styleType="outlined" color="success">
+        Outlined
+      </Button>
+      <Button styleType="ghost" color="success">
+        Ghost
+      </Button>
+      <Button styleType="icon" title="Icon Button" aria-label="Check Icon Button" color="success">
+        <CheckIcon />
+      </Button>
+    </div>
+    <div className="theme-dark" style={{ padding: '16px', display: 'flex', gap: '16px' }}>
+      <Button styleType="filled" color="success">
+        Filled
+      </Button>
+      <Button styleType="outlined" color="success">
+        Outlined
+      </Button>
+      <Button styleType="ghost" color="success">
+        Ghost
+      </Button>
+      <Button styleType="icon" title="Icon Button" aria-label="Check Icon Button" color="success">
+        <CheckIcon />
+      </Button>
+    </div>
+  </>
+)
+export const InformationButton = () => (
+  <>
+    <div style={{ padding: '16px', display: 'flex', gap: '16px' }}>
+      <Button styleType="filled" color="information">
+        Filled
+      </Button>
+      <Button styleType="outlined" color="information">
+        Outlined
+      </Button>
+      <Button styleType="ghost" color="information">
+        Ghost
+      </Button>
+      <Button styleType="icon" title="Icon Button" aria-label="Check Icon Button" color="information">
+        <CheckIcon />
+      </Button>
+    </div>
+    <div className="theme-dark" style={{ padding: '16px', display: 'flex', gap: '16px' }}>
+      <Button styleType="filled" color="information">
+        Filled
+      </Button>
+      <Button styleType="outlined" color="information">
+        Outlined
+      </Button>
+      <Button styleType="ghost" color="information">
+        Ghost
+      </Button>
+      <Button styleType="icon" title="Icon Button" aria-label="Check Icon Button" color="information">
+        <CheckIcon />
+      </Button>
+    </div>
+  </>
+)

@@ -2,12 +2,20 @@
   .theme-light {
     --Button-Text-Color: var(--Gray-Color-0);
     --Button-Shadow-Color: var(--Primary-Color-3);
+    --Button-Shadow-Color-Danger: var(--Danger-Color-3);
+    --Button-Shadow-Color-Warning: var(--Warning-Color-3);
+    --Button-Shadow-Color-Success: var(--Success-Color-3);
+    --Button-Shadow-Color-Information: var(--Information-Color-3);
     --Button-Outlined-Hover-Background-Color: var(--Gray-Color-1);
     --Button-Outlined-Active-Background-Color: var(--Gray-Color-2);
   }
   .theme-dark {
     --Button-Text-Color: var(--Gray-Color-100);
     --Button-Shadow-Color: var(--Primary-Color-6);
+    --Button-Shadow-Color-Danger: var(--Danger-Color-6);
+    --Button-Shadow-Color-Warning: var(--Warning-Color-6);
+    --Button-Shadow-Color-Success: var(--Success-Color-6);
+    --Button-Shadow-Color-Information: var(--Information-Color-3);
     --Button-Outlined-Hover-Background-Color: var(--Gray-Color-2);
     --Button-Outlined-Active-Background-Color: var(--Gray-Color-3);
   }
@@ -23,7 +31,21 @@
   cursor: pointer;
 
   &:focus {
-    box-shadow: 0 0 toRem(5) var(--Button-Shadow-Color);
+    &.default {
+      box-shadow: 0 0 toRem(5) var(--Button-Shadow-Color);
+    }
+    &.danger {
+      box-shadow: 0 0 toRem(5) var(--Button-Shadow-Color-Danger);
+    }
+    &.warning {
+      box-shadow: 0 0 toRem(5) var(--Button-Shadow-Color-Warning);
+    }
+    &.success {
+      box-shadow: 0 0 toRem(5) var(--Button-Shadow-Color-Success);
+    }
+    &.information {
+      box-shadow: 0 0 toRem(5) var(--Button-Shadow-Color-Information);
+    }
   }
   &:disabled {
     cursor: default;
@@ -84,118 +106,412 @@
   // STYLE
   $button-color: (
     outlined: (
-      primary: var(--Primary-Color-6),
-      secondary: var(--Primary-Color-6),
-      tertiary: var(--Gray-Color-8),
+      primary: (
+        default: var(--Primary-Color-6),
+        danger: var(--Danger-Color-6),
+        warning: var(--Warning-Color-6),
+        success: var(--Success-Color-6),
+        information: var(--Information-Color-6),
+      ),
+      secondary: (
+        default: var(--Primary-Color-6),
+        danger: var(--Danger-Color-6),
+        warning: var(--Warning-Color-6),
+        success: var(--Success-Color-6),
+        information: var(--Information-Color-6),
+      ),
+      tertiary: (
+        default: var(--Gray-Color-8),
+        danger: var(--Danger-Color-8),
+        warning: var(--Warning-Color-8),
+        success: var(--Success-Color-8),
+        information: var(--Information-Color-8),
+      ),
     ),
     ghost: (
-      primary: var(--Primary-Color-6),
-      secondary: var(--Gray-Color-8),
+      primary: (
+        default: var(--Primary-Color-6),
+        danger: var(--Danger-Color-6),
+        warning: var(--Warning-Color-6),
+        success: var(--Success-Color-6),
+        information: var(--Information-Color-6),
+      ),
+      secondary: (
+        default: var(--Gray-Color-8),
+        danger: var(--Danger-Color-8),
+        warning: var(--Warning-Color-8),
+        success: var(--Success-Color-8),
+        information: var(--Information-Color-8),
+      ),
     ),
   );
   $button-hover-bg-color: (
     outlined: (
-      primary: var(--Primary-Color-1),
-      secondary: var(--Button-Outlined-Hover-Background-Color),
-      tertiary: var(--Button-Outlined-Hover-Background-Color),
+      primary: (
+        default: var(--Primary-Color-1),
+        danger: var(--Danger-Color-1),
+        warning: var(--Warning-Color-1),
+        success: var(--Success-Color-1),
+        information: var(--Information-Color-1),
+      ),
+      secondary: (
+        default: var(--Button-Outlined-Hover-Background-Color),
+        danger: var(--Button-Outlined-Hover-Background-Color),
+        warning: var(--Button-Outlined-Hover-Background-Color),
+        success: var(--Button-Outlined-Hover-Background-Color),
+        information: var(--Button-Outlined-Hover-Background-Color),
+      ),
+      tertiary: (
+        default: var(--Button-Outlined-Hover-Background-Color),
+        danger: var(--Button-Outlined-Hover-Background-Color),
+        warning: var(--Button-Outlined-Hover-Background-Color),
+        success: var(--Button-Outlined-Hover-Background-Color),
+        information: var(--Button-Outlined-Hover-Background-Color),
+      ),
     ),
     ghost: (
-      primary: var(--Primary-Color-1),
-      secondary: var(--Button-Outlined-Hover-Background-Color),
+      primary: (
+        default: var(--Primary-Color-1),
+        danger: var(--Danger-Color-1),
+        warning: var(--Warning-Color-1),
+        success: var(--Success-Color-1),
+        information: var(--Information-Color-1),
+      ),
+      secondary: (
+        default: var(--Button-Outlined-Hover-Background-Color),
+        danger: var(--Button-Outlined-Hover-Background-Color),
+        warning: var(--Button-Outlined-Hover-Background-Color),
+        success: var(--Button-Outlined-Hover-Background-Color),
+        information: var(--Button-Outlined-Hover-Background-Color),
+      ),
     ),
   );
   $button-active-bg-color: (
     outlined: (
-      primary: var(--Primary-Color-2),
-      secondary: var(--Button-Outlined-Active-Background-Color),
-      tertiary: var(--Button-Outlined-Active-Background-Color),
+      primary: (
+        default: var(--Primary-Color-2),
+        danger: var(--Danger-Color-2),
+        warning: var(--Warning-Color-2),
+        success: var(--Success-Color-2),
+        information: var(--Information-Color-2),
+      ),
+      secondary: (
+        default: var(--Button-Outlined-Active-Background-Color),
+        danger: var(--Button-Outlined-Active-Background-Color),
+        warning: var(--Button-Outlined-Active-Background-Color),
+        success: var(--Button-Outlined-Active-Background-Color),
+        information: var(--Button-Outlined-Active-Background-Color),
+      ),
+      tertiary: (
+        default: var(--Button-Outlined-Active-Background-Color),
+        danger: var(--Button-Outlined-Active-Background-Color),
+        warning: var(--Button-Outlined-Active-Background-Color),
+        success: var(--Button-Outlined-Active-Background-Color),
+        information: var(--Button-Outlined-Active-Background-Color),
+      ),
     ),
     ghost: (
-      primary: var(--Primary-Color-2),
-      secondary: var(--Button-Outlined-Active-Background-Color),
+      primary: (
+        default: var(--Primary-Color-2),
+        danger: var(--Danger-Color-2),
+        warning: var(--Warning-Color-2),
+        success: var(--Success-Color-2),
+        information: var(--Information-Color-2),
+      ),
+      secondary: (
+        default: var(--Button-Outlined-Active-Background-Color),
+        danger: var(--Button-Outlined-Active-Background-Color),
+        warning: var(--Button-Outlined-Active-Background-Color),
+        success: var(--Button-Outlined-Active-Background-Color),
+        information: var(--Button-Outlined-Active-Background-Color),
+      ),
     ),
   );
   $button-icon-color: (
     outlined: (
-      primary: var(--Primary-Color-6),
-      secondary: (
-        --Primary-Color-6,
+      primary: (
+        default: var(--Primary-Color-6),
+        danger: var(--Danger-Color-6),
+        warning: var(--Warning-Color-6),
+        success: var(--Success-Color-6),
+        information: var(--Information-Color-6),
       ),
-      tertiary: var(--Gray-Color-8),
+      secondary: (
+        default: var(--Primary-Color-6),
+        danger: var(--Danger-Color-6),
+        warning: var(--Warning-Color-6),
+        success: var(--Success-Color-6),
+        information: var(--Information-Color-6),
+      ),
+      tertiary: (
+        default: var(--Gray-Color-8),
+        danger: var(--Danger-Color-8),
+        warning: var(--Warning-Color-8),
+        success: var(--Success-Color-8),
+        information: var(--Information-Color-8),
+      ),
     ),
     ghost: (
-      primary: var(--Primary-Color-6),
-      secondary: var(--Gray-Color-8),
+      primary: (
+        default: var(--Primary-Color-6),
+        danger: var(--Danger-Color-6),
+        warning: var(--Warning-Color-6),
+        success: var(--Success-Color-6),
+        information: var(--Information-Color-6),
+      ),
+      secondary: (
+        default: var(--Gray-Color-8),
+        danger: var(--Danger-Color-8),
+        warning: var(--Warning-Color-8),
+        success: var(--Success-Color-8),
+        information: var(--Information-Color-8),
+      ),
     ),
   );
 
-  @mixin styleOfButton($style, $variant) {
-    color: map-get(map-get($button-color, $style), $variant);
+  @mixin styleOfButton($style, $variant, $color) {
+    color: map-get(map-get(map-get($button-color, $style), $variant), $color);
     &:hover {
-      background-color: map-get(map-get($button-hover-bg-color, $style), $variant);
+      background-color: map-get(map-get(map-get($button-hover-bg-color, $style), $variant), $color);
     }
     &:active {
-      background-color: map-get(map-get($button-active-bg-color, $style), $variant);
+      background-color: map-get(map-get(map-get($button-active-bg-color, $style), $variant), $color);
     }
     .ui-button-icon path {
-      fill: map-get(map-get($button-icon-color, $style), $variant);
+      fill: map-get(map-get(map-get($button-icon-color, $style), $variant), $color);
     }
   }
 
   $icon-button-bg: (
-    normal: transparent,
-    primary: transparent,
-    secondary: transparent,
-    filled: var(--Primary-Color-6),
-    outlined: transparent,
+    normal: (
+      default: transparent,
+      danger: transparent,
+      warning: transparent,
+      success: transparent,
+      information: transparent,
+    ),
+    primary: (
+      default: transparent,
+      danger: transparent,
+      warning: transparent,
+      success: transparent,
+      information: transparent,
+    ),
+    secondary: (
+      default: transparent,
+      danger: transparent,
+      warning: transparent,
+      success: transparent,
+      information: transparent,
+    ),
+    filled: (
+      default: var(--Primary-Color-6),
+      danger: var(--Danger-Color-6),
+      warning: var(--Warning-Color-6),
+      success: var(--Success-Color-6),
+      information: var(--Information-Color-6),
+    ),
+    outlined: (
+      default: transparent,
+      danger: transparent,
+      warning: transparent,
+      success: transparent,
+      information: transparent,
+    ),
   );
   $icon-button-icon-color: (
-    normal: var(--Gray-Color-8),
-    primary: var(--Primary-Color-6),
-    secondary: var(--Gray-Color-8),
-    filled: var(--Button-Text-Color),
-    outlined: var(--Primary-Color-6),
+    normal: (
+      default: var(--Gray-Color-8),
+      danger: var(--Gray-Color-8),
+      warning: var(--Gray-Color-8),
+      success: var(--Gray-Color-8),
+      information: var(--Gray-Color-8),
+    ),
+    primary: (
+      default: var(--Primary-Color-6),
+      danger: var(--Danger-Color-6),
+      warning: var(--Warning-Color-6),
+      success: var(--Success-Color-6),
+      information: var(--Information-Color-6),
+    ),
+    secondary: (
+      default: var(--Gray-Color-8),
+      danger: var(--Danger-Color-8),
+      warning: var(--Warning-Color-8),
+      success: var(--Success-Color-8),
+      information: var(--Information-Color-8),
+    ),
+    filled: (
+      default: var(--Button-Text-Color),
+      danger: var(--Button-Text-Color),
+      warning: var(--Button-Text-Color),
+      success: var(--Button-Text-Color),
+      information: var(--Button-Text-Color),
+    ),
+    outlined: (
+      default: var(--Primary-Color-6),
+      danger: var(--Danger-Color-6),
+      warning: var(--Warning-Color-6),
+      success: var(--Success-Color-6),
+      information: var(--Information-Color-6),
+    ),
   );
   $icon-button-hover-bg: (
-    normal: transparent,
-    primary: var(--Primary-Color-1),
-    secondary: var(--Button-Outlined-Hover-Background-Color),
-    filled: var(--Primary-Color-7),
-    outlined: var(--Button-Outlined-Hover-Background-Color),
+    normal: (
+      default: transparent,
+      danger: transparent,
+      warning: transparent,
+      success: transparent,
+      information: transparent,
+    ),
+    primary: (
+      default: var(--Primary-Color-1),
+      danger: var(--Danger-Color-1),
+      warning: var(--Warning-Color-1),
+      success: var(--Success-Color-1),
+      information: var(--Information-Color-1),
+    ),
+    secondary: (
+      default: var(--Button-Outlined-Hover-Background-Color),
+      danger: var(--Button-Outlined-Hover-Background-Color),
+      warning: var(--Button-Outlined-Hover-Background-Color),
+      success: var(--Button-Outlined-Hover-Background-Color),
+      information: var(--Button-Outlined-Hover-Background-Color),
+    ),
+    filled: (
+      default: var(--Primary-Color-7),
+      danger: var(--Danger-Color-7),
+      warning: var(--Warning-Color-7),
+      success: var(--Success-Color-7),
+      information: var(--Information-Color-7),
+    ),
+    outlined: (
+      default: var(--Button-Outlined-Hover-Background-Color),
+      danger: var(--Button-Outlined-Hover-Background-Color),
+      warning: var(--Button-Outlined-Hover-Background-Color),
+      success: var(--Button-Outlined-Hover-Background-Color),
+      information: var(--Button-Outlined-Hover-Background-Color),
+    ),
   );
   $icon-button-active-bg: (
-    normal: transparent,
-    primary: var(--Primary-Color-2),
-    secondary: var(--Button-Outlined-Active-Background-Color),
-    filled: var(--Primary-Color-8),
-    outlined: var(--Button-Outlined-Active-Background-Color),
+    normal: (
+      default: transparent,
+      danger: transparent,
+      warning: transparent,
+      success: transparent,
+      information: transparent,
+    ),
+    primary: (
+      default: var(--Primary-Color-2),
+      danger: var(--Danger-Color-2),
+      warning: var(--Warning-Color-2),
+      success: var(--Success-Color-2),
+      information: var(--Information-Color-2),
+    ),
+    secondary: (
+      default: var(--Button-Outlined-Active-Background-Color),
+      danger: var(--Button-Outlined-Active-Background-Color),
+      warning: var(--Button-Outlined-Active-Background-Color),
+      success: var(--Button-Outlined-Active-Background-Color),
+      information: var(--Button-Outlined-Active-Background-Color),
+    ),
+    filled: (
+      default: var(--Primary-Color-8),
+      danger: var(--Danger-Color-8),
+      warning: var(--Warning-Color-8),
+      success: var(--Success-Color-8),
+      information: var(--Information-Color-8),
+    ),
+    outlined: (
+      default: var(--Button-Outlined-Active-Background-Color),
+      danger: var(--Button-Outlined-Active-Background-Color),
+      warning: var(--Button-Outlined-Active-Background-Color),
+      success: var(--Button-Outlined-Active-Background-Color),
+      information: var(--Button-Outlined-Active-Background-Color),
+    ),
   );
 
-  @mixin styleOfIconButton($variant) {
-    background-color: map-get($icon-button-bg, $variant);
+  @mixin styleOfIconButton($variant, $color) {
+    background-color: map-get(map-get($icon-button-bg, $variant), $color);
     &:hover {
-      background-color: map-get($icon-button-hover-bg, $variant);
+      background-color: map-get(map-get($icon-button-hover-bg, $variant), $color);
     }
     &:active {
-      background-color: map-get($icon-button-active-bg, $variant);
+      background-color: map-get(map-get($icon-button-active-bg, $variant), $color);
     }
     path {
-      fill: map-get($icon-button-icon-color, $variant);
+      fill: map-get(map-get($icon-button-icon-color, $variant), $color);
     }
   }
 
   &.filled.primary {
     color: var(--Button-Text-Color);
-    background-color: var(--Primary-Color-6);
+    &.default {
+      background-color: var(--Primary-Color-6);
+    }
+    &.danger {
+      background-color: var(--Danger-Color-6);
+    }
+    &.warning {
+      background-color: var(--Warning-Color-6);
+    }
+    &.success {
+      background-color: var(--Success-Color-6);
+    }
+    &.information {
+      background-color: var(--Information-Color-6);
+    }
 
     &:focus {
-      box-shadow: 0 0 toRem(5) var(--Button-Shadow-Color);
+      &.default {
+        box-shadow: 0 0 toRem(5) var(--Button-Shadow-Color);
+      }
+      &.danger {
+        box-shadow: 0 0 toRem(5) var(--Button-Shadow-Color-Danger);
+      }
+      &.warning {
+        box-shadow: 0 0 toRem(5) var(--Button-Shadow-Color-Warning);
+      }
+      &.success {
+        box-shadow: 0 0 toRem(5) var(--Button-Shadow-Color-Success);
+      }
+      &.information {
+        box-shadow: 0 0 toRem(5) var(--Button-Shadow-Color-Information);
+      }
     }
     &:hover {
-      background-color: var(--Primary-Color-7);
+      &.default {
+        background-color: var(--Primary-Color-7);
+      }
+      &.danger {
+        background-color: var(--Danger-Color-7);
+      }
+      &.warning {
+        background-color: var(--Warning-Color-7);
+      }
+      &.success {
+        background-color: var(--Success-Color-7);
+      }
+      &.information {
+        background-color: var(--Information-Color-7);
+      }
     }
     &:active {
-      background-color: var(--Primary-Color-8);
+      &.default {
+        background-color: var(--Primary-Color-8);
+      }
+      &.danger {
+        background-color: var(--Danger-Color-8);
+      }
+      &.warning {
+        background-color: var(--Warning-Color-8);
+      }
+      &.success {
+        background-color: var(--Success-Color-8);
+      }
+      &.information {
+        background-color: var(--Information-Color-8);
+      }
     }
     .ui-button-icon path {
       fill: var(--Button-Text-Color);
@@ -214,15 +530,34 @@
     background-color: transparent;
 
     &.primary {
-      @include styleOfButton('outlined', 'primary');
-      border: toRem(1) solid var(--Primary-Color-6);
+      border: toRem(1) solid;
+      &.default {
+        @include styleOfButton('outlined', 'primary', 'default');
+        border-color: var(--Primary-Color-6);
+      }
+      &.danger {
+        @include styleOfButton('outlined', 'primary', 'danger');
+        border-color: var(--Danger-Color-6);
+      }
+      &.warning {
+        @include styleOfButton('outlined', 'primary', 'warning');
+        border-color: var(--Warning-Color-6);
+      }
+      &.success {
+        @include styleOfButton('outlined', 'primary', 'success');
+        border-color: var(--Success-Color-6);
+      }
+      &.information {
+        @include styleOfButton('outlined', 'primary', 'information');
+        border-color: var(--Information-Color-6);
+      }
     }
     &.secondary {
-      @include styleOfButton('outlined', 'secondary');
+      @include styleOfButton('outlined', 'secondary', 'default');
       border: toRem(1) solid var(--Gray-Color-4);
     }
     &.tertiary {
-      @include styleOfButton('outlined', 'tertiary');
+      @include styleOfButton('outlined', 'tertiary', 'default');
       border: toRem(1) solid var(--Gray-Color-4);
     }
     &:disabled,
@@ -241,10 +576,38 @@
     background-color: transparent;
 
     &.primary {
-      @include styleOfButton('ghost', 'primary');
+      &.default {
+        @include styleOfButton('ghost', 'primary', 'default');
+      }
+      &.danger {
+        @include styleOfButton('ghost', 'primary', 'danger');
+      }
+      &.warning {
+        @include styleOfButton('ghost', 'primary', 'warning');
+      }
+      &.success {
+        @include styleOfButton('ghost', 'primary', 'success');
+      }
+      &.information {
+        @include styleOfButton('ghost', 'primary', 'information');
+      }
     }
     &.secondary {
-      @include styleOfButton('ghost', 'secondary');
+      &.default {
+        @include styleOfButton('ghost', 'secondary', 'default');
+      }
+      &.danger {
+        @include styleOfButton('ghost', 'secondary', 'danger');
+      }
+      &.warning {
+        @include styleOfButton('ghost', 'secondary', 'warning');
+      }
+      &.success {
+        @include styleOfButton('ghost', 'secondary', 'success');
+      }
+      &.information {
+        @include styleOfButton('ghost', 'secondary', 'information');
+      }
     }
     &:disabled,
     &:is(:hover, :focus, :active):disabled {
@@ -280,7 +643,21 @@
     }
 
     &.normal {
-      @include styleOfIconButton('normal');
+      &.default {
+        @include styleOfIconButton('normal', 'default');
+      }
+      &.danger {
+        @include styleOfIconButton('normal', 'danger');
+      }
+      &.warning {
+        @include styleOfIconButton('normal', 'warning');
+      }
+      &.success {
+        @include styleOfIconButton('normal', 'success');
+      }
+      &.information {
+        @include styleOfIconButton('normal', 'information');
+      }
       padding: 0;
       &:focus,
       &:hover {
@@ -303,10 +680,38 @@
       }
     }
     &.primary {
-      @include styleOfIconButton('primary');
+      &.default {
+        @include styleOfIconButton('primary', 'default');
+      }
+      &.danger {
+        @include styleOfIconButton('primary', 'danger');
+      }
+      &.warning {
+        @include styleOfIconButton('primary', 'warning');
+      }
+      &.success {
+        @include styleOfIconButton('primary', 'success');
+      }
+      &.information {
+        @include styleOfIconButton('primary', 'information');
+      }
     }
     &.secondary {
-      @include styleOfIconButton('secondary');
+      &.default {
+        @include styleOfIconButton('secondary', 'default');
+      }
+      &.danger {
+        @include styleOfIconButton('secondary', 'danger');
+      }
+      &.warning {
+        @include styleOfIconButton('secondary', 'warning');
+      }
+      &.success {
+        @include styleOfIconButton('secondary', 'success');
+      }
+      &.information {
+        @include styleOfIconButton('secondary', 'information');
+      }
     }
     &:is(.primary, .secondary):disabled,
     &:is(.primary, .secondary):is(:hover, :focus, :active):disabled {
@@ -316,9 +721,37 @@
       }
     }
     &.filled {
-      @include styleOfIconButton('filled');
+      &.default {
+        @include styleOfIconButton('filled', 'default');
+      }
+      &.danger {
+        @include styleOfIconButton('filled', 'danger');
+      }
+      &.warning {
+        @include styleOfIconButton('filled', 'warning');
+      }
+      &.success {
+        @include styleOfIconButton('filled', 'success');
+      }
+      &.information {
+        @include styleOfIconButton('filled', 'information');
+      }
       &:focus {
-        box-shadow: 0 0 toRem(5) var(--Button-Shadow-Color);
+        &.default {
+          box-shadow: 0 0 toRem(5) var(--Button-Shadow-Color);
+        }
+        &.danger {
+          box-shadow: 0 0 toRem(5) var(--Button-Shadow-Color-Danger);
+        }
+        &.warning {
+          box-shadow: 0 0 toRem(5) var(--Button-Shadow-Color-Warning);
+        }
+        &.success {
+          box-shadow: 0 0 toRem(5) var(--Button-Shadow-Color-Success);
+        }
+        &.information {
+          box-shadow: 0 0 toRem(5) var(--Button-Shadow-Color-Information);
+        }
       }
       &:disabled,
       &:is(:hover, :focus, :active):disabled {
@@ -329,8 +762,37 @@
       }
     }
     &.outlined {
-      @include styleOfIconButton('outlined');
-      border: toRem(1) solid var(--Primary-Color-6);
+      &.default {
+        @include styleOfIconButton('outlined', 'default');
+      }
+      &.danger {
+        @include styleOfIconButton('outlined', 'danger');
+      }
+      &.warning {
+        @include styleOfIconButton('outlined', 'warning');
+      }
+      &.success {
+        @include styleOfIconButton('outlined', 'success');
+      }
+      &.information {
+        @include styleOfIconButton('outlined', 'information');
+      }
+      border: toRem(1) solid;
+      &.default {
+        border-color: var(--Primary-Color-6);
+      }
+      &.danger {
+        border-color: var(--Danger-Color-6);
+      }
+      &.warning {
+        border-color: var(--Warning-Color-6);
+      }
+      &.success {
+        border-color: var(--Success-Color-6);
+      }
+      &.information {
+        border-color: var(--Information-Color-6);
+      }
       &:disabled,
       &:is(:hover, :focus, :active):disabled {
         background-color: transparent;
