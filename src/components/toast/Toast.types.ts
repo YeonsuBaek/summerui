@@ -8,4 +8,5 @@ export interface ToastProps {
   onClose: () => void
   state?: StateType
   hasCloseButton?: boolean
+  duration?: number
 }
