@@ -1,9 +1,17 @@
+import { useEffect } from 'react'
 import { CheckCircleFilledIcon, InfoFilledIcon, WarningFilledIcon, XIcon } from '../../assets/icon'
 import { Popover } from '../../utils/popover'
 import { Button } from '../button'
 import { ToastProps } from './Toast.types'
 
-export const Toast = ({ children, isOpen, onClose, state = 'warning', hasCloseButton = true }: ToastProps) => {
+export const Toast = ({
+  children,
+  isOpen,
+  onClose,
+  state = 'warning',
+  hasCloseButton = true,
+  duration = 5000,
+}: ToastProps) => {
   const StateIcon =
     state === 'warning' || state === 'error'
       ? WarningFilledIcon
@@ -12,6 +20,22 @@ export const Toast = ({ children, isOpen, onClose, state = 'warning', hasCloseBu
       : state === 'information'
       ? InfoFilledIcon
       : null
+
+  useEffect(() => {
+    let timeout: number
+
+    if (isOpen && duration > 0 && onClose) {
+      timeout = window.setTimeout(() => {
+        onClose()
+      }, duration)
+    }
+
+    return () => {
+      if (timeout) {
+        window.clearTimeout(timeout)
+      }
+    }
+  }, [isOpen, duration, onClose])
 
   return (
     <Popover isOpen={isOpen} onClose={onClose} pos="top-right">
