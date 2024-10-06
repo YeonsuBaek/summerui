@@ -17,7 +17,7 @@ export const ModalExample = () => {
       <Button styleType="filled" onClick={() => setIsOpen((prev) => !prev)}>
         Modal Open
       </Button>
-      <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
+      <Modal isOpen={isOpen} onClose={() => setIsOpen(false)} hasBackdrop closeOnBackdropClick>
         <Modal.Header hasCloseButton={() => setIsOpen(false)}>
           <Modal.Title state="success">타이틀</Modal.Title>
         </Modal.Header>

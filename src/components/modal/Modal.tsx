@@ -10,9 +10,21 @@ import {
   ModalTitleProps,
 } from './Modal.types'
 
-export const ModalWrapper = ({ isOpen, onClose, children }: ModalProps) => {
+export const ModalWrapper = ({
+  isOpen,
+  onClose,
+  children,
+  hasBackdrop = false,
+  closeOnBackdropClick = false,
+}: ModalProps) => {
   return (
-    <Popover isOpen={isOpen} onClose={onClose} pos="center">
+    <Popover
+      isOpen={isOpen}
+      onClose={onClose}
+      pos="center"
+      hasBackdrop={hasBackdrop}
+      onClickBackdrop={closeOnBackdropClick ? onClose : () => {}}
+    >
       <div className="ui-modal">{children}</div>
     </Popover>
   )
