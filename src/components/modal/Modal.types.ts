@@ -4,6 +4,8 @@ export interface ModalProps {
   isOpen: boolean
   onClose: () => void
   children?: ReactNode | ReactNode[]
+  hasBackdrop?: boolean
+  closeOnBackdropClick?: boolean
 }
 
 export interface ModalHeaderProps {

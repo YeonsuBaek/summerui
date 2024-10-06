@@ -13,3 +13,16 @@
   border: 1px solid var(--Gray-Color-4);
   z-index: $z-index-popover;
 }
+
+.ui-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: transparent;
+
+  &.gray {
+    background-color: rgba(0, 0, 0, 0.25);
+  }
+}

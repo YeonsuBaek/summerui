@@ -3,7 +3,15 @@ import { PopoverProps } from './Popover.types'
 import { useState, useRef, useEffect, useCallback, useMemo } from 'react'
 import { debounce } from 'lodash'
 
-export const Popover = ({ children, container, isOpen = false, onClose = () => {}, pos }: PopoverProps) => {
+export const Popover = ({
+  children,
+  container,
+  isOpen = false,
+  onClose = () => {},
+  pos,
+  hasBackdrop = false,
+  onClickBackdrop = () => {},
+}: PopoverProps) => {
   const popoverRef = useRef<HTMLDivElement>(null)
   const [posY, setPosY] = useState(-9999)
 
@@ -97,7 +105,7 @@ export const Popover = ({ children, container, isOpen = false, onClose = () => {
   }, [isOpen])
 
   return isOpen ? (
-    <Portal container={container}>
+    <Portal container={container} hasBackdrop={hasBackdrop} onClickBackdrop={onClickBackdrop}>
       <div className="ui-popover" ref={popoverRef} style={popoverStyle} aria-hidden={!isOpen}>
         {children}
       </div>

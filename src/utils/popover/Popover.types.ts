@@ -6,4 +6,6 @@ export interface PopoverProps {
   isOpen?: boolean
   onClose?: () => void
   pos?: 'center' | 'top-right'
+  hasBackdrop?: boolean
+  onClickBackdrop?: () => void
 }
